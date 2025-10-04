@@ -1,0 +1,15 @@
+- name: TCP/IP
+  percentage: 70
+  color: secondary
+
+- name: SQL (MySQL, PostgreSQL)
+  percentage: 80
+  color: info
+
+- name: NoSQL (MongoDB), Vector DBs (FAISS, Pinecone)
+  percentage: 75
+  color: warning
+
+- name: CDN
+  percentage: 65
+  color: light

@@ -1,0 +1,11 @@
+- name: Arabic (Native)
+  percentage: 100
+  color: danger
+
+- name: French (Professional)
+  percentage: 85
+  color: success
+
+- name: English (Intermediate)
+  percentage: 70
+  color: secondary

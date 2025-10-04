@@ -1,0 +1,11 @@
+- name: LLMS, RAG pipelines, Hugging Face
+  percentage: 85
+  color: success
+
+- name: LangChain, Prompt Engineering
+  percentage: 80
+  color: info
+
+- name: SQL-to-NL, Embeddings & Vector DBs
+  percentage: 70
+  color: secondary

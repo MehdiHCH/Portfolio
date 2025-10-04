@@ -1,0 +1,15 @@
+- name: Python (PyTorch, TensorFlow, Keras)
+  percentage: 95
+  color: danger
+
+- name: C/C++, Java
+  percentage: 75
+  color: warning
+
+- name: FastAPI, REST API
+  percentage: 85
+  color: success
+
+- name: ML/DL (CNN, RNN, LSTM, Transformers)
+  percentage: 90
+  color: primary

@@ -1,0 +1,11 @@
+- name: AWS (S3, EC2, Lambda)
+  percentage: 60
+  color: warning
+
+- name: Docker, Linux, Shell Scripting
+  percentage: 80
+  color: info
+
+- name: MLOps Basics (Deployment, APIs, Monitoring)
+  percentage: 70
+  color: secondary

@@ -1,0 +1,7 @@
+- name: Team Supervision, Project Planning, Mentoring
+  percentage: 85
+  color: success
+
+- name: Git, GitHub, CI/CD Basics, Agile/Scrum
+  percentage: 90
+  color: primary
