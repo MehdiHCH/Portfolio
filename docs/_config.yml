@@ -3,7 +3,7 @@ title: "Hicham El Mehdi"
 description: >
   Ingénieur en Intelligence Artificielle | Computer Vision & Deep Learning
   Passionné par l'innovation technologique et les systèmes intelligents
-baseurl             : "/MehdiHCH"            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
+baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
 repository          : MehdiHCH/Portfolio     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 ## remote_theme disabled for local builds — the remote repo name may be case-sensitive or not present.
 # If you want to use the remote theme remove the next line and ensure the repository exists and is public.
