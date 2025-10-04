@@ -3,50 +3,39 @@ title: "Hicham El Mehdi"
 description: >
   Ingénieur en Intelligence Artificielle | Computer Vision & Deep Learning
   Passionné par l'innovation technologique et les systèmes intelligents
-baseurl             : ""            # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository          : MehdiHCH/Portfolio     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
-## remote_theme disabled for local builds — the remote repo name may be case-sensitive or not present.
-# If you want to use the remote theme remove the next line and ensure the repository exists and is public.
-# remote_theme        : MehdiHCH/portfolYOU
-open_new_tab        : false                    # Opens external URLs in new tab (works for posts, projects and navbar only)
+baseurl: "/Portfolio"                    # Nom de ton dépôt GitHub Pages
+url: "https://mehdiHCH.github.io"        # Ton URL GitHub Pages
+repository: "MehdiHCH/Portfolio"         # Nom complet du dépôt
+
+remote_theme: yousinix/portfolYOU        # Thème officiel portfolYOU
+open_new_tab: false                      # Liens externes dans un nouvel onglet
 
 
 ### Plugins ###
 plugins:
   - jemoji
+  - jekyll-seo-tag
+  - jekyll-github-metadata
 
 
 ### Navbar Settings ###
-nav_exclude:                                            # The following paths are excluded from navbar
+nav_exclude:
   - pages/tags.html
   - pages/404.html
   - pages/index.md
 
 
-
 ### Author Info ###
 author:
-  name              : EL MEHDI Hicham
-  image             : assets
-  behance           : your_username
-# dribbble          : your_username
-  email             : mehdihicham736@gmail.com
-  facebook          : your_username
-  github            : your_username
-# gitlab            : your_username
-# instagram         : your_username
-# kaggle            : your_username
-  linkedin          : your_username
-  medium            : your_username
-# soundcloud        : your_username
-# spotify           : your_username
-# stackoverflow     : your_user_id
-# tumblr            : your_username.tumblr.com
-# twitch            : your_username
-  twitter           : your_username
-# vimeo             : your_username
-# youtube           : your_channel_name
-# keybase           : your_username
+  name: "EL MEHDI Hicham"
+  image: "assets/images/profile.jpg"     # (mets le chemin vers ton image de profil)
+  email: "mehdihicham736@gmail.com"
+  github: "MehdiHCH"
+  linkedin: "mehdi-hicham"
+  behance: "mehdi.hch"
+  facebook: "mehdi.hch"
+  medium: ""
+  twitter: ""
 
 
 ### Posts ###
@@ -60,30 +49,7 @@ collections:
     permalink: /projects/:name
 
 
-
-### Disqus ###
-disqus:
-  shortname: your-short-name-disqus                     # Your website Shortname on disqus
-
-
-### Analytics ###
-analytics:
-  enabled: false                                        # Set true to enable analytics
-  google:
-    tracking_id: your-google-tracking-id
-
-
-### Buy me a coffee ###
-# See https://www.buymeacoffee.com/
-buymeacoffee:
-  enabled: false
-  username: your_username
-  color: "#007bff"
-  message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
-  
-
-
-### Defaults for collections ###
+### Defaults ###
 defaults:
   - scope:
       path: ""
@@ -94,7 +60,22 @@ defaults:
       path: ""
       type: "posts"
     values:
-      comments: false                                   # Set to true to enable disqus comments
+      comments: false
+
+
+### Analytics ###
+analytics:
+  enabled: false
+  google:
+    tracking_id: ""
+
+
+### Buy Me a Coffee ###
+buymeacoffee:
+  enabled: false
+  username: ""
+  color: "#007bff"
+  message: "Merci pour votre visite !"
 
 
 ### Exclude from processing ###
