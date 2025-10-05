@@ -2,7 +2,7 @@
   <h1>Portfolio — Hicham El Mehdi</h1>
   <i>Ingénieur en Intelligence Artificielle | Computer Vision & Deep Learning</i>
 
-  <a href="https://MehdiHCH.github.io/">🌍 Live Portfolio</a>
+  <a href="https://mehdihch.github.io/Portfolio">🌍 Live Portfolio</a>
   •
   <a href="https://github.com/MehdiHCH/MehdiHCH.github.io">Code Source</a>
 
