@@ -3,24 +3,23 @@ layout: default
 title: Projects
 permalink: /projects/
 weight: 1
-remote_projects: 
-  - automated-futsal-analysis
-  - git-for-wizards
-  - arduino-visitor-counter
 ---
 <h1>My Projects</h1>
 
 <div class="projects-grid">
-  {% for project in site.remote_projects %}
-    {% assign proj = site.pages | where:"slug", project | first %}
+  {% for project in site.data._projets %}
     <div class="project-card">
-      <a href="{{ proj.url }}">
-        <img src="{{ proj.image }}" alt="{{ proj.name }} architecture" class="project-thumb">
-        <h2>{{ proj.name }}</h2>
-      </a>
-      <p>{{ proj.description | truncate: 120 }}</p>
-      {% if proj.external_url %}
-        <a href="{{ proj.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
+      {% if project.url %}
+        <a href="{{ project.url }}">
+      {% endif %}
+          <img src="{{ project.image }}" alt="{{ project.name }} architecture" class="project-thumb">
+          <h2>{{ project.name }}</h2>
+      {% if project.url %}
+        </a>
+      {% endif %}
+      <p>{{ project.description | truncate: 120 }}</p>
+      {% if project.external_url %}
+        <a href="{{ project.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
       {% endif %}
     </div>
   {% endfor %}
@@ -31,6 +30,7 @@ remote_projects:
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin-top: 2rem;
 }
 .project-card {
   border: 1px solid #ddd;
@@ -38,6 +38,8 @@ remote_projects:
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   transition: transform 0.2s ease;
+  background-color: #fff;
+  text-align: center;
 }
 .project-card:hover {
   transform: translateY(-5px);
@@ -45,9 +47,12 @@ remote_projects:
 .project-thumb {
   width: 100%;
   border-radius: 8px;
+  object-fit: cover;
+  max-height: 200px;
 }
 .project-card h2 {
   margin-top: 0.5rem;
+  font-size: 1.25rem;
 }
 .project-card p {
   margin-top: 0.5rem;
