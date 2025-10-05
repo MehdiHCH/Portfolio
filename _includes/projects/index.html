@@ -3,16 +3,21 @@
     {% assign proj = site.pages | where:"slug", slug | first %}
     {% if proj %}
       <div class="project-card">
-        <div class="project-thumb-wrapper">
-          <a href="{{ proj.url }}">
+        <!-- Image et lien vers la page projet -->
+        <a href="{{ proj.url }}" class="project-link">
+          <div class="project-thumb-wrapper">
             <img src="{{ proj.image }}" alt="{{ proj.name }} architecture" class="project-thumb">
-            <div class="overlay">
-              <span>View Details</span>
-            </div>
-          </a>
-        </div>
+            <div class="overlay"><span>View Details</span></div>
+          </div>
+        </a>
+
+        <!-- Nom du projet -->
         <h2>{{ proj.name }}</h2>
+
+        <!-- Description courte -->
         <p>{{ proj.description | truncate: 120 }}</p>
+
+        <!-- Bouton Demo -->
         {% if proj.external_url %}
           <a href="{{ proj.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
         {% endif %}
