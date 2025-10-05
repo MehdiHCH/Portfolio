@@ -4,8 +4,65 @@ title: Projects
 permalink: /projects/
 weight: 1
 remote_projects: 
+  - automated-futsal-analysis
   - git-for-wizards
   - arduino-visitor-counter
 ---
+<h1>My Projects</h1>
 
-{% include projects/index.html %}
+<div class="projects-grid">
+  {% for project in site.remote_projects %}
+    {% assign proj = site.pages | where:"slug", project | first %}
+    <div class="project-card">
+      <a href="{{ proj.url }}">
+        <img src="{{ proj.image }}" alt="{{ proj.name }} architecture" class="project-thumb">
+        <h2>{{ proj.name }}</h2>
+      </a>
+      <p>{{ proj.description | truncate: 120 }}</p>
+      {% if proj.external_url %}
+        <a href="{{ proj.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+}
+.project-thumb {
+  width: 100%;
+  border-radius: 8px;
+}
+.project-card h2 {
+  margin-top: 0.5rem;
+}
+.project-card p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-primary {
+  background-color: #1a73e8;
+}
+</style>
