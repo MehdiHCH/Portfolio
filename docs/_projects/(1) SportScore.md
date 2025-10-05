@@ -53,3 +53,7 @@ You can watch the live demo here 👇
 | Video Processing | OpenCV |
 | Framework | PyTorch |
 | Visualization | Matplotlib, Seaborn |
+
+---
+
+[⬅ Back to Projects](/projects/){: .btn .btn-secondary }
