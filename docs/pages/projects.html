@@ -1,11 +1,73 @@
 ---
 layout: default
-title: Projects
-permalink: /projects/
-weight: 1
-remote_projects: 
-  - git-for-wizards
-  - arduino-visitor-counter
 ---
 
-{% include projects/index.html %}
+<div class="project-page">
+  <h1 class="project-title">{{ page.name }}</h1>
+  <div class="project-tags">
+    {% for tool in page.tools %}
+      <span class="tag">{{ tool }}</span>
+    {% endfor %}
+  </div>
+
+  <img src="{{ page.image }}" alt="{{ page.name }}" class="project-hero"/>
+
+  <div class="project-description">
+    {{ content }}
+  </div>
+
+  {% if page.external_url %}
+    <a href="{{ page.external_url }}" class="btn btn-demo">🎥 View Demo</a>
+  {% endif %}
+</div>
+
+<style>
+  .project-page {
+    color: #ddd;
+    max-width: 850px;
+    margin: auto;
+    padding: 2rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .project-tags {
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    margin-right: 0.3rem;
+  }
+
+  .project-hero {
+    width: 100%;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+
+  .btn-demo {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-demo:hover {
+    background-color: #0056b3;
+  }
+</style>
