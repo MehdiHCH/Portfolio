@@ -5,47 +5,115 @@ permalink: /demos/
 weight: 2
 ---
 
-<h1>🎥 Démos de mes Projets</h1>
-<p>Voici quelques démonstrations vidéo et visuelles de mes projets en Intelligence Artificielle, Vision par Ordinateur et Deep Learning.</p>
+<h1 class="mb-4 text-3xl font-bold">🎥 Project Demos</h1>
+<p class="mb-8">
+  Explore interactive video demonstrations of my AI, Computer Vision, and Deep Learning projects.
+</p>
 
-<hr>
+<div class="projects-grid">
+  
+  <!-- ⚽ FUTSAL ANALYSIS DEMO -->
+  <div class="project-card" id="futsal-demo">
+    <img src="/Portfolio/assets/img/projects/futsal_analysis_example.png" alt="Futsal AI Analysis" class="project-thumb">
+    <div class="project-content">
+      <h3>⚽ Automated Video Analysis for Futsal (PFE)</h3>
+      <p>
+        This demo showcases the AI pipeline developed at SportScore to detect, track,
+        and classify futsal actions such as passes, shots, interceptions, and goals.
+      </p>
+      <video controls muted preload="metadata" class="demo-video">
+        <source src="/Portfolio/assets/videos/futsal_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <a href="/Portfolio/projects/#futsal-analysis" class="btn">↩ Back to Project</a>
+    </div>
+  </div>
 
-<section id="futsal-demo">
-  <h2>⚽ Analyse Vidéo Automatisée pour le Futsal (PFE)</h2>
-  <p>
-    Démonstration du pipeline d’intelligence artificielle développé chez SportScore
-    pour détecter, suivre et classifier les actions de jeu en futsal.
-  </p>
+  <!-- 🧠 YOLO OBJECT DETECTION DEMO -->
+  <div class="project-card" id="yolo-demo">
+    <img src="/Portfolio/assets/img/projects/yolo_preview.png" alt="YOLO Object Detection" class="project-thumb">
+    <div class="project-content">
+      <h3>🧠 Object Detection with YOLOv11</h3>
+      <p>
+        Real-time inference demo using a fine-tuned YOLOv11 model for multi-class object detection
+        on custom sports footage.
+      </p>
+      <video controls muted preload="metadata" class="demo-video">
+        <source src="/Portfolio/assets/videos/yolo_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <a href="/Portfolio/projects/#yolo-object-detection" class="btn">↩ Back to Project</a>
+    </div>
+  </div>
 
-  <video controls width="100%">
-    <source src="/Portfolio/assets/videos/futsal_demo.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
+  <!-- 🎯 TRACKING DEMO -->
+  <div class="project-card" id="tracking-demo">
+    <img src="/Portfolio/assets/img/projects/tracking_preview.png" alt="DeepSORT Tracking" class="project-thumb">
+    <div class="project-content">
+      <h3>🎯 Multi-Object Tracking with DeepSORT</h3>
+      <p>
+        Demonstration of player tracking using DeepSORT, including persistent IDs,
+        motion trajectory visualization, and team-based behavior analysis.
+      </p>
+      <video controls muted preload="metadata" class="demo-video">
+        <source src="/Portfolio/assets/videos/tracking_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <a href="/Portfolio/projects/#deepsort-tracking" class="btn">↩ Back to Project</a>
+    </div>
+  </div>
 
-  <br>
-  <img src="/Portfolio/assets/img/projects/futsal_analysis_example.png" alt="Aperçu du pipeline IA" width="100%">
-</section>
+</div>
 
-<hr>
-
-<section id="yolo-demo">
-  <h2>🧠 Détection d’Objets avec YOLOv11</h2>
-  <p>Exemple de détection en temps réel avec le modèle YOLOv11 sur des séquences vidéo personnalisées.</p>
-
-  <video controls width="100%">
-    <source src="/Portfolio/assets/videos/yolo_demo.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-</section>
-
-<hr>
-
-<section id="tracking-demo">
-  <h2>🎯 Suivi Multi-Objets avec DeepSORT</h2>
-  <p>Visualisation du suivi des joueurs à l’aide de DeepSORT, avec identifiants persistants pour chaque joueur détecté.</p>
-
-  <video controls width="100%">
-    <source src="/Portfolio/assets/videos/tracking_demo.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-</section>
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    background-color: #1e1e2f;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+  }
+  .project-thumb {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .project-content {
+    padding: 1.5rem;
+  }
+  .project-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  .project-content p {
+    color: #ccc;
+    margin-bottom: 1rem;
+  }
+  .demo-video {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>
