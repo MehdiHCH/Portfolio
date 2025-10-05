@@ -1,59 +1,70 @@
-
-<div class="card-columns m-3 mt-5">
-
-  <!-- Remote Projects -->
-  {% for remote_project in page.remote_projects %}
-
-    {%- for repo in site.github.public_repositories -%}
-
-      {%- if remote_project == repo.name -%}
-
-        {%- assign project = repo -%}
-        {%- assign words = project.name | split: '-' -%}
-        
-        {%- capture titlecase -%}
-          {%- for word in words -%}
-            {{ word | capitalize | append: ' ' }}
-          {%- endfor -%}
-        {%- endcapture -%}
-
-        {%- assign project_type  = "remote" -%}
-        {%- assign project_id    = project.name -%}
-        {%- assign project_img   = false -%}
-        {%- assign project_name  = titlecase | strip -%}
-        {%- assign project_desc  = project.description -%}
-        {%- assign project_url   = project.html_url -%}
-        {%- assign project_tools = project.topics -%}
-        {%- assign external      = true -%}
-
-        {% include projects/project-card.html %}
-
-      {%- endif -%}
-
-    {%- endfor -%}
-
+<div class="projects-grid">
+  {% for slug in page.remote_projects %}
+    {% assign proj = site.pages | where:"slug", slug | first %}
+    {% if proj %}
+      <div class="project-card">
+        {% if proj.url %}
+          <a href="{{ proj.url }}">
+        {% endif %}
+            <img src="{{ proj.image }}" alt="{{ proj.name }} architecture" class="project-thumb">
+            <h2>{{ proj.name }}</h2>
+        {% if proj.url %}
+          </a>
+        {% endif %}
+        <p>{{ proj.description | truncate: 120 }}</p>
+        {% if proj.external_url %}
+          <a href="{{ proj.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
+        {% endif %}
+      </div>
+    {% else %}
+      <p>Project with slug "{{ slug }}" not found.</p>
+    {% endif %}
   {% endfor %}
-
-  <!-- Local Projects -->
-  {% for project in site.projects %}
-
-    {%- assign project_type  = "local" -%}
-    {%- assign project_id    = project.name | slugify -%}
-    {%- assign project_img   = project.image -%}
-    {%- assign project_name  = project.name -%}
-    {%- assign project_desc  = project.description -%}
-    {%- assign project_tools = project.tools -%}
-
-    {%- if project.external_url -%}
-      {%- assign project_url = project.external_url -%}
-      {%- assign external    = true -%}
-    {%- else -%}
-      {%- assign project_url = project.url | relative_url -%}
-      {%- assign external    = false -%}
-    {%- endif -%}
-
-    {% include projects/project-card.html %}
-
-  {% endfor %}
-
 </div>
+
+<style>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.project-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+  background-color: #fff;
+  text-align: center;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+}
+.project-thumb {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 200px;
+}
+.project-card h2 {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+.project-card p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-primary {
+  background-color: #1a73e8;
+}
+</style>
