@@ -5,21 +5,22 @@ permalink: /demos/
 weight: 2
 ---
 
-<h1 class="mb-4 text-3xl font-bold">🎥 Project Demos</h1>
-<p class="mb-8">
-  Explore interactive video demonstrations of my AI, Computer Vision, and Deep Learning projects.
+<h1 class="page-title">🎥 Project Demos</h1>
+<p class="page-description">
+  Explore video demonstrations of my Artificial Intelligence and Computer Vision projects.
 </p>
 
-<div class="projects-grid">
-  
-  <!-- ⚽ FUTSAL ANALYSIS DEMO -->
-  <div class="project-card" id="futsal-demo">
-    <img src="/Portfolio/assets/img/projects/futsal_analysis_example.png" alt="Futsal AI Analysis" class="project-thumb">
-    <div class="project-content">
-      <h3>⚽ Automated Video Analysis for Futsal (PFE)</h3>
-      <p>
-        This demo showcases the AI pipeline developed at SportScore to detect, track,
-        and classify futsal actions such as passes, shots, interceptions, and goals.
+<div class="cards-grid">
+
+  <!-- ⚽ Futsal Demo -->
+  <div class="card">
+    <div class="card-img">
+      <img src="/Portfolio/assets/img/projects/futsal_analysis_example.png" alt="Futsal Analysis Demo">
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">⚽ Automated Futsal Video Analysis (PFE)</h3>
+      <p class="card-text">
+        AI-based video analysis to detect, track, and classify player actions in futsal matches.
       </p>
       <video controls muted preload="metadata" class="demo-video">
         <source src="/Portfolio/assets/videos/futsal_demo.mp4" type="video/mp4">
@@ -29,14 +30,15 @@ weight: 2
     </div>
   </div>
 
-  <!-- 🧠 YOLO OBJECT DETECTION DEMO -->
-  <div class="project-card" id="yolo-demo">
-    <img src="/Portfolio/assets/img/projects/yolo_preview.png" alt="YOLO Object Detection" class="project-thumb">
-    <div class="project-content">
-      <h3>🧠 Object Detection with YOLOv11</h3>
-      <p>
-        Real-time inference demo using a fine-tuned YOLOv11 model for multi-class object detection
-        on custom sports footage.
+  <!-- 🧠 YOLOv11 Demo -->
+  <div class="card">
+    <div class="card-img">
+      <img src="/Portfolio/assets/img/projects/yolo_preview.png" alt="YOLOv11 Detection Demo">
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">🧠 Object Detection with YOLOv11</h3>
+      <p class="card-text">
+        Real-time multi-class object detection using a fine-tuned YOLOv11 model on sports data.
       </p>
       <video controls muted preload="metadata" class="demo-video">
         <source src="/Portfolio/assets/videos/yolo_demo.mp4" type="video/mp4">
@@ -46,14 +48,15 @@ weight: 2
     </div>
   </div>
 
-  <!-- 🎯 TRACKING DEMO -->
-  <div class="project-card" id="tracking-demo">
-    <img src="/Portfolio/assets/img/projects/tracking_preview.png" alt="DeepSORT Tracking" class="project-thumb">
-    <div class="project-content">
-      <h3>🎯 Multi-Object Tracking with DeepSORT</h3>
-      <p>
-        Demonstration of player tracking using DeepSORT, including persistent IDs,
-        motion trajectory visualization, and team-based behavior analysis.
+  <!-- 🎯 DeepSORT Tracking Demo -->
+  <div class="card">
+    <div class="card-img">
+      <img src="/Portfolio/assets/img/projects/tracking_preview.png" alt="DeepSORT Tracking Demo">
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">🎯 Multi-Object Tracking with DeepSORT</h3>
+      <p class="card-text">
+        Tracking players with persistent IDs, trajectories, and behavior visualization using DeepSORT.
       </p>
       <video controls muted preload="metadata" class="demo-video">
         <source src="/Portfolio/assets/videos/tracking_demo.mp4" type="video/mp4">
@@ -66,43 +69,72 @@ weight: 2
 </div>
 
 <style>
-  .projects-grid {
+  /* === Unified Style (Projects & Demos) === */
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .page-description {
+    color: #bbb;
+    margin-bottom: 2rem;
+  }
+
+  .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
   }
-  .project-card {
-    background-color: #1e1e2f;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+
+  .card {
+    background: #1e1e2f;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
-  .project-card:hover {
-    transform: translateY(-6px);
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   }
-  .project-thumb {
+
+  .card-img img {
     width: 100%;
     height: 180px;
     object-fit: cover;
   }
-  .project-content {
+
+  .card-body {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
-  .project-content h3 {
-    font-size: 1.3rem;
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
     color: #fff;
   }
-  .project-content p {
+
+  .card-text {
     color: #ccc;
+    flex-grow: 1;
     margin-bottom: 1rem;
   }
+
   .demo-video {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 0.8rem;
   }
+
   .btn {
     display: inline-block;
     background-color: #007bff;
@@ -111,8 +143,10 @@ weight: 2
     border-radius: 8px;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: background-color 0.3s;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
   }
+
   .btn:hover {
     background-color: #0056b3;
   }
