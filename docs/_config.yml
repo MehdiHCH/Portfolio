@@ -28,7 +28,7 @@ nav_exclude:
 ### Author Info ###
 author:
   name: "EL MEHDI Hicham"
-  image: "assets/Me.jpeg"     # (mets le chemin vers ton image de profil)
+  image: "/Portfolio/assets/img/profil/Me.jpeg"     
   email: "mehdihicham736@gmail.com"
   github: "MehdiHCH"
   linkedin: "elmehdihicham"
