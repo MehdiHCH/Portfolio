@@ -3,7 +3,7 @@
     {% assign proj = site.pages | where:"slug", slug | first %}
     {% if proj %}
       <div class="project-card">
-        <!-- Image et lien vers la page projet -->
+        <!-- Lien vers la page individuelle du projet -->
         <a href="{{ proj.url }}" class="project-link">
           <div class="project-thumb-wrapper">
             <img src="{{ proj.image }}" alt="{{ proj.name }} architecture" class="project-thumb">
@@ -12,12 +12,12 @@
         </a>
 
         <!-- Nom du projet -->
-        <h2>{{ proj.name }}</h2>
+        <h2><a href="{{ proj.url }}">{{ proj.name }}</a></h2>
 
         <!-- Description courte -->
         <p>{{ proj.description | truncate: 120 }}</p>
 
-        <!-- Bouton Demo -->
+        <!-- Bouton Demo (vers la vidéo / demos) -->
         {% if proj.external_url %}
           <a href="{{ proj.external_url }}" class="btn btn-primary" target="_blank">Watch Demo</a>
         {% endif %}
@@ -87,6 +87,13 @@
 .project-card h2 {
   margin: 1rem 0 0.5rem;
   font-size: 1.25rem;
+}
+.project-card h2 a {
+  text-decoration: none;
+  color: #333;
+}
+.project-card h2 a:hover {
+  color: #1a73e8;
 }
 .project-card p {
   margin: 0 1rem 1rem;

@@ -3,7 +3,7 @@ layout: project
 slug: automated-futsal-analysis
 name: Automated Futsal Video Analysis (PFE)
 tools: [Python, OpenCV, YOLOv11, DeepSORT, AI, Computer Vision]
-image: /Portfolio/assets/img/projects/futsal_analysis_example.png
+image: /Portfolio/assets/img/projects/S.png
 description: >
   AI-based video analysis system for futsal games, developed during my final-year project at SportScore.
   The pipeline detects, classifies, and structures player actions (passes, shots, interceptions, goals) from futsal videos,
