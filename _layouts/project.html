@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ page.name }} | Mon Portfolio</title>
-    <link rel="stylesheet" href="/assets/css/style.css"> 
-</head>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"> 
+
+    </head>
 <body>
     <header>
-        <nav>...</nav>
+        <nav>
+            <a href="{{ '/' | relative_url }}">Accueil</a>
+            <a href="{{ '/projects/' | relative_url }}">Projects</a>
+            <a href="{{ '/demos/' | relative_url }}">Demos</a>
+        </nav>
     </header>
 
     <main class="project-details">
@@ -16,7 +21,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2025 Mon Portfolio</p>
+        <p>&copy; 2025 Hicham El Mehdi</p>
     </footer>
 </body>
 </html>
