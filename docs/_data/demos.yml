@@ -1,0 +1,26 @@
+- slug: futsal-analysis
+  title: "Automated Futsal Video Analysis (PFE)"
+  description: "AI-based video analysis to detect, track, and classify player actions in futsal matches."
+  image: "img/projects/futsal_analysis_example.png"
+  video: "videos/futsal_demo.mp4"  # Ou "https://youtu.be/abc123" pour YouTube
+  tags: [computer-vision, yolo, deepsort]
+  project_link: "/projects/automated-futsal-analysis"
+  emoji: "⚽"
+
+- slug: yolo-detection
+  title: "Object Detection with YOLOv11"
+  description: "Real-time multi-class object detection using a fine-tuned YOLOv11 model on sports data."
+  image: "img/projects/yolo_preview.png"
+  video: "videos/yolo_demo.mp4"
+  tags: [deep-learning, object-detection]
+  project_link: "/projects/yolo"
+  emoji: "🧠"
+
+- slug: deepsort-tracking
+  title: "Multi-Object Tracking with DeepSORT"
+  description: "Tracking players with persistent IDs, trajectories, and behavior visualization using DeepSORT."
+  image: "img/projects/tracking_preview.png"
+  video: "videos/tracking_demo.mp4"
+  tags: [tracking, computer-vision]
+  project_link: "/projects/deepsort-tracking"
+  emoji: "🎯"

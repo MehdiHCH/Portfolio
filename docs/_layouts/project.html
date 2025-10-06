@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  {% include head.html %}
+  <title>{{ page.title }} | Hicham El Mehdi</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  {% include navbar.html %}
+
+  <header class="project-header">
+    <div class="container">
+      <a href="{{ site.baseurl }}/projects/" class="back-link">← Retour aux Projets</a>
+      <h1>{{ page.title }}</h1>
+      {% if page.image %}
+        <img src="{{ site.baseurl }}/assets/{{ page.image | split: '/' | join: '/' }}" alt="{{ page.title }} hero" class="project-hero">
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="project-details container">
+    {{ content }}  <!-- Ton Markdown : PDF, explications, code -->
+
+    <!-- Bouton démo à la fin (toujours visible, href auto avec slug) -->
+    <section class="demo-section">
+      <h2>Prêt pour la démo ?</h2>
+      <p>Voir la vidéo en action sur la page Demos !</p>
+      <a href="{{ site.baseurl }}/demos/#{{ page.slug | default: 'futsal' }}-demo" class="demo-btn-large">▶ Voir la Vidéo Démo</a>
+    </section>
+  </main>
+
+  {% include footer.html %}
+  {% include scripts.html %}
+
+  <style>
+  .project-header { 
+    text-align: center; 
+    padding: 3rem 0; 
+    background: linear-gradient(135deg, #1e1e2f, #2d1b69); 
+  }
+  .container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1rem; 
+  }
+  .back-link { 
+    color: #007bff; 
+    text-decoration: none; 
+    margin-bottom: 1rem; 
+    font-weight: 500; 
+    display: inline-block; 
+  }
+  .back-link:hover { 
+    color: #0056b3; 
+  }
+  .project-header h1 { 
+    color: #fff; 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; 
+  }
+  .project-hero { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3); 
+  }
+  .project-details { 
+    padding: 3rem 0; 
+    line-height: 1.7; 
+  }
+  .demo-section { 
+    text-align: center; 
+    margin-top: 3rem; 
+    padding: 2rem; 
+    background: #1e1e2f; 
+    border-radius: 12px; 
+    display: block !important; 
+    visibility: visible !important; 
+  }
+  .demo-section h2 { 
+    color: #fff; 
+    margin-bottom: 0.5rem; 
+  }
+  .demo-section p { 
+    color: #ccc; 
+    margin-bottom: 1rem; 
+  }
+  .demo-btn-large { 
+    background: linear-gradient(135deg, #007bff, #0056b3); 
+    color: white; 
+    padding: 1rem 2rem; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    display: inline-block; 
+    margin-top: 1rem; 
+    box-shadow: 0 4px 15px rgba(0,123,255,0.3); 
+    transition: all 0.3s ease; 
+  }
+  .demo-btn-large:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0,123,255,0.4); 
+  }
+  .project-details img { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+    margin: 1rem 0; 
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
+  }
+  .project-details code { 
+    background: #2d1b69; 
+    padding: 0.5rem; 
+    border-radius: 6px; 
+    color: #f8f8f2; 
+    overflow-x: auto; 
+  }
+  @media (max-width: 768px) { 
+    .project-details { 
+      padding: 2rem 0; 
+    } 
+    .project-header h1 { 
+      font-size: 2rem; 
+    } 
+  }
+  </style>
+</body>
+</html>

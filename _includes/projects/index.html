@@ -1,26 +1,142 @@
 <div class="projects-grid">
   {% for slug in page.remote_projects %}
-    {% assign proj = site.pages | where:"slug", slug | first %}
+    {% assign proj = site.projects | where: "slug", slug | first %}
     {% if proj %}
-      <div class="project-card">
-        
-        <a href="{{ proj.url | relative_url }}" class="project-link">
+      <a href="{{ proj.url | relative_url }}" class="project-link-full">  <!-- Cliquable full vers détail -->
+        <div class="project-card">
           <div class="project-thumb-wrapper">
-            <img src="{{ proj.image | relative_url }}" alt="{{ proj.name }} architecture" class="project-thumb">
-            <div class="overlay"><span>Voir les Détails</span></div>
+            {% if proj.image %}
+              <img src="{{ proj.image | relative_url }}" alt="{{ proj.title }} thumbnail" class="project-thumb" loading="lazy">
+            {% else %}
+              <div class="project-thumb-placeholder">Preview</div>
+            {% endif %}
+            <div class="overlay">
+              <span>Clique pour détails</span>
+            </div>
           </div>
-        </a>
 
-        <h2><a href="{{ proj.url | relative_url }}">{{ proj.name }}</a></h2>
+          <div class="project-info">
+            <h2>{{ proj.title | default: proj.name }}</h2>
 
-        <p>{{ proj.description | truncate: 120 }}</p>
+            {% if proj.description %}
+              <p>{{ proj.description | truncate: 100 }}</p>
+            {% endif %}
 
-        {% if proj.external_url %}
-          <a href="{{ proj.external_url | relative_url }}" class="btn btn-primary" target="_blank">Regarder la Démo 🎥</a>
-        {% endif %}
-      </div>
+            {% if proj.tools %}
+              <div class="project-tools">
+                {% for tool in proj.tools %}
+                  <span class="tool-tag">{{ tool }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+
+      {% if proj.external_url %}
+        <a href="{{ proj.external_url }}" class="btn-external small" target="_blank">GitHub</a>  <!-- Secondaire, pas cliquable principal -->
+      {% endif %}
     {% else %}
-      <p>Project with slug "{{ slug }}" not found.</p>
+      <p class="error-hidden">Projet "{{ slug }}" manquant.</p>
     {% endif %}
   {% endfor %}
 </div>
+
+<style>
+.project-link-full {
+  text-decoration: none;
+  color: inherit;
+  display: block;  <!-- Full clickable -->
+}
+.project-card {
+  background: #1e1e2f;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.project-link-full:hover .project-card {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0,123,255,0.4);
+}
+.project-thumb-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.project-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block !important;  /* Force visibilité image */
+  visibility: visible !important;
+}
+.project-thumb-placeholder {
+  background: #333;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: white;
+  font-weight: bold;
+}
+.project-link-full:hover .overlay {
+  opacity: 1;
+}
+.project-info {
+  padding: 1.5rem;
+}
+.project-info h2 {
+  color: #fff;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+.project-info p {
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+.project-tools {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;
+}
+.tool-tag {
+  padding: 0.3rem 0.6rem;
+  background: #007bff;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+.btn-external.small {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.btn-external.small:hover {
+  background: #218838;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>

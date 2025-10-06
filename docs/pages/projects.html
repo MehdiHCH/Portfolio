@@ -3,10 +3,17 @@ layout: default
 title: Projects
 permalink: /projects/
 weight: 1
-remote_projects: 
+sitemap: false  # Optionnel, pour SEO
+remote_projects:
   - sportscore
   - yolo
   - arduino-visitor-counter
   - automated-futsal-analysis
 ---
-{% include projects/index.html %}
+
+<div class="projects-page">
+  <h1>Mes Projets en IA & Computer Vision</h1>  <!-- Titre custom pour intro -->
+  <p>Voici une sélection de mes travaux récents, avec focus sur détection, tracking et analyse vidéo.</p>
+
+  {% include projects/index.html %}  <!-- Garde l'include -->
+</div>
