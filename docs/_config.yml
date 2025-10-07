@@ -6,10 +6,10 @@ description: >
 baseurl: "/Portfolio"                    # Nom de ton dépôt GitHub Pages
 url: "https://mehdihch.github.io/Portfolio"        # Ton URL GitHub Pages
 repository: "MehdiHCH/Portfolio"         # Nom complet du dépôt
+destination: docs                       # Optionnel : définit docs comme dossier de sortie
 
 remote_theme: yousinix/portfolYOU        # Thème officiel portfolYOU
 open_new_tab: false                      # Liens externes dans un nouvel onglet
-
 
 ### Plugins ###
 plugins:
@@ -17,13 +17,16 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
 
+### Sass ###
+sass:
+  sass_dir: ../_sass
+  style: compressed
 
 ### Navbar Settings ###
 nav_exclude:
   - pages/tags.html
   - pages/404.html
   - pages/index.md
-
 
 ### Author Info ###
 author:
@@ -33,17 +36,14 @@ author:
   github: "MehdiHCH"
   linkedin: "elmehdihicham"
 
-
 ### Posts ###
 permalink: /blog/:title
-
 
 ### Collections ###
 collections:
   projects:
     output: true
     permalink: /projects/:name
-
 
 ### Defaults ###
 defaults:
@@ -58,13 +58,11 @@ defaults:
     values:
       comments: false
 
-
 ### Analytics ###
 analytics:
   enabled: false
   google:
     tracking_id: ""
-
 
 ### Buy Me a Coffee ###
 buymeacoffee:
@@ -72,7 +70,6 @@ buymeacoffee:
   username: ""
   color: "#007bff"
   message: "Merci pour votre visite !"
-
 
 ### Exclude from processing ###
 exclude:

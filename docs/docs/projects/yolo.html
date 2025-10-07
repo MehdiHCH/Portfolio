@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Object Detection with YOLOv11">
+  <meta property="og:description" content="Real-time multi-class object detection using fine-tuned YOLOv11.">
+  <meta property="og:image" content="/Portfolio/assets/img/profil/Me.jpeg">
+
+  <title>Object Detection with YOLOv11</title>
+  <meta name="description" content="Real-time multi-class object detection using fine-tuned YOLOv11.">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/Portfolio/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/Portfolio/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Portfolio/assets/css/style.css">
+
+</head>
+
+  <title>Object Detection with YOLOv11 | Hicham El Mehdi</title>
+  <link rel="stylesheet" href="/Portfolio/assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/Portfolio/"><h5><b>Hicham El Mehdi</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/Portfolio/projects/">Projects</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/">Demos</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+
+  <header class="project-header">
+    <div class="container">
+      <a href="/Portfolio/projects/" class="back-link">← Retour aux Projets</a>
+      <h1>Object Detection with YOLOv11</h1>
+      
+    </div>
+  </header>
+
+  <main class="project-details container">
+    <p>Fine-tuned <strong>YOLOv11</strong> for detecting custom objects in sports video datasets.</p>
+
+<ul>
+  <li>Trained on custom annotations (players, referees, ball)</li>
+  <li>Augmented dataset for motion blur and occlusion handling</li>
+  <li>Deployed optimized model with <strong>ONNX Runtime</strong> for real-time inference</li>
+</ul>
+
+<p>🎥 <a href="/Portfolio/demos/#yolo-demo">See Demo</a></p>
+  <!-- Ton Markdown : PDF, explications, code -->
+
+    <!-- Bouton démo à la fin (toujours visible, href auto avec slug) -->
+    <section class="demo-section">
+      <h2>Prêt pour la démo ?</h2>
+      <p>Voir la vidéo en action sur la page Demos !</p>
+      <a href="/Portfolio/demos/#yolo-demo" class="demo-btn-large">▶ Voir la Vidéo Démo</a>
+    </section>
+  </main>
+
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>EL MEHDI Hicham</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:mehdihicham736@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/MehdiHCH"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/elmehdihicham"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+
+  <style>
+  .project-header { 
+    text-align: center; 
+    padding: 3rem 0; 
+    background: linear-gradient(135deg, #1e1e2f, #2d1b69); 
+  }
+  .container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1rem; 
+  }
+  .back-link { 
+    color: #007bff; 
+    text-decoration: none; 
+    margin-bottom: 1rem; 
+    font-weight: 500; 
+    display: inline-block; 
+  }
+  .back-link:hover { 
+    color: #0056b3; 
+  }
+  .project-header h1 { 
+    color: #fff; 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; 
+  }
+  .project-hero { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3); 
+  }
+  .project-details { 
+    padding: 3rem 0; 
+    line-height: 1.7; 
+  }
+  .demo-section { 
+    text-align: center; 
+    margin-top: 3rem; 
+    padding: 2rem; 
+    background: #1e1e2f; 
+    border-radius: 12px; 
+    display: block !important; 
+    visibility: visible !important; 
+  }
+  .demo-section h2 { 
+    color: #fff; 
+    margin-bottom: 0.5rem; 
+  }
+  .demo-section p { 
+    color: #ccc; 
+    margin-bottom: 1rem; 
+  }
+  .demo-btn-large { 
+    background: linear-gradient(135deg, #007bff, #0056b3); 
+    color: white; 
+    padding: 1rem 2rem; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    display: inline-block; 
+    margin-top: 1rem; 
+    box-shadow: 0 4px 15px rgba(0,123,255,0.3); 
+    transition: all 0.3s ease; 
+  }
+  .demo-btn-large:hover { 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0,123,255,0.4); 
+  }
+  .project-details img { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+    margin: 1rem 0; 
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
+  }
+  .project-details code { 
+    background: #2d1b69; 
+    padding: 0.5rem; 
+    border-radius: 6px; 
+    color: #f8f8f2; 
+    overflow-x: auto; 
+  }
+  @media (max-width: 768px) { 
+    .project-details { 
+      padding: 2rem 0; 
+    } 
+    .project-header h1 { 
+      font-size: 2rem; 
+    } 
+  }
+  </style>
+</body>
+</html>
