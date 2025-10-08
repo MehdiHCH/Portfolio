@@ -1,9 +1,103 @@
-- title: Master's Degree in Artificial Intelligence, Ibn Tofail University
-  from: 2023 (November)
-  to: 2025 (September)
-  description: Machine Learning, Deep Learning, Reinforcement Learning, Natural Language Processing (NLP), Computer Vision, Generative AI.
+- title: R&D Engineer Intern - Computer Vision & AI
+  from: April 2025
+  to: Present
+  description: |
+    **SPORTSCORE** - Football Analytics (Paris, France - Remote)
+    
+    - Designed and deployed a fully automated video analysis pipeline for futsal matches (object detection, multi-player tracking, homography, OCR, pose estimation)
+    - Built an automatic frame classification module (YOLOv11m-cls) achieving **99.95% accuracy**
+    - Implemented complex action detection: pass classification (progressive, assist, under pressure), shots, dribbles, interceptions, goals
+    - Optimized the pipeline, reducing inference time by **20%** and improving ball detection robustness
+    - **Supervised and trained 4 interns**, managing tasks, reviewing deliverables, and ensuring technical consistency
+    - Delivered automated performance reports (heatmaps, pass maps, structured JSON exports, advanced stats)
+    
+    **Tech stack:** PyTorch, YOLOv8/11, DeepSORT, OpenCV, OCR, Pandas, Python
 
-- title: Bachelor's Degree in Physics, Ibn Tofail University
+- title: Engineering Intern - End-to-End Event Spotting
+  from: October 2024
+  to: January 2025
+  description: |
+    **Université Ibn Tofail - Laboratoire SETIME** (Kenitra, Morocco)
+    
+    - Developed a full pipeline: frame extraction, JSON annotations, temporal normalization, data augmentation (jittering, mixup), and train/val/test split (70/15/15)
+    - Implemented **RegNet-Y with Gate Shift Modules (GSM)** for feature extraction and a **Bi-GRU** for global temporal reasoning
+    - Experimented with multiple configurations (clip_len 16/50) using RegNet-Y and ResNet-50 on a 40GB dataset (7 matches from the 2024 Futsal World Cup)
+    - Achieved a recall of **0.93** on the DRIVE class, with RegNet-Y outperforming ResNet-50
+    
+    **Tech stack:** Python, PyTorch, RegNet-Y, ResNet-50, Bi-GRU, OpenCV, GPU (RTX 4060)
+
+- title: Internship - Content Delivery Network (CDN)
+  from: September 2023
+  to: November 2023
+  description: |
+    **Orange Business** (Sale Al Jadida, Morocco)
+    
+    - Developed a Shell script to generate secure URLs with token-based authentication
+    - Resolved a URL formatting issue and enhanced security by studying CORS headers, XSS, and CSRF attacks
+    
+    **Tech stack:** Shell Scripting, JSON Web Tokens, wget
+
+- title: Master's Degree in Artificial Intelligence
+  from: November 2023
+  to: September 2025
+  description: |
+    **Ibn Tofail University** (Kenitra, Morocco)
+    
+    Specialized in:
+    - Machine Learning & Deep Learning
+    - Reinforcement Learning
+    - Natural Language Processing (NLP)
+    - Computer Vision
+    - Generative AI
+    
+    **Key Projects:**
+    - Autonomous Vehicle with ROS2 & TD3 RL
+    - OCR for Tifinagh Characters (Amazigh Heritage)
+    - Diabetic Retinopathy Detection
+
+- title: Bachelor's Degree in Physics
   from: 2020
   to: 2023
-  description: General physics studies.
+  description: |
+    **Ibn Tofail University** (Kenitra, Morocco)
+    
+    General physics studies with a focus on mathematical modeling and computational methods.
+
+- title: Academic Project - Autonomous Vehicle
+  from: February 2025
+  to: July 2025
+  description: |
+    **ROS2 & Reinforcement Learning**
+    
+    - Developed a ROS2–Gazebo simulation pipeline with URDF/xacro models
+    - Integrated camera & LiDAR for obstacle detection and traffic sign recognition
+    - Implemented a **TD3 reinforcement learning agent** for autonomous navigation
+    - Combined trajectory planning, real-time control, and safe decision-making
+    - Validated the system in diverse scenarios with reliable path following and collision avoidance
+    
+    **Tech stack:** ROS2, Gazebo, Python, PyTorch, RViz, URDF/xacro, TD3 RL, Computer Vision
+
+- title: Academic Project - OCR for Tifinagh Characters
+  from: October 2024
+  to: February 2025
+  description: |
+    **Digitization of Amazigh Writings**
+    
+    - Developed an innovative OCR system for Tifinagh handwritten script
+    - Goal: preserving and digitizing the **Amazigh cultural heritage** using AI
+    - Designed and implemented a **hybrid CRNN-based model** to improve character recognition accuracy
+    - Role: Paddle OCR Developer and CNN Model Developer
+    
+    **Tech stack:** Hybrid CRNN model, PaddleOCR, TensorFlow, PyTorch, OpenCV
+
+- title: Academic Project - Diabetic Retinopathy Detection
+  from: October 2024
+  to: January 2025
+  description: |
+    **Medical AI Application**
+    
+    - Developed a Deep Learning model to detect and classify diabetic retinopathy from retinal images
+    - Goal: facilitate early diagnosis to prevent vision loss and provide diagnostic aid for ophthalmologists
+    - Preprocessed the **APTOS 2019 dataset** and implemented data augmentation techniques
+    
+    **Tech stack:** EfficientNetB0, CNN, TensorFlow/Keras, Adam optimizer

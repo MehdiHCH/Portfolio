@@ -1,164 +1,9 @@
 ---
-layout: page
+layout: default
 title: Demos
 permalink: /demos/
 weight: 2
 ---
-
-<a href="{{ site.baseurl }}/projects/" class="back-to-projects">← Back to Projects</a>
-
-<h1 class="page-title">🎥 Project Demos</h1>
-<p class="page-description">
-  Explore interactive video demonstrations of my AI and Computer Vision projects. Filter by tags and click to play!
-</p>
-
-<!-- Filtre par tags -->
-<div class="filter-tags">
-  <button class="filter-btn active" data-filter="all">All Demos</button>
-  <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
-  <button class="filter-btn" data-filter="deep-learning">Deep Learning</button>
-  <button class="filter-btn" data-filter="tracking">Tracking</button>
-</div>
-
-<div class="cards-grid" id="demos-grid">
-
-  {% comment %} Loop dynamique si _data/demos.yml existe {% endcomment %}
-  {% for demo in site.data.demos %}
-  <div class="card" id="{{ demo.slug }}-demo" data-tags="{{ demo.tags | join: ' ' }}">
-    <div class="card-img">
-      <img src="{{ site.baseurl }}/assets/{{ demo.image }}" alt="{{ demo.title }} Demo" loading="lazy">
-    </div>
-    <div class="card-body">
-      <h3 class="card-title">{{ demo.emoji }} {{ demo.title }}</h3>
-      <p class="card-text">{{ demo.description | truncate: 120 }}</p>
-      
-      {% if demo.video %}
-        {% if demo.video contains 'youtube.com' or demo.video contains 'youtu.be' %}
-          <!-- Embed YouTube iframe (fixed Liquid) -->
-          <div class="video-wrapper">
-            <iframe width="100%" height="200" src="{{ demo.video | replace: 'watch?v=', 'embed/' | append: '?autoplay=0&mute=1&rel=0' }}" title="{{ demo.title }} Demo" frameborder="0" allowfullscreen loading="lazy"></iframe>
-          </div>
-        {% else %}
-          <!-- Vidéo locale MP4 -->
-          <video controls muted preload="metadata" class="demo-video" poster="{{ site.baseurl }}/assets/{{ demo.image }}">
-            <source src="{{ site.baseurl }}/assets/{{ demo.video }}" type="video/mp4">
-            Your browser does not support video. <a href="{{ site.baseurl }}/assets/{{ demo.video }}" download>Download MP4</a>.
-          </video>
-        {% endif %}
-      {% endif %}
-      
-      <div class="tags">
-        {% for tag in demo.tags %}
-          <span class="tag-badge">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      
-      <a href="{{ site.baseurl }}{{ demo.project_link }}" class="btn secondary">↩ Project Details</a>
-    </div>
-  </div>
-  {% endfor %}
-
-  {% comment %} Fallback hardcode si pas de YAML (3 cards complètes avec IDs) {% endcomment %}
-  {% unless site.data.demos %}
-    <!-- ⚽ Futsal Demo -->
-    <div class="card" id="futsal-demo" data-tags="computer-vision yolo deepsort">
-      <div class="card-img">
-        <img src="{{ site.baseurl }}/assets/img/projects/futsal_analysis_example.png" alt="Futsal Analysis Demo" loading="lazy">
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">⚽ Automated Futsal Video Analysis (PFE)</h3>
-        <p class="card-text">AI-based video analysis to detect, track, and classify player actions in futsal matches.</p>
-        <video controls muted preload="metadata" class="demo-video">
-          <source src="{{ site.baseurl }}/assets/videos/futsal_demo.mp4" type="video/mp4">
-          Unsupported – <a href="{{ site.baseurl }}/assets/videos/futsal_demo.mp4" download>Download</a>.
-        </video>
-        <div class="tags">
-          <span class="tag-badge">computer-vision</span>
-          <span class="tag-badge">yolo</span>
-          <span class="tag-badge">deepsort</span>
-        </div>
-        <a href="{{ site.baseurl }}/projects/futsal" class="btn secondary">↩ Project Details</a>
-      </div>
-    </div>
-
-    <!-- 🧠 YOLO Demo -->
-    <div class="card" id="yolo-demo" data-tags="deep-learning object-detection">
-      <div class="card-img">
-        <img src="{{ site.baseurl }}/assets/img/projects/yolo_preview.png" alt="YOLO Detection Demo" loading="lazy">
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">🧠 Object Detection with YOLOv11</h3>
-        <p class="card-text">Real-time multi-class object detection using a fine-tuned YOLOv11 model on sports data.</p>
-        <video controls muted preload="metadata" class="demo-video">
-          <source src="{{ site.baseurl }}/assets/videos/yolo_demo.mp4" type="video/mp4">
-          Unsupported – <a href="{{ site.baseurl }}/assets/videos/yolo_demo.mp4" download>Download</a>.
-        </video>
-        <div class="tags">
-          <span class="tag-badge">deep-learning</span>
-          <span class="tag-badge">object-detection</span>
-        </div>
-        <a href="{{ site.baseurl }}/projects/yolo" class="btn secondary">↩ Project Details</a>
-      </div>
-    </div>
-
-    <!-- 🎯 Tracking Demo -->
-    <div class="card" id="tracking-demo" data-tags="tracking computer-vision">
-      <div class="card-img">
-        <img src="{{ site.baseurl }}/assets/img/projects/tracking_preview.png" alt="DeepSORT Tracking Demo" loading="lazy">
-      </div>
-      <div class="card-body">
-        <h3 class="card-title">🎯 Multi-Object Tracking with DeepSORT</h3>
-        <p class="card-text">Tracking players with persistent IDs, trajectories, and behavior visualization using DeepSORT.</p>
-        <video controls muted preload="metadata" class="demo-video">
-          <source src="{{ site.baseurl }}/assets/videos/tracking_demo.mp4" type="video/mp4">
-          Unsupported – <a href="{{ site.baseurl }}/assets/videos/tracking_demo.mp4" download>Download</a>.
-        </video>
-        <div class="tags">
-          <span class="tag-badge">tracking</span>
-          <span class="tag-badge">computer-vision</span>
-        </div>
-        <a href="{{ site.baseurl }}/projects/tracking" class="btn secondary">↩ Project Details</a>
-      </div>
-    </div>
-  {% endunless %}
-
-</div>
-
-<script>
-  // Filtre interactif
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('#demos-grid .card');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        cards.forEach((card, index) => {
-          if (filter === 'all' || card.dataset.tags.includes(filter)) {
-            card.style.display = 'flex';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          } else {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            setTimeout(() => { card.style.display = 'none'; }, 300);
-          }
-        });
-      });
-    });
-
-    // Scroll smooth + highlight si lien ancre depuis projets (ex: /demos/#futsal-demo)
-    if (window.location.hash) {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        target.classList.add('highlight');  // Glow bleu pour focus
-        setTimeout(() => target.classList.remove('highlight'), 3000);
-      }
-    }
-  });
-</script>
 
 <style>
   /* === Style boosté : Plus immersif & responsive === */
@@ -241,6 +86,7 @@ weight: 2
   }
   .card:nth-child(2) { animation-delay: 0.1s; }
   .card:nth-child(3) { animation-delay: 0.2s; }
+  .card:nth-child(4) { animation-delay: 0.3s; }
   @keyframes fadeInUp {
     to { opacity: 1; transform: translateY(0); }
   }
@@ -264,6 +110,7 @@ weight: 2
     width: 100%;
     height: 220px;
     object-fit: cover;
+    background: linear-gradient(135deg, #1e1e2f, #2d1b69);
   }
 
   .card-body {
@@ -278,6 +125,8 @@ weight: 2
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: #fff;
+    line-height: 1.4;
+    min-height: 3.6rem;
   }
 
   .card-text {
@@ -294,6 +143,7 @@ weight: 2
     margin-bottom: 1rem;
     border-radius: 12px;
     overflow: hidden;
+    background: #000;
   }
   .video-wrapper iframe {
     width: 100%;
@@ -352,6 +202,16 @@ weight: 2
     box-shadow: 0 6px 16px rgba(108, 117, 125, 0.4);
   }
 
+  .no-demo-message {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #ffc107;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
     .cards-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -361,3 +221,158 @@ weight: 2
     .back-to-projects { font-size: 1rem; }
   }
 </style>
+
+<a href="{{ site.baseurl }}/projects/" class="back-to-projects">← Back to Projects</a>
+
+<h1 class="page-title">🎥 Project Demos</h1>
+<p class="page-description">
+  Explore interactive video demonstrations of my AI and Computer Vision projects. Filter by category and click to play!
+</p>
+
+<!-- Filtre par catégories (dynamique basé sur les projets) -->
+<div class="filter-tags">
+  <button class="filter-btn active" data-filter="all">All Demos</button>
+  <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+  <button class="filter-btn" data-filter="deep-learning">Deep Learning</button>
+  <button class="filter-btn" data-filter="tracking">Tracking</button>
+  <button class="filter-btn" data-filter="sports-analytics">Sports Analytics</button>
+</div>
+
+<div class="cards-grid" id="demos-grid">
+
+  {% comment %} Boucle sur TOUS les projets de _projects/ {% endcomment %}
+  {% for project in site.projects %}
+  <div class="card" id="{{ project.title | slugify }}-demo" data-category="{{ project.category }}" data-tags="{{ project.tags | join: ' ' }}">
+    
+    <!-- Image du projet -->
+    <div class="card-img">
+      {% if project.image %}
+        <img src="{{ site.baseurl }}{{ project.image }}" alt="{{ project.title }} Demo" loading="lazy">
+      {% else %}
+        <img src="{{ site.baseurl }}/assets/img/projects/default-preview.png" alt="{{ project.title }}" loading="lazy">
+      {% endif %}
+    </div>
+    
+    <div class="card-body">
+      <h3 class="card-title">{{ project.title }}</h3>
+      <p class="card-text">{{ project.description | strip_html | truncatewords: 20, "" }}</p>
+      
+      {% comment %} Affichage de la vidéo/démo {% endcomment %}
+      {% if project.demo %}
+        {% if project.demo contains 'youtube.com' or project.demo contains 'youtu.be' %}
+          <!-- Embed YouTube -->
+          {% assign youtube_id = project.demo | split: 'v=' | last | split: '&' | first %}
+          {% if project.demo contains 'youtu.be' %}
+            {% assign youtube_id = project.demo | split: 'youtu.be/' | last | split: '?' | first %}
+          {% endif %}
+          <div class="video-wrapper">
+            <iframe 
+              width="100%" 
+              height="200" 
+              src="https://www.youtube.com/embed/{{ youtube_id }}?autoplay=0&mute=1&rel=0" 
+              title="{{ project.title }} Demo" 
+              frameborder="0" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+        {% elsif project.demo contains '.mp4' or project.demo contains '.webm' %}
+          <!-- Vidéo locale MP4/WebM -->
+          <video controls muted preload="metadata" class="demo-video">
+            <source src="{{ site.baseurl }}{{ project.demo }}" type="video/mp4">
+            Your browser does not support video. <a href="{{ site.baseurl }}{{ project.demo }}" download>Download</a>.
+          </video>
+        {% else %}
+          <!-- Lien externe vers une démo interactive -->
+          <div class="no-demo-message">
+            🎮 <a href="{{ project.demo }}" target="_blank" rel="noopener" style="color: #ffc107; text-decoration: underline;">Live Demo Available</a>
+          </div>
+        {% endif %}
+      {% elsif project.video %}
+        <!-- Si le projet a un champ 'video' séparé -->
+        <video controls muted preload="metadata" class="demo-video">
+          <source src="{{ site.baseurl }}{{ project.video }}" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      {% else %}
+        <!-- Pas de démo vidéo disponible -->
+        <div class="no-demo-message">
+          📹 Demo video coming soon
+        </div>
+      {% endif %}
+      
+      <!-- Tags du projet -->
+      {% if project.tags %}
+      <div class="tags">
+        {% for tag in project.tags limit:5 %}
+          <span class="tag-badge">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      <!-- Lien vers les détails du projet -->
+      <a href="{{ site.baseurl }}{{ project.url }}" class="btn secondary">↩ Project Details</a>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% comment %} Message si aucun projet {% endcomment %}
+  {% if site.projects.size == 0 %}
+  <div style="grid-column: 1/-1; text-align: center; color: #999; padding: 3rem;">
+    <h3>No projects with demos yet</h3>
+    <p>Check back soon for video demonstrations!</p>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+  // Filtre interactif par catégorie
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#demos-grid .card');
+    
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.dataset.filter;
+        
+        cards.forEach((card, index) => {
+          const category = card.dataset.category;
+          const tags = card.dataset.tags.toLowerCase();
+          
+          if (filter === 'all' || category === filter || tags.includes(filter)) {
+            card.style.display = 'flex';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => { 
+              card.style.display = 'none'; 
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Scroll smooth + highlight si lien ancre depuis projets (ex: /demos/#yolo-demo)
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.classList.add('highlight');
+          setTimeout(() => target.classList.remove('highlight'), 3000);
+        }, 500);
+      }
+    }
+  });
+</script>

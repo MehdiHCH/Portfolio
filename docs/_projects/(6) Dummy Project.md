@@ -1,7 +1,20 @@
 ---
-name: Dummy Project
-tools: [Ignore me]
-image: https://www.sketchappsources.com/resources/source-image/coo-app-concept-subgaurav.jpg
+title: Dummy Project
+image: /assets/images/projects/dummy.jpg
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-external_url: https://www.google.com
+category: deep-learning
+tags:
+  - Python
+  - TensorFlow
+  - Research
+date: 2024-03-01
+github: https://github.com/votreusername/dummy
 ---
+
+## Description
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+
+## Détails
+
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...

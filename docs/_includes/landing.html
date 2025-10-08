@@ -1,31 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-    <div class="row justify-content-center align-items-center p-4">
-        <div class="col-lg-4 col-md-6 text-center mt-4">
-            <!-- Fine Circle Responsive Image -->
-            <div id="container" class="my-2">
-                <div id="dummy"></div>
-                <div id="element">
-                    <img src="{{ site.author.image }}" alt="{{ site.title }}" class="circle-image wow animated zoomIn" data-wow-delay=".1s">
+<style>
+/* ===== CANVAS PARTICULES ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== GRADIENT ANIMÉ ===== */
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #0d1117, #1c1f26, #161b22, #0d1117);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.landing-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 20px;
+}
+
+/* ===== CARTE GLASSMORPHISM ===== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 650px;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== IMAGE DE PROFIL ===== */
+.profile-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #58a6ff;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== GLOW AUTOUR DE L'IMAGE ===== */
+.profile-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #58a6ff, #238636, #58a6ff);
+  background-size: 200% 200%;
+  animation: glowRotate 3s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(10px);
+}
+
+@keyframes glowRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== TYPOGRAPHIE ===== */
+.glass-card h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #58a6ff, #238636) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin-bottom: 0.5rem !important;
+  animation: fadeIn 1.2s ease;
+}
+
+.subtitle {
+  font-size: 1.2rem !important;
+  color: #9ba3b4 !important;
+  margin-bottom: 1.5rem !important;
+  animation: fadeIn 1.4s ease;
+}
+
+.description {
+  color: #adb7c2 !important;
+  line-height: 1.8 !important;
+  margin-bottom: 2rem !important;
+  animation: fadeIn 1.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== BOUTON DOWNLOAD ===== */
+.btn-download {
+  display: inline-block !important;
+  padding: 1rem 2.5rem !important;
+  background: linear-gradient(135deg, #238636, #2ea043) !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(35, 134, 54, 0.4) !important;
+  animation: fadeIn 1.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-download::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-download:hover::before {
+  left: 100%;
+}
+
+.btn-download:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(35, 134, 54, 0.6) !important;
+}
+
+/* ===== SECTION COMPÉTENCES ===== */
+.skills-section {
+  margin-top: 3rem;
+  animation: fadeIn 2s ease;
+}
+
+.skills-title {
+  color: #58a6ff !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.3rem !important;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.skill-badge {
+  background: rgba(88, 166, 255, 0.1);
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-badge:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateY(-5px);
+  border-color: #58a6ff;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: #adb7c2;
+}
+
+/* ===== FIX POUR LA NAVBAR ===== */
+nav, .navbar, header {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .glass-card h1 {
+    font-size: 2rem !important;
+  }
+  
+  .glass-card {
+    padding: 2rem;
+  }
+  
+  .profile-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  
+  .landing-container {
+    padding-top: 20px;
+  }
+}
+
+</style>
+
+<div class="gradient-bg"></div>
+<canvas id="particles"></canvas>
+
+<div class="landing-container">
+    <div class="glass-card">
+        <div class="profile-wrapper">
+            <img src="{{ site.author.image }}" alt="{{ site.title }}" class="profile-image">
+        </div>
+        
+        <h1>EL MEHDI Hicham</h1>
+        <p class="subtitle">AI Engineer / Data Scientist</p>
+        <p class="description">
+            Specialized in Computer Vision & Deep Learning | Passionate about building intelligent systems for real-world applications
+        </p>
+        
+        <a href="{{ '/assets/pdfs/My_resume.pdf' | relative_url }}" download class="btn-download">
+            📥 Download CV
+        </a>
+        
+        <div class="skills-section">
+            <h3 class="skills-title">Core Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-badge">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-name">AI/ML</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">👁️</div>
+                    <div class="skill-name">Computer Vision</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">🧠</div>
+                    <div class="skill-name">Deep Learning</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">🎯</div>
+                    <div class="skill-name">YOLO/Detection</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">🚀</div>
+                    <div class="skill-name">PyTorch</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">☁️</div>
+                    <div class="skill-name">AWS/Docker</div>
+                </div>
+                <div class="skill-badge">
+                    <div class="skill-icon">🤖</div>
+                    <div class="skill-name">ROS2</div>
                 </div>
             </div>
-
-            <p class="text-muted wow animated slideInUp" data-wow-delay=".15s">{{ site.description }}</p>
-            <a href="cv.pdf" download class="btn btn-primary wow animated slideInUp" data-wow-delay=".2s">Download CV</a>
         </div>
     </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-</body>
-</html>
+<script src="{{ '/assets/js/particles.js' | relative_url }}"></script>

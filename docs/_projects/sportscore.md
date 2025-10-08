@@ -1,13 +1,38 @@
 ---
-title: "Automated Futsal Video Analysis (PFE chez SportScore)"
 layout: project
-slug: "sportscore"
+title: "Automated Futsal Video Analysis (PFE chez SportScore)"
 description: "Pipeline IA pour analyser vidéos futsal : détection, tracking et classification d'actions avec filtrage intelligent."
-image: "img/projects/SportScore.gif"
+image: "/assets/img/projects/SportScore.gif"
 tools: [Python, OpenCV, YOLOv8, DeepSORT]
 demo_anchor: "#sportscore-demo"
+category: tracking
+tags:
+  - Tracking
+  - DeepSORT
+  - Kalman Filter
+  - Sports Analytics
+github: https://github.com/votreusername/deepsort-tracking
+date: 2024-02-10
 ---
+## À propos du projet
 
+Système de suivi multi-objets en temps réel pour l'analyse sportive, utilisant DeepSORT avec filtre de Kalman.
+
+## Fonctionnalités
+
+- Suivi de joueurs en temps réel
+- Analyse de trajectoires
+- Génération de heatmaps
+- Statistiques de mouvement
+
+## Stack technique
+
+- Python
+- DeepSORT
+- OpenCV
+- NumPy
+
+## Résultats
 # Automated Futsal Video Analysis
 
 ## Architecture du Projet

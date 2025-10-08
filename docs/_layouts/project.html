@@ -1,129 +1,188 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  {% include head.html %}
-  <title>{{ page.title }} | Hicham El Mehdi</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-  {% include navbar.html %}
+---
+layout: default
+---
 
+<style>
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  color: #9ba3b4;
+  margin-bottom: 2rem;
+}
+
+.project-hero-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.project-tags-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.project-tag-detail {
+  padding: 0.5rem 1rem;
+  background: rgba(88, 166, 255, 0.15);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #58a6ff;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.project-action-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-github {
+  background: rgba(35, 134, 54, 0.1);
+  border: 1px solid rgba(35, 134, 54, 0.3);
+  color: #238636;
+}
+
+.btn-github:hover {
+  background: rgba(35, 134, 54, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-demo {
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  color: #58a6ff;
+}
+
+.btn-demo:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-content {
+  color: #e6edf3;
+  line-height: 1.8;
+}
+
+.project-content h2 {
+  color: #58a6ff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-content h3 {
+  color: #9ba3b4;
+  margin-top: 1.5rem;
+}
+
+.project-content ul, .project-content ol {
+  margin-left: 1.5rem;
+  color: #9ba3b4;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<article class="project-detail">
   <header class="project-header">
-    <div class="container">
-      <a href="{{ site.baseurl }}/projects/" class="back-link">← Retour aux Projets</a>
-      <h1>{{ page.title }}</h1>
-      {% if page.image %}
-        <img src="{{ site.baseurl }}/assets/{{ page.image | split: '/' | join: '/' }}" alt="{{ page.title }} hero" class="project-hero">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="project-meta">
+      {% if page.date %}
+      <span>📅 {{ page.date | date: "%B %Y" }}</span>
+      {% endif %}
+      <span>📂 {{ page.category | replace: "-", " " | capitalize }}</span>
+    </div>
+
+    {% if page.image %}
+    <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.title }}" class="project-hero-image">
+    {% endif %}
+
+    {% if page.tags %}
+    <div class="project-tags-detail">
+      {% for tag in page.tags %}
+      <span class="project-tag-detail">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="project-actions">
+      {% if page.github %}
+      <a href="{{ page.github }}" target="_blank" rel="noopener" class="project-action-btn btn-github">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Voir sur GitHub
+      </a>
+      {% endif %}
+
+      {% if page.demo %}
+      <a href="{{ page.demo }}" target="_blank" rel="noopener" class="project-action-btn btn-demo">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+        </svg>
+        Voir la démo
+      </a>
       {% endif %}
     </div>
   </header>
 
-  <main class="project-details container">
-    {{ content }}  <!-- Ton Markdown : PDF, explications, code -->
+  <div class="project-content">
+    {{ content }}
+  </div>
 
-    <!-- Bouton démo à la fin (toujours visible, href auto avec slug) -->
-    <section class="demo-section">
-      <h2>Prêt pour la démo ?</h2>
-      <p>Voir la vidéo en action sur la page Demos !</p>
-      <a href="{{ site.baseurl }}/demos/#{{ page.slug | default: 'futsal' }}-demo" class="demo-btn-large">▶ Voir la Vidéo Démo</a>
-    </section>
-  </main>
-
-  {% include footer.html %}
-  {% include scripts.html %}
-
-  <style>
-  .project-header { 
-    text-align: center; 
-    padding: 3rem 0; 
-    background: linear-gradient(135deg, #1e1e2f, #2d1b69); 
-  }
-  .container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 1rem; 
-  }
-  .back-link { 
-    color: #007bff; 
-    text-decoration: none; 
-    margin-bottom: 1rem; 
-    font-weight: 500; 
-    display: inline-block; 
-  }
-  .back-link:hover { 
-    color: #0056b3; 
-  }
-  .project-header h1 { 
-    color: #fff; 
-    font-size: 2.5rem; 
-    margin-bottom: 1rem; 
-  }
-  .project-hero { 
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 12px; 
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3); 
-  }
-  .project-details { 
-    padding: 3rem 0; 
-    line-height: 1.7; 
-  }
-  .demo-section { 
-    text-align: center; 
-    margin-top: 3rem; 
-    padding: 2rem; 
-    background: #1e1e2f; 
-    border-radius: 12px; 
-    display: block !important; 
-    visibility: visible !important; 
-  }
-  .demo-section h2 { 
-    color: #fff; 
-    margin-bottom: 0.5rem; 
-  }
-  .demo-section p { 
-    color: #ccc; 
-    margin-bottom: 1rem; 
-  }
-  .demo-btn-large { 
-    background: linear-gradient(135deg, #007bff, #0056b3); 
-    color: white; 
-    padding: 1rem 2rem; 
-    border-radius: 50px; 
-    text-decoration: none; 
-    font-size: 1.1rem; 
-    font-weight: bold; 
-    display: inline-block; 
-    margin-top: 1rem; 
-    box-shadow: 0 4px 15px rgba(0,123,255,0.3); 
-    transition: all 0.3s ease; 
-  }
-  .demo-btn-large:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0,123,255,0.4); 
-  }
-  .project-details img { 
-    max-width: 100%; 
-    height: auto; 
-    border-radius: 10px; 
-    margin: 1rem 0; 
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2); 
-  }
-  .project-details code { 
-    background: #2d1b69; 
-    padding: 0.5rem; 
-    border-radius: 6px; 
-    color: #f8f8f2; 
-    overflow-x: auto; 
-  }
-  @media (max-width: 768px) { 
-    .project-details { 
-      padding: 2rem 0; 
-    } 
-    .project-header h1 { 
-      font-size: 2rem; 
-    } 
-  }
-  </style>
-</body>
-</html>
+  <div class="back-link">
+    <a href="{{ site.baseurl }}/projects/">← Retour aux projets</a>
+  </div>
+</article>
