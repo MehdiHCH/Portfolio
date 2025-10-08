@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning">
+  <meta property="og:description" content="Système de navigation autonome utilisant ROS2, Gazebo et Deep Reinforcement Learning (TD3) pour une conduite intelligente et sécurisée dans des environnement...">
+  <meta property="og:image" content="/assets/img/projects/roborangers.gif">
+
+  <title>RoboRangers - Voiture Autonome avec Deep Reinforcement Learning</title>
+  <meta name="description" content="Système de navigation autonome utilisant ROS2, Gazebo et Deep Reinforcement Learning (TD3) pour une conduite intelligente et sécurisée dans des environnement...">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/Portfolio/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/Portfolio/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Portfolio/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/Portfolio/"><h5><b>Hicham El Mehdi</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/Portfolio/projects/">My Projects</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/">Demos</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <style>
+.project-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.project-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  color: #9ba3b4;
+  margin-bottom: 2rem;
+}
+
+.project-hero-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.project-tags-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.project-tag-detail {
+  padding: 0.5rem 1rem;
+  background: rgba(88, 166, 255, 0.15);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #58a6ff;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.project-action-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-github {
+  background: rgba(35, 134, 54, 0.1);
+  border: 1px solid rgba(35, 134, 54, 0.3);
+  color: #238636;
+}
+
+.btn-github:hover {
+  background: rgba(35, 134, 54, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-demo {
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  color: #58a6ff;
+}
+
+.btn-demo:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-content {
+  color: #e6edf3;
+  line-height: 1.8;
+}
+
+.project-content h2 {
+  color: #58a6ff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-content h3 {
+  color: #9ba3b4;
+  margin-top: 1.5rem;
+}
+
+.project-content ul, .project-content ol {
+  margin-left: 1.5rem;
+  color: #9ba3b4;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.back-link a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<article class="project-detail">
+  <header class="project-header">
+    <h1>RoboRangers - Voiture Autonome avec Deep Reinforcement Learning</h1>
+    
+    <div class="project-meta">
+      
+      <span>📅 June 2024</span>
+      
+      <span>📂 Robotics</span>
+    </div>
+
+    
+    <img src="/Portfolio/assets/img/projects/roborangers.gif" alt="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning" class="project-hero-image">
+    
+
+    
+    <div class="project-tags-detail">
+      
+      <span class="project-tag-detail">Autonomous Driving</span>
+      
+      <span class="project-tag-detail">ROS2</span>
+      
+      <span class="project-tag-detail">Gazebo</span>
+      
+      <span class="project-tag-detail">Deep Reinforcement Learning</span>
+      
+      <span class="project-tag-detail">TD3</span>
+      
+      <span class="project-tag-detail">LIDAR</span>
+      
+      <span class="project-tag-detail">Computer Vision</span>
+      
+      <span class="project-tag-detail">Robotics</span>
+      
+    </div>
+    
+
+    <div class="project-actions">
+      
+      <a href="https://github.com/MEHDI57-NRG/RoboRangers" target="_blank" rel="noopener" class="project-action-btn btn-github">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        Voir sur GitHub
+      </a>
+      
+
+      
+      <a href="/assets/videos/roborangers_demo.mp4" target="_blank" rel="noopener" class="project-action-btn btn-demo">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+        </svg>
+        Voir la démo
+      </a>
+      
+    </div>
+  </header>
+
+  <div class="project-content">
+    <h2 id="-project-overview">🎯 Project Overview</h2>
+
+<p><strong>RoboRangers</strong> est un projet de <strong>voiture autonome</strong> utilisant <strong>Deep Reinforcement Learning (DRL)</strong> et <strong>ROS2</strong> pour la navigation intelligente dans des environnements simulés. Le système intègre des capteurs LIDAR et caméras pour une perception complète, et implémente l’algorithme <strong>TD3</strong> (Twin Delayed Deep Deterministic Policy Gradient) pour la prise de décision autonome.</p>
+
+<p><strong>Équipe:</strong></p>
+<ul>
+  <li><strong>ALAMI AROUSSI Zineb</strong></li>
+  <li><strong>GRICHE MOHAMMED Imrane</strong></li>
+  <li><strong>HICHAM EL Mehdi</strong></li>
+  <li><strong>MOUTIA Salma</strong></li>
+</ul>
+
+<p><strong>Sous la direction de:</strong> Pr. BOUKIR Khaoula</p>
+
+<p><strong>Mission:</strong> Développer un véhicule autonome capable de naviguer, éviter les obstacles et respecter les panneaux de signalisation dans un environnement dynamique.</p>
+
+<hr />
+
+<h2 id="-problem-statement">🔍 Problem Statement</h2>
+
+<h3 id="challenges">Challenges</h3>
+
+<p><strong>Problématique:</strong> Comment permettre à un système d’apprendre à prendre des décisions en temps réel en fonction des changements dans son environnement tout en garantissant sécurité et efficacité?</p>
+
+<ul>
+  <li>🚗 <strong>Accidents routiers:</strong> Erreurs humaines = principale cause de décès</li>
+  <li>🚦 <strong>Embouteillages:</strong> Pertes économiques et pollution</li>
+  <li>👥 <strong>Accessibilité:</strong> Mobilité limitée pour personnes âgées/handicapées</li>
+  <li>🌍 <strong>Impact environnemental:</strong> Émissions de CO2 élevées</li>
+  <li>🎯 <strong>Navigation complexe:</strong> Environnements dynamiques et imprévisibles</li>
+</ul>
+
+<h3 id="solution">Solution</h3>
+
+<p>Voiture autonome intégrant:</p>
+<ul>
+  <li><strong>ROS2:</strong> Communication inter-modules distribuée</li>
+  <li><strong>Gazebo:</strong> Simulation 3D réaliste pour tests sécurisés</li>
+  <li><strong>DRL (TD3):</strong> Apprentissage autonome par essai-erreur</li>
+  <li><strong>Capteurs multi-modaux:</strong> LIDAR + Caméras pour perception 360°</li>
+</ul>
+
+<hr />
+
+<h2 id="️-technical-architecture">🏗️ Technical Architecture</h2>
+
+<div align="center">
+
+![RoboRangers Architecture](/assets/img/projects/roborangers_arch.png)
+
+**Architecture système complète RoboRangers**
+
+</div>
+
+<hr />
+
+<h3 id="-system-components">🔧 System Components</h3>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### **Perception Layer**
+
+![Sensors Integration](/assets/img/projects/roborangers_sensors.png)
+
+**Capteurs:**
+- 📹 **Caméras RGB:** Détection obstacles, panneaux
+- 🔵 **LIDAR Velodyne:** Mesure distances 360°
+- 📊 **Point Cloud Processing:** Données 3D temps réel
+- 🎯 **Fusion sensorielle:** Perception robuste
+
+</td>
+<td width="50%" valign="top">
+
+#### **Decision &amp; Control**
+
+![TD3 Algorithm](/assets/img/projects/roborangers_td3.png)
+
+**Intelligence:**
+- 🧠 **TD3 Agent:** Apprentissage par renforcement
+- 🎮 **Action Selection:** Steering, accélération, freinage
+- 📈 **Reward Function:** Sécurité + efficacité
+- 🔄 **Continuous Learning:** Amélioration itérative
+
+</td>
+</tr>
+</table>
+
+<hr />
+
+<h3 id="-ros2-architecture">📐 ROS2 Architecture</h3>
+
+<pre><code class="language-mermaid">graph TD
+    A[🎥 Camera Node] --&gt; D[Fusion Node]
+    B[🔵 LIDAR Node] --&gt; D
+    C[📍 Localization Node] --&gt; D
+    D --&gt; E[🧠 TD3 DRL Agent]
+    E --&gt; F[🎮 Control Node]
+    F --&gt; G[🚗 Vehicle Actuators]
+    G --&gt; H[Gazebo Simulation]
+    H --&gt; A
+    H --&gt; B
+    
+    style E fill:#fff3cd
+    style D fill:#e1f5ff
+    style G fill:#d4edda
+</code></pre>
+
+<hr />
+
+<h2 id="️-ros2--gazebo-integration">⚙️ ROS2 &amp; Gazebo Integration</h2>
+
+<h3 id="ros2-robot-operating-system-2">ROS2 (Robot Operating System 2)</h3>
+
+<p><strong>Description:</strong></p>
+<ul>
+  <li>Framework open-source pour développement robotique</li>
+  <li>Communication distribuée entre nœuds</li>
+  <li>Support multi-langages (Python, C++)</li>
+  <li>Temps-réel et fiabilité</li>
+</ul>
+
+<p><strong>Architecture de Communication:</strong></p>
+<ul>
+  <li><strong>Publisher-Subscriber:</strong> Topics pour échange de données</li>
+  <li><strong>Master Node:</strong> Coordination des connexions</li>
+  <li><strong>Messages standardisés:</strong> Formats prédéfinis (sensor_msgs, geometry_msgs)</li>
+</ul>
+
+<h3 id="gazebo-simulator">Gazebo Simulator</h3>
+
+<p><strong>Fonctionnalités:</strong></p>
+<ul>
+  <li>🌍 <strong>Environnement 3D réaliste:</strong> Routes, obstacles, panneaux</li>
+  <li>⚙️ <strong>Moteur physique:</strong> Gravité, collisions, friction</li>
+  <li>🤖 <strong>Multi-robots:</strong> Simulations à grande échelle</li>
+  <li>🔗 <strong>Intégration ROS2:</strong> Communication seamless</li>
+</ul>
+
+<p><strong>Avantages:</strong></p>
+<ul>
+  <li>Tests sécurisés sans risque matériel</li>
+  <li>Itérations rapides sur algorithmes</li>
+  <li>Scénarios reproductibles</li>
+</ul>
+
+<hr />
+
+<h2 id="-td3-twin-delayed-ddpg-algorithm">🚀 TD3 (Twin Delayed DDPG) Algorithm</h2>
+
+<h3 id="description">Description</h3>
+
+<p><strong>TD3</strong> améliore DDPG (Deep Deterministic Policy Gradient) avec 3 innovations:</p>
+<ol>
+  <li><strong>Twin Critics:</strong> Deux réseaux critiques pour réduire biais</li>
+  <li><strong>Delayed Policy Updates:</strong> Maj acteur moins fréquente</li>
+  <li><strong>Target Policy Smoothing:</strong> Bruit sur actions target</li>
+</ol>
+
+<h3 id="architecture">Architecture</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────┐
+│         TD3 Agent                   │
+├─────────────────────────────────────┤
+│                                     │
+│  Actor Network (μθ)                 │
+│  ├─ Input: State (LIDAR + Image)   │
+│  └─ Output: Action (steering, vel) │
+│                                     │
+│  Twin Critic Networks (Qφ1, Qφ2)   │
+│  ├─ Input: State + Action           │
+│  └─ Output: Q-value                 │
+│                                     │
+│  Replay Buffer                      │
+│  └─ Store: (s, a, r, s')            │
+│                                     │
+└─────────────────────────────────────┘
+</code></pre></div></div>
+
+<h3 id="state-space">State Space</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Composant</th>
+      <th>Description</th>
+      <th>Dimension</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>LIDAR</strong></td>
+      <td>Distances obstacles 360°</td>
+      <td>720 points</td>
+    </tr>
+    <tr>
+      <td><strong>Velocity</strong></td>
+      <td>Vitesse linéaire/angulaire</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Goal</strong></td>
+      <td>Distance/angle vers objectif</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td>État complet</td>
+      <td>724</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="action-space">Action Space</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Range</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Steering</strong></td>
+      <td>[-1, 1]</td>
+      <td>Angle de rotation</td>
+    </tr>
+    <tr>
+      <td><strong>Velocity</strong></td>
+      <td>[0, 1]</td>
+      <td>Vitesse linéaire</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="reward-function">Reward Function</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reward</span> <span class="o">=</span> <span class="n">distance_to_goal</span> <span class="o">*</span> <span class="n">w1</span> 
+         <span class="o">-</span> <span class="n">collision_penalty</span> <span class="o">*</span> <span class="n">w2</span>
+         <span class="o">-</span> <span class="n">deviation_from_path</span> <span class="o">*</span> <span class="n">w3</span>
+         <span class="o">+</span> <span class="n">goal_reached_bonus</span> <span class="o">*</span> <span class="n">w4</span>
+</code></pre></div></div>
+
+<p><strong>Composantes:</strong></p>
+<ul>
+  <li>✅ <strong>Progression:</strong> Récompense pour avancement vers objectif</li>
+  <li>❌ <strong>Collisions:</strong> Pénalité élevée (-100)</li>
+  <li>📏 <strong>Trajectoire:</strong> Pénalité pour déviation</li>
+  <li>🎯 <strong>Objectif atteint:</strong> Bonus important (+100)</li>
+</ul>
+
+<hr />
+
+<h2 id="️-implementation-details">🛠️ Implementation Details</h2>
+
+<h3 id="project-structure">Project Structure</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RoboRangers/
+├── src/
+│   └── td3/
+│       ├── models/              # URDF robot descriptions
+│       │   └── velodyne_description/
+│       ├── launch/              # ROS2 launch files
+│       │   └── launch_sim.launch.py
+│       ├── scripts/             # Python implementations
+│       │   ├── train_velodyne_node.py
+│       │   ├── test_velodyne_node.py
+│       │   ├── replay_buffer.py
+│       │   └── td3_algorithm.py
+│       ├── pytorch_models/      # Trained models
+│       │   ├── td3_velodyne_actor.pth
+│       │   └── td3_velodyne_critic.pth
+│       └── worlds/              # Gazebo simulation worlds
+└── package.xml
+</code></pre></div></div>
+
+<h3 id="training-configuration">Training Configuration</h3>
+
+<p><strong>Hyperparamètres TD3:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'actor_lr'</span><span class="p">:</span> <span class="mf">3e-4</span><span class="p">,</span>
+    <span class="s">'critic_lr'</span><span class="p">:</span> <span class="mf">3e-4</span><span class="p">,</span>
+    <span class="s">'gamma'</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span>           <span class="c1"># Discount factor
+</span>    <span class="s">'tau'</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>            <span class="c1"># Target network update rate
+</span>    <span class="s">'policy_noise'</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="s">'noise_clip'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s">'policy_delay'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>       <span class="c1"># Actor update frequency
+</span>    <span class="s">'buffer_size'</span><span class="p">:</span> <span class="mf">1e6</span><span class="p">,</span>
+    <span class="s">'batch_size'</span><span class="p">:</span> <span class="mi">256</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Training Process:</strong></p>
+<ul>
+  <li>Episodes: 1000+</li>
+  <li>Max steps per episode: 500</li>
+  <li>Training time: ~48h on RTX 4060</li>
+</ul>
+
+<hr />
+
+<h2 id="-functionalities-achieved">📊 Functionalities Achieved</h2>
+
+<h3 id="-core-features">✅ Core Features</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fonctionnalité</th>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Navigation Autonome</strong></td>
+      <td>✅</td>
+      <td>Suivi de trajectoire prédéfinie</td>
+    </tr>
+    <tr>
+      <td><strong>Détection Obstacles</strong></td>
+      <td>✅</td>
+      <td>LIDAR + Caméras en temps réel</td>
+    </tr>
+    <tr>
+      <td><strong>Évitement Collisions</strong></td>
+      <td>✅</td>
+      <td>Réaction dynamique aux obstacles</td>
+    </tr>
+    <tr>
+      <td><strong>Reconnaissance Panneaux</strong></td>
+      <td>🟡</td>
+      <td>Détection basique implémentée</td>
+    </tr>
+    <tr>
+      <td><strong>DRL Integration</strong></td>
+      <td>🟡</td>
+      <td>TD3 partiellement intégré</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="-visual-results">🎥 Visual Results</h3>
+
+<div align="center">
+
+![RoboRangers in Action](/assets/img/projects/roborangers_demo.png)
+
+**Voiture autonome naviguant avec détection d'obstacles (cônes + piétons)**
+
+</div>
+
+<p><strong>LIDAR Visualization:</strong></p>
+<ul>
+  <li>Lignes bleues: Rayons LIDAR</li>
+  <li>Centre rouge: Position capteur</li>
+  <li>Obstacles détectés en temps réel</li>
+</ul>
+
+<hr />
+
+<h2 id="️-challenges--solutions">🛠️ Challenges &amp; Solutions</h2>
+
+<h3 id="challenge-1-intégration-drl">Challenge 1: Intégration DRL</h3>
+
+<p><strong>Problème:</strong> Difficultés environnementales ROS2-Gazebo-TD3<br />
+<strong>Status:</strong> Partiellement résolu<br />
+<strong>Solution appliquée:</strong></p>
+<ul>
+  <li>Séparation des modules (perception / décision / contrôle)</li>
+  <li>Tests unitaires indépendants</li>
+  <li>Fallback sur contrôle réactif simple</li>
+</ul>
+
+<h3 id="challenge-2-lidar-processing">Challenge 2: LIDAR Processing</h3>
+
+<p><strong>Problème:</strong> Volume de données élevé (720 points @ 10Hz)<br />
+<strong>Solution:</strong></p>
+<ul>
+  <li>Downsampling intelligent (720→180 points)</li>
+  <li>Filtrage par distance (ROI: 0.5m - 10m)</li>
+  <li>Processing GPU pour point cloud</li>
+</ul>
+
+<h3 id="challenge-3-sim-to-real-gap">Challenge 3: Sim-to-Real Gap</h3>
+
+<p><strong>Problème:</strong> Simulation ≠ Réalité (physique, capteurs)<br />
+<strong>Solution future:</strong></p>
+<ul>
+  <li>Domain randomization (friction, lighting)</li>
+  <li>Sensor noise injection</li>
+  <li>Sim2Real transfer learning</li>
+</ul>
+
+<hr />
+
+<h2 id="-impact--value">💼 Impact &amp; Value</h2>
+
+<h3 id="for-transportation">For Transportation</h3>
+
+<p>✅ <strong>Réduction accidents:</strong> -90% erreurs humaines<br />
+✅ <strong>Fluidité trafic:</strong> Optimisation trajectoires<br />
+✅ <strong>Accessibilité:</strong> Mobilité pour tous<br />
+✅ <strong>Environnement:</strong> -30% émissions CO2</p>
+
+<h3 id="for-research">For Research</h3>
+
+<p>✅ <strong>Plateforme open-source</strong> pour DRL robotique<br />
+✅ <strong>Benchmark</strong> ROS2 + Gazebo + TD3<br />
+✅ <strong>Reproductibilité</strong> via simulation<br />
+✅ <strong>Extensibilité</strong> à autres robots mobiles</p>
+
+<hr />
+
+<h2 id="-future-improvements">🔮 Future Improvements</h2>
+
+<p><strong>Short-Term:</strong></p>
+<ul>
+  <li>Finaliser intégration TD3 complète</li>
+  <li>Améliorer reconnaissance panneaux (CNN)</li>
+  <li>Multi-agent scenarios (plusieurs véhicules)</li>
+</ul>
+
+<p><strong>Long-Term:</strong></p>
+<ul>
+  <li>Deployment sur robot physique (TurtleBot3)</li>
+  <li>Real-world testing avec capteurs réels</li>
+  <li>V2V Communication (Vehicle-to-Vehicle)</li>
+  <li>End-to-end learning (pixels → actions)</li>
+</ul>
+
+<hr />
+
+<h2 id="️-technical-stack">🛠️ Technical Stack</h2>
+
+<p><strong>Robotics:</strong> ROS2 Humble, Gazebo 11<br />
+<strong>Deep Learning:</strong> PyTorch, Stable-Baselines3<br />
+<strong>Sensors:</strong> Velodyne LIDAR, RGB Cameras<br />
+<strong>Languages:</strong> Python 3.10, C++<br />
+<strong>Tools:</strong> Rviz, rqt, TensorBoard<br />
+<strong>Hardware:</strong> NVIDIA RTX 4060, AMD Ryzen 7</p>
+
+<hr />
+
+<h2 id="-skills-developed">🎓 Skills Developed</h2>
+
+<ul>
+  <li><strong>ROS2 Mastery:</strong> Nodes, Topics, Services, Launch files</li>
+  <li><strong>Reinforcement Learning:</strong> TD3, DDPG, Actor-Critic</li>
+  <li><strong>Sensor Fusion:</strong> LIDAR + Camera integration</li>
+  <li><strong>Robotics Simulation:</strong> Gazebo worlds, URDF modeling</li>
+  <li><strong>Autonomous Systems:</strong> Path planning, obstacle avoidance</li>
+</ul>
+
+<hr />
+
+<h2 id="-key-references">📚 Key References</h2>
+
+<ol>
+  <li><strong>TD3 Algorithm</strong> (Fujimoto et al., 2018) - ICML</li>
+  <li><strong>ROS2 Documentation</strong> - Open Robotics</li>
+  <li><strong>Gazebo Simulator</strong> - OSRF</li>
+  <li><strong>Deep Reinforcement Learning</strong> (Sutton &amp; Barto, 2018)</li>
+</ol>
+
+<hr />
+
+<h2 id="-contact">📧 Contact</h2>
+
+<p><strong>Team Lead:</strong> El Mehdi Hicham<br />
+<strong>Email:</strong> mehdihicham736@gmail.com<br />
+<strong>GitHub:</strong> <a href="https://github.com/MEHDI57-NRG/RoboRangers">github.com/MEHDI57-NRG/RoboRangers</a><br />
+<strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elmehdihicham">linkedin.com/in/elmehdihicham</a></p>
+
+<p><strong>Team Members:</strong></p>
+<ul>
+  <li>ALAMI AROUSSI Zineb</li>
+  <li>GRICHE MOHAMMED Imrane</li>
+  <li>MOUTIA Salma</li>
+</ul>
+
+<p><strong>Supervisor:</strong> Pr. BOUKIR Khaoula<br />
+<strong>Institution:</strong> Faculté des Sciences, Ibn Tofail University</p>
+
+<hr />
+
+<h2 id="-achievements">🏆 Achievements</h2>
+
+<p>✅ <strong>Navigation autonome</strong> fonctionnelle dans Gazebo<br />
+✅ <strong>Détection obstacles</strong> temps réel (LIDAR + Caméras)<br />
+✅ <strong>Architecture ROS2</strong> modulaire et extensible<br />
+✅ <strong>TD3 Agent</strong> partiellement intégré<br />
+✅ <strong>Open-source</strong> sur GitHub pour la communauté</p>
+
+<hr />
+
+<p><em>Système de conduite autonome combinant robotique moderne (ROS2), simulation réaliste (Gazebo) et intelligence artificielle (Deep RL) pour une mobilité sûre et efficace.</em></p>
+
+  </div>
+
+  <div class="back-link">
+    <a href="/Portfolio/projects/">← Retour aux projets</a>
+  </div>
+</article>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>EL MEHDI Hicham</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:mehdihicham736@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/MehdiHCH"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/elmehdihicham"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>
