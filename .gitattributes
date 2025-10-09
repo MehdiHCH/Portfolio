@@ -1,1 +1,0 @@
-docs/assets/videos/sportscore/*.mp4 filter=lfs diff=lfs merge=lfs -text
