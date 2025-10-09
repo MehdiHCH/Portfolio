@@ -13,17 +13,16 @@ tags:
   - Deep Learning
   - OCR
   - Homography
-demo: /assets/videos/futsal_demo.mp4
 demos:
-  - title: "Full Match Analysis Pipeline"
-    video: /assets/videos/futsal_full_pipeline.mp4
+  - title: "Frame classification"
+    video: /assets/videos/sportscore/Class.mp4
     description: "Complete automated analysis of a futsal match"
   - title: "Action Detection & Classification"
-    video: /assets/videos/futsal_actions.mp4
+    video: /assets/videos/sportscore/Action_detection.mp4
     description: "Real-time detection of passes, shots, dribbles, and goals"
-  - title: "Trajectory Visualization & Heatmaps"
-    video: /assets/videos/futsal_viz.mp4
-    description: "Player trajectories, pass maps, and tactical insights"
+  - title: "Object Detection (Goal Recognition)"
+    video: /assets/videos/sportscore/IS_But.mp4
+    description: "But"
 date: 2025-04-01
 company: SPORTSCORE
 location: Paris, France (Remote)

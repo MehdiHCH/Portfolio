@@ -1,0 +1,349 @@
+---
+layout: default
+title: Futsal Analysis - Demos
+permalink: /demos/futsal-analysis-demos.html
+weight: 3
+---
+
+<style>
+  .demo-page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #1e1e2f 0%, #2d1b69 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+  
+  .demo-page-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #00bfff 0%, #007bff 50%, #8a2be2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .demo-page-subtitle {
+    color: #00bfff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .demo-page-description {
+    color: #bbb;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .back-link:hover {
+    color: #0056b3;
+  }
+  
+  .demos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .demo-section {
+    background: linear-gradient(135deg, #1e1e2f 0%, #2d1b69 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+    transition: all 0.4s ease;
+  }
+  
+  .demo-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 123, 255, 0.3);
+  }
+  
+  .demo-section:nth-child(1) { animation-delay: 0.1s; }
+  .demo-section:nth-child(2) { animation-delay: 0.2s; }
+  .demo-section:nth-child(3) { animation-delay: 0.3s; }
+  
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .demo-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #00bfff;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .demo-section-title span {
+    font-size: 1.8rem;
+  }
+  
+  .demo-section-description {
+    color: #ddd;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .demo-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .demo-stat {
+    background: rgba(0, 123, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 123, 255, 0.3);
+  }
+  
+  .demo-stat-label {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .demo-stat-value {
+    color: #00bfff;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .btn-container {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn:hover::before {
+    left: 100%;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+  }
+  
+  .btn.secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+  }
+  
+  .btn.secondary:hover {
+    box-shadow: 0 6px 16px rgba(108, 117, 125, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    .demo-section {
+      padding: 1.5rem;
+    }
+    .demo-page-header {
+      padding: 1.5rem 1rem;
+    }
+    .demo-stats {
+      gap: 1rem;
+    }
+    .btn-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>
+
+<a href="{{ '/demos/' | relative_url }}" class="back-link">← Back to All Demos</a>
+
+<div class="demo-page-header">
+  <h1 class="demo-page-title">⚽ Automated Futsal Video Analysis</h1>
+  <p class="demo-page-subtitle">for Performance Reporting</p>
+  <p class="demo-page-description">
+    Discover the complete AI pipeline for automated futsal match analysis. From frame classification 
+    to action detection and goal recognition, explore how YOLOv11 and DeepSORT transform raw video 
+    into actionable tactical insights.
+  </p>
+</div>
+
+<div class="demos-container">
+  
+  <!-- Demo 1 : Frame Classification -->
+  <div class="demo-section">
+    <h2 class="demo-section-title">
+      <span>🎯</span> Frame Classification
+    </h2>
+    <p class="demo-section-description">
+      Complete automated analysis of a futsal match using YOLOv11m-cls to filter relevant gameplay 
+      frames and discard replays, transitions, and non-gameplay sequences.
+    </p>
+    <div class="demo-stats">
+      <div class="demo-stat">
+        <div class="demo-stat-label">Accuracy</div>
+        <div class="demo-stat-value">99.95%</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Processing Improvement</div>
+        <div class="demo-stat-value">20% Faster</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Model</div>
+        <div class="demo-stat-value">YOLOv11m-cls</div>
+      </div>
+    </div>
+    <div class="video-container">
+      <video controls preload="metadata">
+        <source src="{{ '/assets/videos/sportscore/Class.mp4' | relative_url }}" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </div>
+  
+  <!-- Demo 2 : Action Detection -->
+  <div class="demo-section">
+    <h2 class="demo-section-title">
+      <span>⚽</span> Action Detection & Classification
+    </h2>
+    <p class="demo-section-description">
+      Real-time detection and classification of player actions including passes (7 types), shots, 
+      dribbles, interceptions, and goals. The system uses spatio-temporal rules and DeepSORT tracking 
+      to maintain player identity and attribute actions accurately.
+    </p>
+    <div class="demo-stats">
+      <div class="demo-stat">
+        <div class="demo-stat-label">Actions Detected</div>
+        <div class="demo-stat-value">7 Pass Types + 4 Actions</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Tracking</div>
+        <div class="demo-stat-value">DeepSORT</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Real-time</div>
+        <div class="demo-stat-value">Yes</div>
+      </div>
+    </div>
+    <div class="video-container">
+      <video controls preload="metadata">
+        <source src="{{ '/assets/videos/sportscore/Action_detection.mp4' | relative_url }}" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </div>
+  
+  <!-- Demo 3 : Goal Recognition -->
+  <div class="demo-section">
+    <h2 class="demo-section-title">
+      <span>🥅</span> Object Detection (Goal Recognition)
+    </h2>
+    <p class="demo-section-description">
+      Advanced ball detection and goal confirmation using fine-tuned YOLOv11x. The system validates 
+      goals through homography-based spatial projection and automatically attributes assists based on 
+      preceding actions.
+    </p>
+    <div class="demo-stats">
+      <div class="demo-stat">
+        <div class="demo-stat-label">Ball Detection Precision</div>
+        <div class="demo-stat-value">90.1%</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Goal Validation</div>
+        <div class="demo-stat-value">Homography-based</div>
+      </div>
+      <div class="demo-stat">
+        <div class="demo-stat-label">Model</div>
+        <div class="demo-stat-value">YOLOv11x</div>
+      </div>
+    </div>
+    <div class="video-container">
+      <video controls preload="metadata">
+        <source src="{{ '/assets/videos/sportscore/IS_But.mp4' | relative_url }}" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Action buttons -->
+<div class="btn-container">
+  <a href="{{ '/projects/automated-futsal-video-analysis-for-performance-reporting/' | relative_url }}" class="btn secondary">
+    📄 Full Project Details
+  </a>
+  <a href="{{ '/demos/' | relative_url }}" class="btn">
+    🎬 View All Demos
+  </a>
+</div>
