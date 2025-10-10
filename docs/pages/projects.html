@@ -223,6 +223,69 @@ weight: 1
   border-color: #58a6ff;
 }
 
+/* ===== CONFIDENTIAL BUTTON ===== */
+.project-link.confidential-link {
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+  color: #f85149;
+  cursor: not-allowed;
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+
+.project-link.confidential-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(248, 81, 73, 0.08) 8px,
+    rgba(248, 81, 73, 0.08) 16px
+  );
+  pointer-events: none;
+}
+
+.project-link.confidential-link:hover {
+  background: rgba(248, 81, 73, 0.15);
+  border-color: #f85149;
+  transform: none;
+  animation: pulse-confidential 1.5s infinite;
+}
+
+@keyframes pulse-confidential {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(248, 81, 73, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(248, 81, 73, 0.5);
+  }
+}
+
+.project-link.confidential-link svg {
+  animation: lock-wiggle 2s infinite;
+}
+
+@keyframes lock-wiggle {
+  0%, 90%, 100% {
+    transform: rotate(0deg);
+  }
+  92%, 96% {
+    transform: rotate(-3deg);
+  }
+  94%, 98% {
+    transform: rotate(3deg);
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .projects-hero h1 {
@@ -280,7 +343,8 @@ weight: 1
 <!-- Projects Grid -->
 <div class="projects-container">
   <div class="projects-grid">
-    {% for project in site.projects %}
+    {% assign sorted_projects = site.projects | sort: "path" %}
+    {% for project in sorted_projects %}
     <article class="project-card" data-category="{{ project.category }}">
       {% if project.image %}
       <img src="{{ site.baseurl }}{{ project.image }}" alt="{{ project.title }}" class="project-image">
@@ -308,10 +372,17 @@ weight: 1
             </svg>
             GitHub
           </a>
+          {% else %}
+          <div class="project-link confidential-link" title="Confidential Project">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            </svg>
+            🔒 Confidential
+          </div>
           {% endif %}
           
           {% if project.demo or project.demos %}
-          <a href="{{ site.baseurl }}/demos/#{{ project.title | slugify }}-demo" class="project-link demo-link" title="View Demo">
+          <a href="{{ site.baseurl }}/demos/" class="project-link demo-link" title="View Demo">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
             </svg>

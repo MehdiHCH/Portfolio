@@ -1,7 +1,7 @@
 ---
 title: E2E-Spot - Temporal Event Detection in Sports Videos
 image: /assets/img/projects/e2e_spot.jpg
-description: End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Y, Gate Shift Modules, and Bidirectional GRU for ultra-precise action spotting.
+description: End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Yfor ultra-precise action spotting.
 category: sports-analytics
 tags:
   - Computer Vision
@@ -10,7 +10,7 @@ tags:
   - Deep Learning
   - Temporal Detection
   - Sports Analytics
-demo: /assets/videos/e2e_spot_demo.mp4
+demo: /assets/videos/E2E_spot.mp4
 date: 2025-01-15
 company: Research Project
 location: Ibn Tofail University, Kenitra
@@ -250,14 +250,6 @@ End-to-end architecture combining:
   </g>
 </svg>
 
-</div>
-
-<div class="flow-description">
-  <p><strong>Input:</strong> RGB frame sequence (Xt-50 ... Xt ... Xt+50)</p>
-  <div class="flow-arrow">↓</div>
-  <p><strong>Processing:</strong> RegNet-Y + GSM → Features → Bidirectional GRU</p>
-  <div class="flow-arrow">↓</div>
-  <p><strong>Output:</strong> [PASS | DRIVE | SHOT | Background] per frame</p>
 </div>
 
 ---

@@ -381,30 +381,117 @@ weight: 2
     50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.5); }
   }
 
+  /* === MESSAGE "NO DEMO" SMOOTH VERSION === */
   .no-demo-message {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
-    border: 2px dashed rgba(255, 193, 7, 0.4);
-    padding: 2rem 1rem;
-    border-radius: 12px;
-    color: #ffc107;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(35, 134, 54, 0.05) 100%);
+    border: 1px solid rgba(88, 166, 255, 0.15);
+    border-radius: 16px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
   }
-  
+
+  /* Animation de fond subtile */
+  .no-demo-message::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.1) 0%, transparent 70%);
+    animation: pulse-bg 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse-bg {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  /* Hover effect */
   .no-demo-message:hover {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.1) 100%);
-    border-color: rgba(255, 193, 7, 0.6);
+    border-color: rgba(88, 166, 255, 0.3);
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.08) 0%, rgba(35, 134, 54, 0.08) 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(88, 166, 255, 0.15);
   }
-  
+
+  /* Icône avec animation float */
   .no-demo-icon {
-    font-size: 2.5rem;
-    display: block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    filter: grayscale(20%);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Titre */
+  .no-demo-message strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e6edf3;
     margin-bottom: 0.5rem;
-    opacity: 0.8;
+    display: block;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Description */
+  .no-demo-message p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: #9ba3b4;
+    line-height: 1.5;
+    max-width: 280px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Effet de shimmer subtil */
+  .no-demo-message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 200%;
+    }
   }
 
   /* Mobile */
@@ -414,6 +501,8 @@ weight: 2
     .filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
     .card-img img, .video-wrapper { height: 180px; }
     .back-to-projects { font-size: 1rem; }
+    .no-demo-message { padding: 2rem 1.5rem; }
+    .no-demo-icon { font-size: 2.5rem; }
   }
 </style>
 
@@ -436,7 +525,9 @@ weight: 2
 <div class="cards-grid" id="demos-grid">
 
   {% comment %} Boucle sur TOUS les projets {% endcomment %}
-  {% for project in site.projects %}
+  {% assign sorted_projects = site.projects | sort: "path" %}
+  {% for project in sorted_projects %}
+
   <div class="card" id="{{ project.title | slugify }}-demo" data-category="{{ project.category }}" data-tags="{{ project.tags | join: ' ' }}">
     
     <!-- Image du projet -->
@@ -499,11 +590,11 @@ weight: 2
         {% endif %}
         
       {% else %}
-        <!-- Pas de démo disponible -->
+        <!-- Pas de démo disponible - VERSION SMOOTH -->
         <div class="no-demo-message">
           <span class="no-demo-icon">🎬</span>
           <strong>Demo video coming soon</strong>
-          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; opacity: 0.8;">Stay tuned for visual demonstrations</p>
+          <p>Stay tuned for visual demonstrations</p>
         </div>
       {% endif %}
       

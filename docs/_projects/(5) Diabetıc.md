@@ -11,7 +11,6 @@ tags:
   - Healthcare
   - Classification
   - Transfer Learning
-demo: /assets/videos/retinopathy_demo.mp4
 date: 2024-11-15
 company: Academic Project
 location: Ibn Tofail University, Kenitra
@@ -435,16 +434,6 @@ model.compile(
 - Loss et Accuracy à chaque epoch
 - Validation régulière pour éviter overfitting
 - Early stopping (patience: 10 epochs)
-
-### Training Curves
-
-<div align="center">
-
-![Training History](/assets/img/projects/retinopathy_training.png)
-
-**Évolution de Loss et Accuracy pendant l'entraînement**
-
-</div>
 
 ---
 

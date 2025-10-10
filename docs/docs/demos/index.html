@@ -451,30 +451,117 @@
     50% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.5); }
   }
 
+  /* === MESSAGE "NO DEMO" SMOOTH VERSION === */
   .no-demo-message {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
-    border: 2px dashed rgba(255, 193, 7, 0.4);
-    padding: 2rem 1rem;
-    border-radius: 12px;
-    color: #ffc107;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(35, 134, 54, 0.05) 100%);
+    border: 1px solid rgba(88, 166, 255, 0.15);
+    border-radius: 16px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 1rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
   }
-  
+
+  /* Animation de fond subtile */
+  .no-demo-message::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.1) 0%, transparent 70%);
+    animation: pulse-bg 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulse-bg {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  /* Hover effect */
   .no-demo-message:hover {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.1) 100%);
-    border-color: rgba(255, 193, 7, 0.6);
+    border-color: rgba(88, 166, 255, 0.3);
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.08) 0%, rgba(35, 134, 54, 0.08) 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(88, 166, 255, 0.15);
   }
-  
+
+  /* Icône avec animation float */
   .no-demo-icon {
-    font-size: 2.5rem;
-    display: block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    filter: grayscale(20%);
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Titre */
+  .no-demo-message strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e6edf3;
     margin-bottom: 0.5rem;
-    opacity: 0.8;
+    display: block;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Description */
+  .no-demo-message p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: #9ba3b4;
+    line-height: 1.5;
+    max-width: 280px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Effet de shimmer subtil */
+  .no-demo-message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 200%;
+    }
   }
 
   /* Mobile */
@@ -484,6 +571,8 @@
     .filter-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
     .card-img img, .video-wrapper { height: 180px; }
     .back-to-projects { font-size: 1rem; }
+    .no-demo-message { padding: 2rem 1.5rem; }
+    .no-demo-icon { font-size: 2.5rem; }
   }
 </style>
 
@@ -507,6 +596,108 @@
 
   
   
+  
+
+  <div class="card" id="automated-futsal-video-analysis-for-performance-reporting-demo" data-category="sports-analytics" data-tags="Computer Vision YOLOv11 DeepSORT Sports Analytics Action Recognition Multi-Object Tracking Deep Learning OCR Homography">
+    
+    <!-- Image du projet -->
+    <div class="card-img">
+      
+        <img src="/Portfolio/assets/img/projects/SportScore.gif" alt="Automated Futsal Video Analysis for Performance Reporting Demo" loading="lazy">
+      
+    </div>
+    
+    <div class="card-body">
+      <h3 class="card-title">Automated Futsal Video Analysis for Performance Reporting</h3>
+      <p class="card-text">End-to-end AI pipeline for automated detection, tracking, and classification of player actions in futsal matches using YOLOv11, DeepSORT, and advanced</p>
+      
+      
+      
+      
+        <!-- Projet avec PLUSIEURS démos → Lien vers page dédiée -->
+        <div class="multi-demo-badge">
+          🎬 3 Demos Available
+        </div>
+        
+        
+          <a href="/Portfolio/demos/futsal-analysis-demos.html" class="btn">🔗 View All Demos</a>
+        
+        
+      
+      
+      <!-- Tags du projet -->
+      
+      <div class="tags">
+        
+          <span class="tag-badge">Computer Vision</span>
+        
+          <span class="tag-badge">YOLOv11</span>
+        
+          <span class="tag-badge">DeepSORT</span>
+        
+          <span class="tag-badge">Sports Analytics</span>
+        
+          <span class="tag-badge">Action Recognition</span>
+        
+      </div>
+      
+      
+      <!-- Lien vers les détails du projet -->
+      <a href="/Portfolio/projects/1-futsal-analysis-sportscore/" class="btn secondary">↩ Project Details</a>
+    </div>
+  </div>
+  
+
+  <div class="card" id="e2e-spot-temporal-event-detection-in-sports-videos-demo" data-category="sports-analytics" data-tags="Computer Vision Action Spotting RegNet-Y Deep Learning Temporal Detection Sports Analytics">
+    
+    <!-- Image du projet -->
+    <div class="card-img">
+      
+        <img src="/Portfolio/assets/img/projects/e2e_spot.jpg" alt="E2E-Spot - Temporal Event Detection in Sports Videos Demo" loading="lazy">
+      
+    </div>
+    
+    <div class="card-body">
+      <h3 class="card-title">E2E-Spot - Temporal Event Detection in Sports Videos</h3>
+      <p class="card-text">End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Yfor ultra-precise action spotting.</p>
+      
+      
+      
+      
+        <!-- Projet avec UNE SEULE démo → Affichage direct -->
+        
+          <!-- Vidéo locale MP4/WebM -->
+          <video controls muted preload="metadata" class="demo-video">
+            <source src="/Portfolio/assets/videos/E2E_spot.mp4" type="video/mp4">
+            Your browser does not support video. <a href="/Portfolio/assets/videos/E2E_spot.mp4" download>Download</a>.
+          </video>
+        
+        
+      
+      
+      <!-- Tags du projet -->
+      
+      <div class="tags">
+        
+          <span class="tag-badge">Computer Vision</span>
+        
+          <span class="tag-badge">Action Spotting</span>
+        
+          <span class="tag-badge">RegNet-Y</span>
+        
+          <span class="tag-badge">Deep Learning</span>
+        
+          <span class="tag-badge">Temporal Detection</span>
+        
+      </div>
+      
+      
+      <!-- Lien vers les détails du projet -->
+      <a href="/Portfolio/projects/2-e2e-spotting/" class="btn secondary">↩ Project Details</a>
+    </div>
+  </div>
+  
+
   <div class="card" id="azul-ocr-reconnaissance-d-écriture-manuscrite-tifinagh-demo" data-category="computer-vision" data-tags="OCR Tifinagh CNN PaddleOCR Tesseract Cultural Heritage Deep Learning Computer Vision">
     
     <!-- Image du projet -->
@@ -556,12 +747,13 @@
     </div>
   </div>
   
+
   <div class="card" id="roborangers-voiture-autonome-avec-deep-reinforcement-learning-demo" data-category="robotics" data-tags="Autonomous Driving ROS2 Gazebo Deep Reinforcement Learning TD3 LIDAR Computer Vision Robotics">
     
     <!-- Image du projet -->
     <div class="card-img">
       
-        <img src="/Portfolio/assets/img/projects/roborangers.gif" alt="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning Demo" loading="lazy">
+        <img src="/Portfolio/assets/img/projects/robo/roborangers.jpg" alt="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning Demo" loading="lazy">
       
     </div>
     
@@ -572,15 +764,12 @@
       
       
       
-        <!-- Projet avec UNE SEULE démo → Affichage direct -->
-        
-          <!-- Vidéo locale MP4/WebM -->
-          <video controls muted preload="metadata" class="demo-video">
-            <source src="/Portfolio/assets/videos/roborangers_demo.mp4" type="video/mp4">
-            Your browser does not support video. <a href="/Portfolio/assets/videos/roborangers_demo.mp4" download>Download</a>.
-          </video>
-        
-        
+        <!-- Pas de démo disponible - VERSION SMOOTH -->
+        <div class="no-demo-message">
+          <span class="no-demo-icon">🎬</span>
+          <strong>Demo video coming soon</strong>
+          <p>Stay tuned for visual demonstrations</p>
+        </div>
       
       
       <!-- Tags du projet -->
@@ -605,6 +794,7 @@
     </div>
   </div>
   
+
   <div class="card" id="détection-de-la-rétinopathie-diabétique-avec-efficientnet-demo" data-category="medical-ai" data-tags="Medical AI EfficientNet Deep Learning Computer Vision Healthcare Classification Transfer Learning">
     
     <!-- Image du projet -->
@@ -621,15 +811,12 @@
       
       
       
-        <!-- Projet avec UNE SEULE démo → Affichage direct -->
-        
-          <!-- Vidéo locale MP4/WebM -->
-          <video controls muted preload="metadata" class="demo-video">
-            <source src="/Portfolio/assets/videos/retinopathy_demo.mp4" type="video/mp4">
-            Your browser does not support video. <a href="/Portfolio/assets/videos/retinopathy_demo.mp4" download>Download</a>.
-          </video>
-        
-        
+        <!-- Pas de démo disponible - VERSION SMOOTH -->
+        <div class="no-demo-message">
+          <span class="no-demo-icon">🎬</span>
+          <strong>Demo video coming soon</strong>
+          <p>Stay tuned for visual demonstrations</p>
+        </div>
       
       
       <!-- Tags du projet -->
@@ -651,104 +838,6 @@
       
       <!-- Lien vers les détails du projet -->
       <a href="/Portfolio/projects/5-diabet%C4%B1c/" class="btn secondary">↩ Project Details</a>
-    </div>
-  </div>
-  
-  <div class="card" id="e2e-spot-temporal-event-detection-in-sports-videos-demo" data-category="sports-analytics" data-tags="Computer Vision Action Spotting RegNet-Y Deep Learning Temporal Detection Sports Analytics">
-    
-    <!-- Image du projet -->
-    <div class="card-img">
-      
-        <img src="/Portfolio/assets/img/projects/e2e_spot.jpg" alt="E2E-Spot - Temporal Event Detection in Sports Videos Demo" loading="lazy">
-      
-    </div>
-    
-    <div class="card-body">
-      <h3 class="card-title">E2E-Spot - Temporal Event Detection in Sports Videos</h3>
-      <p class="card-text">End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Y, Gate Shift Modules, and Bidirectional GRU for ultra-precise</p>
-      
-      
-      
-      
-        <!-- Projet avec UNE SEULE démo → Affichage direct -->
-        
-          <!-- Vidéo locale MP4/WebM -->
-          <video controls muted preload="metadata" class="demo-video">
-            <source src="/Portfolio/assets/videos/e2e_spot_demo.mp4" type="video/mp4">
-            Your browser does not support video. <a href="/Portfolio/assets/videos/e2e_spot_demo.mp4" download>Download</a>.
-          </video>
-        
-        
-      
-      
-      <!-- Tags du projet -->
-      
-      <div class="tags">
-        
-          <span class="tag-badge">Computer Vision</span>
-        
-          <span class="tag-badge">Action Spotting</span>
-        
-          <span class="tag-badge">RegNet-Y</span>
-        
-          <span class="tag-badge">Deep Learning</span>
-        
-          <span class="tag-badge">Temporal Detection</span>
-        
-      </div>
-      
-      
-      <!-- Lien vers les détails du projet -->
-      <a href="/Portfolio/projects/2-e2e-spotting/" class="btn secondary">↩ Project Details</a>
-    </div>
-  </div>
-  
-  <div class="card" id="automated-futsal-video-analysis-for-performance-reporting-demo" data-category="sports-analytics" data-tags="Computer Vision YOLOv11 DeepSORT Sports Analytics Action Recognition Multi-Object Tracking Deep Learning OCR Homography">
-    
-    <!-- Image du projet -->
-    <div class="card-img">
-      
-        <img src="/Portfolio/assets/img/projects/SportScore.gif" alt="Automated Futsal Video Analysis for Performance Reporting Demo" loading="lazy">
-      
-    </div>
-    
-    <div class="card-body">
-      <h3 class="card-title">Automated Futsal Video Analysis for Performance Reporting</h3>
-      <p class="card-text">End-to-end AI pipeline for automated detection, tracking, and classification of player actions in futsal matches using YOLOv11, DeepSORT, and advanced</p>
-      
-      
-      
-      
-        <!-- Projet avec PLUSIEURS démos → Lien vers page dédiée -->
-        <div class="multi-demo-badge">
-          🎬 3 Demos Available
-        </div>
-        
-        
-          <a href="/Portfolio/demos/futsal-analysis-demos.html" class="btn">🔗 View All Demos</a>
-        
-        
-      
-      
-      <!-- Tags du projet -->
-      
-      <div class="tags">
-        
-          <span class="tag-badge">Computer Vision</span>
-        
-          <span class="tag-badge">YOLOv11</span>
-        
-          <span class="tag-badge">DeepSORT</span>
-        
-          <span class="tag-badge">Sports Analytics</span>
-        
-          <span class="tag-badge">Action Recognition</span>
-        
-      </div>
-      
-      
-      <!-- Lien vers les détails du projet -->
-      <a href="/Portfolio/projects/1-futsal-analysis-sportscore/" class="btn secondary">↩ Project Details</a>
     </div>
   </div>
   

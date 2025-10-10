@@ -292,6 +292,69 @@
   border-color: #58a6ff;
 }
 
+/* ===== CONFIDENTIAL BUTTON ===== */
+.project-link.confidential-link {
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.4);
+  color: #f85149;
+  cursor: not-allowed;
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  overflow: hidden;
+}
+
+.project-link.confidential-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(248, 81, 73, 0.08) 8px,
+    rgba(248, 81, 73, 0.08) 16px
+  );
+  pointer-events: none;
+}
+
+.project-link.confidential-link:hover {
+  background: rgba(248, 81, 73, 0.15);
+  border-color: #f85149;
+  transform: none;
+  animation: pulse-confidential 1.5s infinite;
+}
+
+@keyframes pulse-confidential {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(248, 81, 73, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(248, 81, 73, 0.5);
+  }
+}
+
+.project-link.confidential-link svg {
+  animation: lock-wiggle 2s infinite;
+}
+
+@keyframes lock-wiggle {
+  0%, 90%, 100% {
+    transform: rotate(0deg);
+  }
+  92%, 96% {
+    transform: rotate(-3deg);
+  }
+  94%, 98% {
+    transform: rotate(3deg);
+  }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .projects-hero h1 {
@@ -350,6 +413,105 @@
 <div class="projects-container">
   <div class="projects-grid">
     
+    
+    <article class="project-card" data-category="sports-analytics">
+      
+      <img src="/Portfolio/assets/img/projects/SportScore.gif" alt="Automated Futsal Video Analysis for Performance Reporting" class="project-image">
+      
+      
+      <div class="project-content">
+        <h3 class="project-title">Automated Futsal Video Analysis for Performance Reporting</h3>
+        <p class="project-description">End-to-end AI pipeline for automated detection, tracking, and classification of player actions in futsal matches using YOLOv11, DeepSORT, and advan...</p>
+        
+        
+        <div class="project-tags">
+          
+          <span class="project-tag">Computer Vision</span>
+          
+          <span class="project-tag">YOLOv11</span>
+          
+          <span class="project-tag">DeepSORT</span>
+          
+          <span class="project-tag">Sports Analytics</span>
+          
+        </div>
+        
+        
+        <div class="project-links">
+          
+          <div class="project-link confidential-link" title="Confidential Project">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            </svg>
+            🔒 Confidential
+          </div>
+          
+          
+          
+          <a href="/Portfolio/demos/" class="project-link demo-link" title="View Demo">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+            </svg>
+            🎥 Démo
+          </a>
+          
+          
+          <a href="/Portfolio/projects/1-futsal-analysis-sportscore/" class="project-link details-link" title="Read More">
+            Details →
+          </a>
+        </div>
+      </div>
+    </article>
+    
+    <article class="project-card" data-category="sports-analytics">
+      
+      <img src="/Portfolio/assets/img/projects/e2e_spot.jpg" alt="E2E-Spot - Temporal Event Detection in Sports Videos" class="project-image">
+      
+      
+      <div class="project-content">
+        <h3 class="project-title">E2E-Spot - Temporal Event Detection in Sports Videos</h3>
+        <p class="project-description">End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Yfor ultra-precise action spotting.</p>
+        
+        
+        <div class="project-tags">
+          
+          <span class="project-tag">Computer Vision</span>
+          
+          <span class="project-tag">Action Spotting</span>
+          
+          <span class="project-tag">RegNet-Y</span>
+          
+          <span class="project-tag">Deep Learning</span>
+          
+        </div>
+        
+        
+        <div class="project-links">
+          
+          <div class="project-link confidential-link" title="Confidential Project">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+            </svg>
+            🔒 Confidential
+          </div>
+          
+          
+          
+          <a href="/Portfolio/demos/" class="project-link demo-link" title="View Demo">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+            </svg>
+            🎥 Démo
+          </a>
+          
+          
+          <a href="/Portfolio/projects/2-e2e-spotting/" class="project-link details-link" title="Read More">
+            Details →
+          </a>
+        </div>
+      </div>
+    </article>
+    
     <article class="project-card" data-category="computer-vision">
       
       <img src="/Portfolio/assets/img/projects/azul.jpeg" alt="Azul OCR - Reconnaissance d'Écriture Manuscrite Tifinagh" class="project-image">
@@ -384,7 +546,7 @@
           
           
           
-          <a href="/Portfolio/demos/#azul-ocr-reconnaissance-d-écriture-manuscrite-tifinagh-demo" class="project-link demo-link" title="View Demo">
+          <a href="/Portfolio/demos/" class="project-link demo-link" title="View Demo">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
             </svg>
@@ -401,7 +563,7 @@
     
     <article class="project-card" data-category="robotics">
       
-      <img src="/Portfolio/assets/img/projects/roborangers.gif" alt="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning" class="project-image">
+      <img src="/Portfolio/assets/img/projects/robo/roborangers.jpg" alt="RoboRangers - Voiture Autonome avec Deep Reinforcement Learning" class="project-image">
       
       
       <div class="project-content">
@@ -432,13 +594,6 @@
           </a>
           
           
-          
-          <a href="/Portfolio/demos/#roborangers-voiture-autonome-avec-deep-reinforcement-learning-demo" class="project-link demo-link" title="View Demo">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-            </svg>
-            🎥 Démo
-          </a>
           
           
           <a href="/Portfolio/projects/4-ros/" class="project-link details-link" title="Read More">
@@ -482,99 +637,8 @@
           
           
           
-          <a href="/Portfolio/demos/#détection-de-la-rétinopathie-diabétique-avec-efficientnet-demo" class="project-link demo-link" title="View Demo">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-            </svg>
-            🎥 Démo
-          </a>
-          
           
           <a href="/Portfolio/projects/5-diabet%C4%B1c/" class="project-link details-link" title="Read More">
-            Details →
-          </a>
-        </div>
-      </div>
-    </article>
-    
-    <article class="project-card" data-category="sports-analytics">
-      
-      <img src="/Portfolio/assets/img/projects/e2e_spot.jpg" alt="E2E-Spot - Temporal Event Detection in Sports Videos" class="project-image">
-      
-      
-      <div class="project-content">
-        <h3 class="project-title">E2E-Spot - Temporal Event Detection in Sports Videos</h3>
-        <p class="project-description">End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Y, Gate Shift Modules, and Bidirectional GRU for ultra-p...</p>
-        
-        
-        <div class="project-tags">
-          
-          <span class="project-tag">Computer Vision</span>
-          
-          <span class="project-tag">Action Spotting</span>
-          
-          <span class="project-tag">RegNet-Y</span>
-          
-          <span class="project-tag">Deep Learning</span>
-          
-        </div>
-        
-        
-        <div class="project-links">
-          
-          
-          
-          <a href="/Portfolio/demos/#e2e-spot-temporal-event-detection-in-sports-videos-demo" class="project-link demo-link" title="View Demo">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-            </svg>
-            🎥 Démo
-          </a>
-          
-          
-          <a href="/Portfolio/projects/2-e2e-spotting/" class="project-link details-link" title="Read More">
-            Details →
-          </a>
-        </div>
-      </div>
-    </article>
-    
-    <article class="project-card" data-category="sports-analytics">
-      
-      <img src="/Portfolio/assets/img/projects/SportScore.gif" alt="Automated Futsal Video Analysis for Performance Reporting" class="project-image">
-      
-      
-      <div class="project-content">
-        <h3 class="project-title">Automated Futsal Video Analysis for Performance Reporting</h3>
-        <p class="project-description">End-to-end AI pipeline for automated detection, tracking, and classification of player actions in futsal matches using YOLOv11, DeepSORT, and advan...</p>
-        
-        
-        <div class="project-tags">
-          
-          <span class="project-tag">Computer Vision</span>
-          
-          <span class="project-tag">YOLOv11</span>
-          
-          <span class="project-tag">DeepSORT</span>
-          
-          <span class="project-tag">Sports Analytics</span>
-          
-        </div>
-        
-        
-        <div class="project-links">
-          
-          
-          
-          <a href="/Portfolio/demos/#automated-futsal-video-analysis-for-performance-reporting-demo" class="project-link demo-link" title="View Demo">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-            </svg>
-            🎥 Démo
-          </a>
-          
-          
-          <a href="/Portfolio/projects/1-futsal-analysis-sportscore/" class="project-link details-link" title="Read More">
             Details →
           </a>
         </div>

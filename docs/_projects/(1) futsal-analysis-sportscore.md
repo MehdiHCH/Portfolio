@@ -3,6 +3,7 @@ title: Automated Futsal Video Analysis for Performance Reporting
 image: /assets/img/projects/SportScore.gif
 description: End-to-end AI pipeline for automated detection, tracking, and classification of player actions in futsal matches using YOLOv11, DeepSORT, and advanced computer vision techniques.
 category: sports-analytics
+order: 1
 tags:
   - Computer Vision
   - YOLOv11

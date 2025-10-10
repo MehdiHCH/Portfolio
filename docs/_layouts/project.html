@@ -9,6 +9,7 @@ layout: default
   --primary-green: #238636;
   --primary-yellow: #d29922;
   --primary-purple: #bc8cff;
+  --primary-red: #f85149;
   --bg-dark: #0d1117;
   --bg-card: #161b22;
   --bg-card-hover: #1c2128;
@@ -18,6 +19,7 @@ layout: default
   --border-color: rgba(110, 118, 129, 0.3);
   --gradient-blue: linear-gradient(135deg, #58a6ff, #238636);
   --gradient-purple: linear-gradient(135deg, #bc8cff, #58a6ff);
+  --gradient-red: linear-gradient(135deg, #f85149, #da3633);
 }
 
 /* ========== LAYOUT ========== */
@@ -208,51 +210,65 @@ layout: default
   box-shadow: 0 8px 20px rgba(188, 140, 255, 0.4);
 }
 
-/* ========== TABLE OF CONTENTS ========== */
-.toc-container {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 3rem;
-  position: sticky;
-  top: 20px;
+/* ========== CONFIDENTIAL BUTTON ========== */
+.btn-confidential {
+  background: rgba(248, 81, 73, 0.15);
+  border: 2px solid rgba(248, 81, 73, 0.5);
+  color: var(--primary-red);
+  cursor: not-allowed;
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.toc-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--primary-blue);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.btn-confidential::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(248, 81, 73, 0.1) 10px,
+    rgba(248, 81, 73, 0.1) 20px
+  );
+  pointer-events: none;
 }
 
-.toc-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.btn-confidential:hover {
+  background: rgba(248, 81, 73, 0.2);
+  transform: none;
+  box-shadow: 0 0 20px rgba(248, 81, 73, 0.5);
+  animation: pulse-red 2s infinite;
 }
 
-.toc-list li {
-  margin-bottom: 0.5rem;
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(248, 81, 73, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(248, 81, 73, 0.8);
+  }
 }
 
-.toc-list a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  display: block;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+.btn-confidential svg {
+  animation: lock-shake 3s infinite;
 }
 
-.toc-list a:hover {
-  color: var(--primary-blue);
-  background: rgba(88, 166, 255, 0.1);
-  transform: translateX(5px);
+@keyframes lock-shake {
+  0%, 90%, 100% {
+    transform: rotate(0deg);
+  }
+  92%, 96% {
+    transform: rotate(-5deg);
+  }
+  94%, 98% {
+    transform: rotate(5deg);
+  }
 }
 
 /* ========== CONTENT STYLES ========== */
@@ -262,7 +278,6 @@ layout: default
   font-size: 1.05rem;
 }
 
-/* Headings with enhanced styling */
 .project-content h2 {
   color: var(--primary-blue);
   margin-top: 3.5rem;
@@ -303,14 +318,12 @@ layout: default
   scroll-margin-top: 100px;
 }
 
-/* Enhanced paragraphs */
 .project-content p {
   margin-bottom: 1.5rem;
   color: var(--text-primary);
   text-align: justify;
 }
 
-/* Enhanced lists */
 .project-content ul,
 .project-content ol {
   margin-left: 2rem;
@@ -330,7 +343,6 @@ layout: default
   font-size: 1.2em;
 }
 
-/* Enhanced links */
 .project-content a {
   color: var(--primary-blue);
   text-decoration: none;
@@ -344,7 +356,6 @@ layout: default
   color: var(--primary-green);
 }
 
-/* Enhanced strong/em */
 .project-content strong {
   color: var(--text-primary);
   font-weight: 700;
@@ -355,7 +366,6 @@ layout: default
   font-style: italic;
 }
 
-/* ========== IMAGES ========== */
 .project-content img {
   max-width: 100%;
   height: auto;
@@ -371,7 +381,6 @@ layout: default
   transform: scale(1.02);
 }
 
-/* ========== TABLES ========== */
 .project-content table {
   width: 100%;
   border-collapse: separate;
@@ -410,7 +419,6 @@ layout: default
   background: var(--bg-card-hover);
 }
 
-/* ========== CODE BLOCKS ========== */
 .project-content pre {
   background: #0d1117;
   border: 1px solid rgba(88, 166, 255, 0.3);
@@ -444,7 +452,6 @@ layout: default
   font-size: 0.9rem;
 }
 
-/* ========== BLOCKQUOTES ========== */
 .project-content blockquote {
   border-left: 4px solid var(--primary-blue);
   padding: 1.5rem;
@@ -466,7 +473,6 @@ layout: default
   font-family: Georgia, serif;
 }
 
-/* ========== HORIZONTAL RULES ========== */
 .project-content hr {
   border: none;
   border-top: 2px solid var(--border-color);
@@ -512,10 +518,6 @@ layout: default
   
   .project-content h2 {
     font-size: 1.6rem;
-  }
-  
-  .toc-container {
-    position: static;
   }
 }
 </style>
@@ -608,6 +610,13 @@ layout: default
         </svg>
         View on GitHub
       </a>
+      {% else %}
+      <div class="action-btn btn-confidential">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+        </svg>
+        Confidential Project
+      </div>
       {% endif %}
 
       {% if page.demos %}
@@ -618,7 +627,7 @@ layout: default
         View Demos
       </a>
       {% elsif page.demo %}
-      <a href="{{ page.demo }}" target="_blank" rel="noopener" class="action-btn btn-demo">
+      <a href="{{ site.baseurl }}/demos/" target="_blank" rel="noopener" class="action-btn btn-demo">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
           <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>

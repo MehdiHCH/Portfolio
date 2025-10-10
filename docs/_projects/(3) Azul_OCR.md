@@ -60,25 +60,13 @@ Développement d'**Azul OCR**, système hybride combinant:
 
 ## 🏗️ Technical Architecture
 
-<div align="center">
-
-![Azul OCR Architecture](/assets/img/projects/azul_architecture.jpeg)
-
-**Figure 1: Pipeline complet Azul OCR**
-
-</div>
-
----
 
 ### 🔧 Key Components
 
-<table>
-<tr>
-<td width="50%" valign="top">
+
 
 #### **Module 1: Image Preprocessing**
 
-![Preprocessing Pipeline](/assets/img/projects/azul_preprocessing.png)
 
 **Techniques appliquées:**
 - 🖼️ **Otsu Thresholding:** Binarisation automatique
@@ -86,22 +74,16 @@ Développement d'**Azul OCR**, système hybride combinant:
 - 🎨 **Filtrage:** Réduction du bruit
 - 🔄 **Augmentation:** Rotation, translation, zoom
 
-</td>
-<td width="50%" valign="top">
+
 
 #### **Module 2: Recognition Engines**
 
-![Recognition Models](/assets/img/projects/azul_models.png)
 
 **Trois approches:**
 - 📝 **Tesseract OCR:** Fine-tuné AMHCD dataset
 - 🎯 **PaddleOCR:** Architecture légère adaptée
 - 🧠 **CNN Custom:** Modèle entraîné from scratch
 - 🔀 **Modèle hybride:** Fusion des prédictions
-
-</td>
-</tr>
-</table>
 
 ---
 
@@ -918,14 +900,14 @@ Dense(33) + Softmax
 
 ### Interface Screenshots
 
-<div align="center">
-
-![Azul Interface]("/assets/img/projects/azul_interface.jpeg")
-
 **Interface utilisateur intuitive d'Azul OCR**
 
+<div class="component-grid">
+  <div class="component-card">
+    <h4>Azul Interface</h4>
+    <img src="{{ site.baseurl }}/assets/img/projects/azul_interface.jpeg" alt="Gate Shift Modules">
 </div>
-
+</div>
 ---
 
 ## 🛠️ Challenges & Solutions

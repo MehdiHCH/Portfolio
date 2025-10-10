@@ -1,5 +1,6 @@
 <div class="projects-grid">
-  {% for slug in page.remote_projects %}
+  {% assign sorted_remote = page.remote_projects | sort %}
+  {% for slug in sorted_remote %}
     {% assign proj = site.projects | where: "slug", slug | first %}
     {% if proj %}
       <a href="{{ proj.url | relative_url }}" class="project-link-full">  <!-- Cliquable full vers détail -->

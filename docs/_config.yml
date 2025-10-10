@@ -17,6 +17,8 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
 
+theme_toggler: false
+
 ### Sass ###
 sass:
   sass_dir: ../_sass
