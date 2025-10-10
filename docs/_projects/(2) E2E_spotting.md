@@ -47,14 +47,13 @@ End-to-end architecture combining:
 
 ## 🏗️ Technical Architecture
 
-<div align="center">
-
-![E2E-Spot Pipeline Architecture](/assets/img/projects/e2e_spot_architecture.jpg)
-
 **Figure 1: Complete E2E-Spot Pipeline**
 
-</div>
-
+<div class="component-grid">
+  <div class="component-card">
+    <h4>E2E-Spot Pipeline Architecture</h4>
+    <img src="{{ site.baseurl }}/assets/img/projects/e2e_spot_architecture.jpg" alt="Gate Shift Modules">
+  </div>
 ---
 
 ### 🔧 Key Components
@@ -62,7 +61,7 @@ End-to-end architecture combining:
 <div class="component-grid">
   <div class="component-card">
     <h4>Module F: Feature Extraction</h4>
-    <img src="/assets/img/projects/e2e_spot_gsm.png" alt="Gate Shift Modules">
+    <img src="{{ site.baseurl }}/assets/img/projects/gsm.png" alt="Gate Shift Modules">
     <p><strong>RegNet-Y + Gate Shift Modules</strong></p>
     <ul>
       <li>⚡ Lightweight: <strong>10M parameters</strong> (vs 25M ResNet-50)</li>
@@ -73,7 +72,7 @@ End-to-end architecture combining:
 
   <div class="component-card">
     <h4>Module G: Temporal Reasoning</h4>
-    <img src="/assets/img/projects/e2e_spot_gru.png" alt="GRU Bidirectional">
+    <img src="{{ site.baseurl }}/assets/img/projects/gru.png" alt="GRU Bidirectional">
     <p><strong>Bidirectional GRU</strong></p>
     <ul>
       <li>📊 Models <strong>past + future</strong> context</li>
@@ -86,8 +85,6 @@ End-to-end architecture combining:
 ---
 
 ### 📐 Architecture Flow
-
-<div class="mermaid-wrapper">
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="background: transparent;">
   <defs>

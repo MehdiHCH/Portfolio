@@ -734,22 +734,21 @@
 
 <h2 id="️-technical-architecture">🏗️ Technical Architecture</h2>
 
-<div align="center">
+<p><strong>Figure 1: Complete E2E-Spot Pipeline</strong></p>
 
-![E2E-Spot Pipeline Architecture](/assets/img/projects/e2e_spot_architecture.jpg)
+<div class="component-grid">
+  <div class="component-card">
+    <h4>E2E-Spot Pipeline Architecture</h4>
+    <img src="/Portfolio/assets/img/projects/e2e_spot_architecture.jpg" alt="Gate Shift Modules" />
+  </div>
+---
 
-**Figure 1: Complete E2E-Spot Pipeline**
-
-</div>
-
-<hr />
-
-<h3 id="-key-components">🔧 Key Components</h3>
+### 🔧 Key Components
 
 <div class="component-grid">
   <div class="component-card">
     <h4>Module F: Feature Extraction</h4>
-    <img src="/assets/img/projects/e2e_spot_gsm.png" alt="Gate Shift Modules" />
+    <img src="/Portfolio/assets/img/projects/gsm.png" alt="Gate Shift Modules" />
     <p><strong>RegNet-Y + Gate Shift Modules</strong></p>
     <ul>
       <li>⚡ Lightweight: <strong>10M parameters</strong> (vs 25M ResNet-50)</li>
@@ -760,7 +759,7 @@
 
   <div class="component-card">
     <h4>Module G: Temporal Reasoning</h4>
-    <img src="/assets/img/projects/e2e_spot_gru.png" alt="GRU Bidirectional" />
+    <img src="/Portfolio/assets/img/projects/gru.png" alt="GRU Bidirectional" />
     <p><strong>Bidirectional GRU</strong></p>
     <ul>
       <li>📊 Models <strong>past + future</strong> context</li>
@@ -770,11 +769,9 @@
   </div>
 </div>
 
-<hr />
+---
 
-<h3 id="-architecture-flow">📐 Architecture Flow</h3>
-
-<div class="mermaid-wrapper">
+### 📐 Architecture Flow
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="background: transparent;">
   <defs>
