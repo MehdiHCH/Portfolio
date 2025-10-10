@@ -16,6 +16,7 @@ date: 2024-11-15
 company: Academic Project
 location: Ibn Tofail University, Kenitra
 duration: October 2024 - December 2024
+github: https://github.com/MehdiHCH/Diabetic-Retinopathy-Detection
 ---
 
 ## 🎯 Project Overview
@@ -76,14 +77,6 @@ Modèle de **Deep Learning** basé sur **EfficientNetB0** pour:
 | **Severe (3)** | Grave | Hémorragies abondantes, œdème | ~12% |
 | **Proliferate_DR (4)** | Proliférative | Néovascularisation, risque de cécité | ~8% |
 
-<div align="center">
-
-![Class Distribution](/assets/img/projects/retinopathy_classes.png)
-
-**Distribution des classes dans APTOS 2019**
-
-</div>
-
 ---
 
 ## 🔧 Preprocessing Pipeline
@@ -130,14 +123,253 @@ datagen = ImageDataGenerator(
 ## 🏗️ Model Architecture
 
 ### EfficientNetB0
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" style="background: transparent;">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="550" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="30" font-weight="700" fill="url(#blueGrad)" text-anchor="middle" filter="url(#glow)">
+    EfficientNetB0 Architecture - Diabetic Retinopathy Detection
+  </text>
+  
+  <!-- Input -->
+  <g>
+    <rect x="40" y="100" width="140" height="120" rx="10" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    <text x="110" y="140" font-size="36" text-anchor="middle">🩺</text>
+    <text x="110" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Input Image
+    </text>
+    <text x="110" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      224×224×3
+    </text>
+    <text x="110" y="212" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
+      Retina fundus
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="180" y1="160" x2="220" y2="160" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
+  
+  <!-- EfficientNetB0 Backbone -->
+  <g>
+    <rect x="230" y="80" width="580" height="220" rx="12" fill="rgba(167, 139, 250, 0.12)" stroke="url(#purpleGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    
+    <text x="520" y="110" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      EfficientNetB0 Backbone (Pre-trained on ImageNet)
+    </text>
+    
+    <!-- MBConv Blocks -->
+    <rect x="250" y="130" width="100" height="80" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="2"/>
+    <text x="300" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      MBConv1
+    </text>
+    <text x="300" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      16 filters
+    </text>
+    <text x="300" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      112×112
+    </text>
+    
+    <text x="370" y="175" font-size="20" fill="#a78bfa">→</text>
+    
+    <rect x="390" y="130" width="100" height="80" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="2"/>
+    <text x="440" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      MBConv6
+    </text>
+    <text x="440" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      24 filters
+    </text>
+    <text x="440" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      56×56
+    </text>
+    
+    <text x="510" y="175" font-size="20" fill="#a78bfa">→</text>
+    
+    <rect x="530" y="130" width="100" height="80" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="2"/>
+    <text x="580" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      MBConv6
+    </text>
+    <text x="580" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      40 filters
+    </text>
+    <text x="580" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      28×28
+    </text>
+    
+    <text x="650" y="175" font-size="20" fill="#a78bfa">→</text>
+    
+    <rect x="670" y="130" width="120" height="80" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="2"/>
+    <text x="730" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Final Conv
+    </text>
+    <text x="730" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      1280 features
+    </text>
+    <text x="730" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
+      7×7
+    </text>
+    
+    <!-- Key features box -->
+    <rect x="250" y="230" width="540" height="55" rx="8" fill="rgba(30, 41, 59, 0.6)" stroke="#64748b" stroke-width="1.5"/>
+    <text x="260" y="252" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">
+      ✓ Compound Scaling (depth, width, resolution)
+    </text>
+    <text x="260" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">
+      ✓ Mobile Inverted Bottleneck Convolutions (MBConv)
+    </text>
+  </g>
+  
+  <!-- Arrow down -->
+  <line x1="520" y1="300" x2="520" y2="350" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
+  
+  <!-- Custom Classification Head -->
+  <g>
+    <rect x="350" y="360" width="340" height="240" rx="12" fill="rgba(244, 114, 182, 0.12)" stroke="url(#pinkGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    
+    <text x="520" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Custom Classification Head
+    </text>
+    
+    <!-- Global Average Pooling -->
+    <rect x="370" y="410" width="130" height="60" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="2"/>
+    <text x="435" y="435" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Global Avg
+    </text>
+    <text x="435" y="453" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Pooling
+    </text>
+    
+    <text x="515" y="442" font-size="18" fill="#f472b6">→</text>
+    
+    <!-- Flatten -->
+    <rect x="540" y="410" width="130" height="60" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="2"/>
+    <text x="605" y="435" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Flatten
+    </text>
+    <text x="605" y="453" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      1280 features
+    </text>
+    
+    <!-- Dense + Softmax -->
+    <rect x="370" y="490" width="300" height="95" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="2"/>
+    <text x="520" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Dense Layer + Softmax
+    </text>
+    <text x="520" y="545" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Output: 5 classes
+    </text>
+    <text x="520" y="565" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      [No_DR, Mild, Moderate, Severe, Proliferate]
+    </text>
+  </g>
+  
+  <!-- Arrow to output -->
+  <line x1="690" y1="540" x2="750" y2="540" stroke="#f472b6" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
+  
+  <!-- Output -->
+  <g>
+    <rect x="760" y="490" width="180" height="100" rx="10" fill="rgba(52, 211, 153, 0.15)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    <text x="850" y="525" font-size="32" text-anchor="middle">✅</text>
+    <text x="850" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#34d399" text-anchor="middle">
+      Prediction
+    </text>
+    <text x="850" y="575" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      97% accuracy
+    </text>
+  </g>
+  
+  <!-- Stats Box -->
+  <g>
+    <rect x="760" y="100" width="300" height="360" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2"/>
+    
+    <text x="910" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Model Statistics
+    </text>
+    
+    <!-- Parameters -->
+    <rect x="780" y="150" width="260" height="50" rx="8" fill="rgba(96, 165, 250, 0.1)" stroke="#60a5fa" stroke-width="1.5"/>
+    <text x="910" y="173" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#60a5fa" text-anchor="middle">
+      5.3M
+    </text>
+    <text x="910" y="192" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Parameters
+    </text>
+    
+    <!-- Accuracy -->
+    <rect x="780" y="215" width="260" height="50" rx="8" fill="rgba(52, 211, 153, 0.1)" stroke="#34d399" stroke-width="1.5"/>
+    <text x="910" y="238" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#34d399" text-anchor="middle">
+      97.0%
+    </text>
+    <text x="910" y="257" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Validation Accuracy
+    </text>
+    
+    <!-- Training Time -->
+    <rect x="780" y="280" width="260" height="50" rx="8" fill="rgba(251, 191, 36, 0.1)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="910" y="303" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#fbbf24" text-anchor="middle">
+      2 hours
+    </text>
+    <text x="910" y="322" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Training Time (40 epochs)
+    </text>
+    
+    <!-- Advantages -->
+    <text x="910" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Key Advantages
+    </text>
+    <text x="790" y="382" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      ✓ 5x fewer params than ResNet-50
+    </text>
+    <text x="790" y="400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      ✓ Better accuracy with less compute
+    </text>
+    <text x="790" y="418" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      ✓ Faster inference (&lt;100ms)
+    </text>
+    <text x="790" y="436" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      ✓ Transfer learning from ImageNet
+    </text>
+  </g>
+  
+  <!-- Hardware info -->
+  <text x="550" y="635" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">
+    Hardware: NVIDIA RTX 4060 (8GB) | Optimizer: Adam (lr=0.001) | Loss: Categorical Crossentropy
+  </text>
+</svg>
 
-<div align="center">
+                                **Architecture EfficientNetB0 avec classification personnalisée**
 
-![EfficientNet Architecture](/assets/img/projects/efficientnet_arch.png)
-
-**Architecture EfficientNetB0 avec classification personnalisée**
-
-</div>
 
 **Pourquoi EfficientNet?**
 

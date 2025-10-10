@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="E2E-Spot - Temporal Event Detection in Sports Videos">
+  <meta property="og:description" content="End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Y, Gate Shift Modules, and Bidirectional GRU for ultra-precise act...">
+  <meta property="og:image" content="/assets/img/projects/e2e_spot.jpg">
+
+  <title>E2E-Spot - Temporal Event Detection in Sports Videos</title>
+  <meta name="description" content="End-to-end architecture for precise temporal event detection in futsal videos using RegNet-Y, Gate Shift Modules, and Bidirectional GRU for ultra-precise act...">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/Portfolio/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/Portfolio/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Portfolio/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/Portfolio/"><h5><b>Hicham El Mehdi</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link active" href="/Portfolio/projects/">My Projects</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/">Demos</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/futsal-analysis-demos.html">Futsal Analysis - Demos</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <style>
+/* ========== VARIABLES ========== */
+:root {
+  --primary-blue: #58a6ff;
+  --primary-green: #238636;
+  --primary-yellow: #d29922;
+  --primary-purple: #bc8cff;
+  --bg-dark: #0d1117;
+  --bg-card: #161b22;
+  --bg-card-hover: #1c2128;
+  --text-primary: #e6edf3;
+  --text-secondary: #9ba3b4;
+  --text-tertiary: #7d8590;
+  --border-color: rgba(110, 118, 129, 0.3);
+  --gradient-blue: linear-gradient(135deg, #58a6ff, #238636);
+  --gradient-purple: linear-gradient(135deg, #bc8cff, #58a6ff);
+}
+
+/* ========== LAYOUT ========== */
+.project-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  color: var(--text-primary);
+}
+
+/* ========== BACK BUTTON ========== */
+.back-nav {
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 8px;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateX(-5px);
+  border-color: var(--primary-blue);
+}
+
+/* ========== HEADER ========== */
+.project-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  background: rgba(88, 166, 255, 0.05);
+  border-radius: 6px;
+}
+
+/* ========== HERO IMAGE ========== */
+.hero-image-container {
+  margin-bottom: 2.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.project-hero-image {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ========== TAGS ========== */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.tag {
+  padding: 0.6rem 1.2rem;
+  background: rgba(88, 166, 255, 0.12);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--primary-blue);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.tag:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
+}
+
+/* ========== ACTION BUTTONS ========== */
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+  padding: 1.5rem;
+  background: rgba(88, 166, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.action-btn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.action-btn:hover::before {
+  left: 100%;
+}
+
+.btn-github {
+  background: rgba(35, 134, 54, 0.12);
+  border: 1px solid rgba(35, 134, 54, 0.4);
+  color: var(--primary-green);
+}
+
+.btn-github:hover {
+  background: rgba(35, 134, 54, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(35, 134, 54, 0.4);
+}
+
+.btn-demo {
+  background: rgba(210, 153, 34, 0.12);
+  border: 1px solid rgba(210, 153, 34, 0.4);
+  color: var(--primary-yellow);
+}
+
+.btn-demo:hover {
+  background: rgba(210, 153, 34, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(210, 153, 34, 0.4);
+}
+
+.btn-demos {
+  background: rgba(188, 140, 255, 0.12);
+  border: 1px solid rgba(188, 140, 255, 0.4);
+  color: var(--primary-purple);
+}
+
+.btn-demos:hover {
+  background: rgba(188, 140, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(188, 140, 255, 0.4);
+}
+
+/* ========== TABLE OF CONTENTS ========== */
+.toc-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  position: sticky;
+  top: 20px;
+}
+
+.toc-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.toc-list a:hover {
+  color: var(--primary-blue);
+  background: rgba(88, 166, 255, 0.1);
+  transform: translateX(5px);
+}
+
+/* ========== CONTENT STYLES ========== */
+.project-content {
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Headings with enhanced styling */
+.project-content h2 {
+  color: var(--primary-blue);
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(88, 166, 255, 0.3);
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.project-content h2::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--primary-blue);
+}
+
+.project-content h3 {
+  color: var(--text-secondary);
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  scroll-margin-top: 100px;
+}
+
+.project-content h4 {
+  color: var(--text-tertiary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  scroll-margin-top: 100px;
+}
+
+/* Enhanced paragraphs */
+.project-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-align: justify;
+}
+
+/* Enhanced lists */
+.project-content ul,
+.project-content ol {
+  margin-left: 2rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-secondary);
+}
+
+.project-content ul li,
+.project-content ol li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+  padding-left: 0.5rem;
+}
+
+.project-content ul li::marker {
+  color: var(--primary-blue);
+  font-size: 1.2em;
+}
+
+/* Enhanced links */
+.project-content a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.project-content a:hover {
+  border-bottom-color: var(--primary-blue);
+  color: var(--primary-green);
+}
+
+/* Enhanced strong/em */
+.project-content strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.project-content em {
+  color: var(--primary-blue);
+  font-style: italic;
+}
+
+/* ========== IMAGES ========== */
+.project-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2.5rem auto;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.project-content img:hover {
+  transform: scale(1.02);
+}
+
+/* ========== TABLES ========== */
+.project-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2.5rem 0;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-content table th {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--primary-blue);
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(88, 166, 255, 0.4);
+  font-size: 0.95rem;
+}
+
+.project-content table td {
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.project-content table tr:last-child td {
+  border-bottom: none;
+}
+
+.project-content table tr:hover {
+  background: var(--bg-card-hover);
+}
+
+/* ========== CODE BLOCKS ========== */
+.project-content pre {
+  background: #0d1117;
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  color: #c9d1d9;
+  position: relative;
+}
+
+.project-content code {
+  background: rgba(110, 118, 129, 0.3);
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 0.88em;
+  color: #ff7b72;
+  border: 1px solid rgba(255, 123, 114, 0.2);
+}
+
+.project-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  border: none;
+  font-size: 0.9rem;
+}
+
+/* ========== BLOCKQUOTES ========== */
+.project-content blockquote {
+  border-left: 4px solid var(--primary-blue);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: rgba(88, 166, 255, 0.05);
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.project-content blockquote::before {
+  content: '"';
+  font-size: 3rem;
+  color: rgba(88, 166, 255, 0.3);
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-family: Georgia, serif;
+}
+
+/* ========== HORIZONTAL RULES ========== */
+.project-content hr {
+  border: none;
+  border-top: 2px solid var(--border-color);
+  margin: 3rem 0;
+  position: relative;
+}
+
+.project-content hr::after {
+  content: '•';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-dark);
+  padding: 0 10px;
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .project-detail {
+    padding: 1.5rem 1rem;
+  }
+  
+  .project-title {
+    font-size: 1.8rem;
+  }
+  
+  .project-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .project-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .toc-container {
+    position: static;
+  }
+}
+</style>
+
+<article class="project-detail">
+  <!-- BACK BUTTON -->
+  <nav class="back-nav">
+    <a href="/Portfolio/#projects" class="back-btn">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+      Back to Projects
+    </a>
+  </nav>
+
+  <!-- HEADER SECTION -->
+  <header class="project-header">
+    <h1 class="project-title">E2E-Spot - Temporal Event Detection in Sports Videos</h1>
+    
+    <div class="project-meta">
+      
+      <span class="meta-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+        </svg>
+        January 2025
+      </span>
+      
+      
+      
+      <span class="meta-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3.797a1.5 1.5 0 0 1 1.06.44l.415.414A.5.5 0 0 0 8.126 2h5.377a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 12.5v-10z"/>
+        </svg>
+        Sports analytics
+      </span>
+      
+      
+      
+      <span class="meta-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0 3a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0 3a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0 3a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11z"/>
+        </svg>
+        Research Project
+      </span>
+      
+      
+      
+      <span class="meta-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+        </svg>
+        Ibn Tofail University, Kenitra
+      </span>
+      
+      
+      
+      <span class="meta-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+        </svg>
+        January 2025 - March 2025
+      </span>
+      
+    </div>
+
+    <!-- HERO IMAGE -->
+    
+    <div class="hero-image-container">
+      <img src="/Portfolio/assets/img/projects/e2e_spot.jpg" alt="E2E-Spot - Temporal Event Detection in Sports Videos" class="project-hero-image">
+    </div>
+    
+
+    <!-- TAGS -->
+    
+    <div class="project-tags">
+      
+      <span class="tag">Computer Vision</span>
+      
+      <span class="tag">Action Spotting</span>
+      
+      <span class="tag">RegNet-Y</span>
+      
+      <span class="tag">Deep Learning</span>
+      
+      <span class="tag">Temporal Detection</span>
+      
+      <span class="tag">Sports Analytics</span>
+      
+    </div>
+    
+
+    <!-- ACTION BUTTONS -->
+    <div class="project-actions">
+      
+
+      
+      <a href="/assets/videos/e2e_spot_demo.mp4" target="_blank" rel="noopener" class="action-btn btn-demo">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+        </svg>
+        Watch Demo
+      </a>
+      
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="project-content">
+    <h2 id="-project-overview">🎯 Project Overview</h2>
+
+<p><strong>E2E-Spot</strong> is an end-to-end architecture for <strong>precise temporal event detection</strong> in sports videos. The system automatically detects key actions (passes, dribbles, shots) at frame-level in futsal matches.</p>
+
+<p><strong>Team:</strong> Hicham EL MEHDI &amp; Mohammed Imrane GRICH<br />
+<strong>Supervised by:</strong> Prof. Noureddine MOHTARAM</p>
+
+<p><strong>Key Achievement:</strong> <strong>93% recall</strong> for dribble detection with a lightweight architecture (10M parameters).</p>
+
+<hr />
+
+<h2 id="-problem-statement">🔍 Problem Statement</h2>
+
+<h3 id="challenges">Challenges</h3>
+<ul>
+  <li>⏱️ <strong>Ultra-precise temporal detection</strong> at frame level (±1 second)</li>
+  <li>🎯 <strong>Contextual understanding</strong> to differentiate similar actions</li>
+  <li>🔄 <strong>Temporal relationships</strong> across long sequences</li>
+  <li>💰 <strong>Computational efficiency</strong> for fast video processing</li>
+</ul>
+
+<h3 id="solution">Solution</h3>
+<p>End-to-end architecture combining:</p>
+<ul>
+  <li><strong>RegNet-Y:</strong> Efficient visual feature extraction</li>
+  <li><strong>Gate Shift Modules (GSM):</strong> Local temporal modeling</li>
+  <li><strong>Bidirectional GRU:</strong> Global temporal reasoning</li>
+  <li><strong>Frame-by-frame classification</strong> with background detection</li>
+</ul>
+
+<hr />
+
+<h2 id="️-technical-architecture">🏗️ Technical Architecture</h2>
+
+<div align="center">
+
+![E2E-Spot Pipeline Architecture](/assets/img/projects/e2e_spot_architecture.jpg)
+
+**Figure 1: Complete E2E-Spot Pipeline**
+
+</div>
+
+<hr />
+
+<h3 id="-key-components">🔧 Key Components</h3>
+
+<div class="component-grid">
+  <div class="component-card">
+    <h4>Module F: Feature Extraction</h4>
+    <img src="/assets/img/projects/e2e_spot_gsm.png" alt="Gate Shift Modules" />
+    <p><strong>RegNet-Y + Gate Shift Modules</strong></p>
+    <ul>
+      <li>⚡ Lightweight: <strong>10M parameters</strong> (vs 25M ResNet-50)</li>
+      <li>🔄 GSM capture variations between adjacent frames</li>
+      <li>🚀 Ultra-efficient single-pass processing</li>
+    </ul>
+  </div>
+
+  <div class="component-card">
+    <h4>Module G: Temporal Reasoning</h4>
+    <img src="/assets/img/projects/e2e_spot_gru.png" alt="GRU Bidirectional" />
+    <p><strong>Bidirectional GRU</strong></p>
+    <ul>
+      <li>📊 Models <strong>past + future</strong> context</li>
+      <li>🎯 Global temporal understanding</li>
+      <li>📈 Frame-wise classification with confidence scores</li>
+    </ul>
+  </div>
+</div>
+
+<hr />
+
+<h3 id="-architecture-flow">📐 Architecture Flow</h3>
+
+<div class="mermaid-wrapper">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" style="background: transparent;">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="28" font-weight="700" fill="#60a5fa" text-anchor="middle" filter="url(#glow)">
+    E2E-Spot Architecture Flow
+  </text>
+  
+  <!-- Input Node -->
+  <g>
+    <rect x="50" y="100" width="140" height="90" rx="12" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="120" y="130" font-size="32" text-anchor="middle">🎥</text>
+    <text x="120" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Video Frames
+    </text>
+    <text x="120" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      30 FPS
+    </text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <line x1="190" y1="145" x2="240" y2="145" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- RegNet-Y Node -->
+  <g>
+    <rect x="250" y="100" width="140" height="90" rx="12" fill="rgba(251, 191, 36, 0.15)" stroke="url(#yellowGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="320" y="140" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      RegNet-Y
+    </text>
+    <text x="320" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      CNN
+    </text>
+    <text x="320" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      10M params
+    </text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <line x1="390" y1="145" x2="440" y2="145" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- GSM Node -->
+  <g>
+    <rect x="450" y="100" width="140" height="90" rx="12" fill="rgba(167, 139, 250, 0.15)" stroke="url(#purpleGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="520" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Gate Shift
+    </text>
+    <text x="520" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Modules
+    </text>
+    <text x="520" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Temporal shift
+    </text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <line x1="520" y1="190" x2="520" y2="250" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- Feature Maps Node -->
+  <g>
+    <rect x="450" y="260" width="140" height="90" rx="12" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="520" y="295" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Feature
+    </text>
+    <text x="520" y="315" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Maps
+    </text>
+    <text x="520" y="335" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Rich embeddings
+    </text>
+  </g>
+  
+  <!-- Arrow 4 -->
+  <line x1="590" y1="305" x2="640" y2="305" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- Bidirectional GRU Node -->
+  <g>
+    <rect x="650" y="260" width="150" height="90" rx="12" fill="rgba(251, 191, 36, 0.15)" stroke="url(#yellowGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="725" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      Bidirectional
+    </text>
+    <text x="725" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      GRU
+    </text>
+    <text x="725" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Past + Future
+    </text>
+  </g>
+  
+  <!-- Arrow 5 -->
+  <line x1="725" y1="350" x2="725" y2="400" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- Frame Predictions Node -->
+  <g>
+    <rect x="650" y="410" width="150" height="70" rx="12" fill="rgba(167, 139, 250, 0.15)" stroke="url(#purpleGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="725" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Frame
+    </text>
+    <text x="725" y="460" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Predictions
+    </text>
+  </g>
+  
+  <!-- Arrow 6 -->
+  <line x1="650" y1="445" x2="210" y2="445" stroke="#a78bfa" stroke-width="3" opacity="0.8" />
+  <line x1="210" y1="445" x2="210" y2="410" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8" />
+  
+  <!-- Output Node -->
+  <g>
+    <rect x="130" y="340" width="160" height="70" rx="12" fill="rgba(52, 211, 153, 0.15)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)" />
+    <text x="210" y="370" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="600" fill="#34d399" text-anchor="middle">
+      📊 Events Timeline
+    </text>
+    <text x="210" y="395" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      PASS | DRIVE | SHOT
+    </text>
+  </g>
+  
+  <!-- Info Box -->
+  <g>
+    <rect x="40" y="230" width="180" height="80" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="1.5" />
+    <text x="130" y="255" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Configuration
+    </text>
+    <text x="50" y="277" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      • Clip Length: 16 frames
+    </text>
+    <text x="50" y="295" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
+      • Best Recall: 93% (DRIVE)
+    </text>
+  </g>
+</svg>
+
+</div>
+
+<div class="flow-description">
+  <p><strong>Input:</strong> RGB frame sequence (Xt-50 ... Xt ... Xt+50)</p>
+  <div class="flow-arrow">↓</div>
+  <p><strong>Processing:</strong> RegNet-Y + GSM → Features → Bidirectional GRU</p>
+  <div class="flow-arrow">↓</div>
+  <p><strong>Output:</strong> [PASS | DRIVE | SHOT | Background] per frame</p>
+</div>
+
+<hr />
+
+<h2 id="-dataset--preprocessing">📦 Dataset &amp; Preprocessing</h2>
+
+<p><strong>Source:</strong> FIFA Futsal World Cup 2024<br />
+<strong>Volume:</strong> 40 GB video data<br />
+<strong>Content:</strong> 7 complete matches (14 halves)</p>
+
+<h3 id="preprocessing-pipeline">Preprocessing Pipeline</h3>
+<ol>
+  <li>Frame extraction at 30 FPS</li>
+  <li>Temporal normalization (timestamps → seconds)</li>
+  <li>Augmentation: Jittering, cropping, mixup</li>
+  <li>Split: 70% train / 15% val / 15% test</li>
+</ol>
+
+<hr />
+
+<h2 id="-training-configurations">🚀 Training Configurations</h2>
+
+<h3 id="configuration-1-regnet-y-clip_len50">Configuration 1: RegNet-Y (clip_len=50)</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Model</span><span class="pi">:</span> <span class="s">rny008_gsm</span>
+<span class="na">Clip Length</span><span class="pi">:</span> <span class="s">50 frames (long sequences)</span>
+<span class="na">Training Time</span><span class="pi">:</span> <span class="s">8h 20min</span>
+</code></pre></div></div>
+
+<h3 id="configuration-2-resnet-50-clip_len16">Configuration 2: ResNet-50 (clip_len=16)</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Model</span><span class="pi">:</span> <span class="s">rn50</span>
+<span class="na">Clip Length</span><span class="pi">:</span> <span class="s">16 frames</span>
+<span class="na">Training Time</span><span class="pi">:</span> <span class="s">300h (~12.5 days)</span>
+</code></pre></div></div>
+
+<h3 id="configuration-3-regnet-y-clip_len16-">Configuration 3: RegNet-Y (clip_len=16) ⭐</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Model</span><span class="pi">:</span> <span class="s">rny008_gsm</span>
+<span class="na">Clip Length</span><span class="pi">:</span> <span class="s">16 frames (best tradeoff)</span>
+<span class="na">Training Time</span><span class="pi">:</span> <span class="s">450h (~18.7 days)</span>
+</code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Hardware:</strong> NVIDIA RTX 4060 (8GB)</td>
+      <td>AMD Ryzen 7 5700X</td>
+      <td>32GB RAM</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="-results--performance">📊 Results &amp; Performance</h2>
+
+<h3 id="best-configuration-regnet-y-clip_len16">Best Configuration: RegNet-Y (clip_len=16)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>PASS</strong></td>
+      <td>0.76</td>
+      <td>0.04</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <td><strong>DRIVE</strong></td>
+      <td>0.22</td>
+      <td><strong>0.93</strong></td>
+      <td><strong>0.36</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Overall</strong></td>
+      <td>0.49</td>
+      <td>0.49</td>
+      <td>0.22</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="key-insights">Key Insights</h3>
+<ul>
+  <li>🏆 <strong>93% Recall for DRIVE:</strong> Detects almost all dribbles</li>
+  <li>🎯 <strong>Good PASS precision (0.76)</strong> but low recall (class imbalance)</li>
+  <li>⚡ <strong>Lightweight architecture:</strong> 2.5x fewer parameters than ResNet-50</li>
+  <li>📈 <strong>Best tradeoff</strong> performance/efficiency</li>
+</ul>
+
+<h3 id="benchmark-comparison">Benchmark Comparison</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Recall DRIVE</th>
+      <th>F1-Score</th>
+      <th>Parameters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>E2E-Spot (RegNet-Y)</strong></td>
+      <td><strong>0.93</strong></td>
+      <td><strong>0.36</strong></td>
+      <td>10M</td>
+    </tr>
+    <tr>
+      <td>ResNet-50</td>
+      <td>0.55</td>
+      <td>0.32</td>
+      <td>25M</td>
+    </tr>
+    <tr>
+      <td>RegNet-Y (clip=50)</td>
+      <td>0.15</td>
+      <td>0.15</td>
+      <td>10M</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="️-challenges--solutions">🛠️ Challenges &amp; Solutions</h2>
+
+<h3 id="challenge-1-class-imbalance">Challenge 1: Class Imbalance</h3>
+<p><strong>Problem:</strong> PASS class underrepresented → low recall<br />
+<strong>Solution:</strong> Weighted Cross-Entropy Loss, PASS oversampling</p>
+
+<h3 id="challenge-2-training-time">Challenge 2: Training Time</h3>
+<p><strong>Problem:</strong> 450h for optimal config<br />
+<strong>Solution:</strong> Checkpointing, Mixed Precision (FP16), Gradient Accumulation</p>
+
+<h3 id="challenge-3-temporal-capture">Challenge 3: Temporal Capture</h3>
+<p><strong>Problem:</strong> clip_len=50 too long, clip_len=16 sometimes insufficient<br />
+<strong>Future Solution:</strong> Multi-scale temporal fusion (8/16/32 frames)</p>
+
+<hr />
+
+<h2 id="-future-improvements">🔮 Future Improvements</h2>
+
+<p><strong>Short-Term:</strong></p>
+<ul>
+  <li>Focal Loss for class imbalance</li>
+  <li>Multi-scale temporal fusion</li>
+  <li>Temporal NMS post-processing</li>
+</ul>
+
+<p><strong>Long-Term:</strong></p>
+<ul>
+  <li>Transformer architecture for very long-term relationships</li>
+  <li>Real-time inference (&lt;100ms latency)</li>
+  <li>Multi-sport generalization (basketball, handball)</li>
+</ul>
+
+<hr />
+
+<h2 id="-impact--value">💼 Impact &amp; Value</h2>
+
+<h3 id="for-sports-analytics">For Sports Analytics</h3>
+<p>✅ <strong>70% reduction</strong> in manual annotation time<br />
+✅ <strong>Frame-precise detection</strong> (±1 second)<br />
+✅ <strong>Lightweight architecture</strong> = reduced infrastructure costs</p>
+
+<h3 id="for-coaches--media">For Coaches &amp; Media</h3>
+<p>✅ <strong>Fast post-match analysis</strong><br />
+✅ <strong>Automatic highlight generation</strong><br />
+✅ <strong>Video indexing</strong> for event search</p>
+
+<hr />
+
+<h2 id="️-technical-stack">🛠️ Technical Stack</h2>
+
+<p><strong>Deep Learning:</strong> PyTorch, TorchVision, Lightning<br />
+<strong>Computer Vision:</strong> OpenCV, Albumentations<br />
+<strong>Models:</strong> RegNet-Y, Gate Shift Modules, GRU<br />
+<strong>Tools:</strong> Weights &amp; Biases, TensorBoard<br />
+<strong>Hardware:</strong> NVIDIA RTX 4060, AMD Ryzen 7 5700X</p>
+
+<hr />
+
+<h2 id="-skills-developed">🎓 Skills Developed</h2>
+
+<ul>
+  <li><strong>Deep Learning:</strong> End-to-end architecture, temporal modeling</li>
+  <li><strong>Computer Vision:</strong> Video understanding, action spotting</li>
+  <li><strong>Model Optimization:</strong> Hyperparameter tuning, loss functions</li>
+  <li><strong>Research:</strong> Experimentation, benchmarking, technical writing</li>
+</ul>
+
+<hr />
+
+<h2 id="-contact">📧 Contact</h2>
+
+<p><strong>Author:</strong> Hicham El Mehdi<br />
+<strong>Email:</strong> mehdihicham736@gmail.com<br />
+<strong>LinkedIn:</strong> <a href="https://linkedin.com/in/elmehdihicham">linkedin.com/in/elmehdihicham</a><br />
+<strong>GitHub:</strong> <a href="https://github.com/MehdiHCH">github.com/MehdiHCH</a></p>
+
+<p><strong>Co-Author:</strong> Mohammed Imrane GRICH<br />
+<strong>Supervisor:</strong> Prof. Noureddine MOHTARAM</p>
+
+<hr />
+
+<h2 id="-key-references">📚 Key References</h2>
+
+<ol>
+  <li><strong>RegNet</strong> (Radosavovic et al., 2020) - Designing Network Design Spaces</li>
+  <li><strong>Gate Shift Modules</strong> (Sudhakaran et al., 2020) - CVPR 2020</li>
+  <li><strong>E2E-Spot</strong> (Giancola et al., 2022) - End-to-End Spotting in Soccer</li>
+</ol>
+
+<hr />
+
+<p><em>Compact and efficient end-to-end architecture for temporal event detection in sports videos, achieving 93% recall with only 10M parameters.</em></p>
+
+  </div>
+</article>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>EL MEHDI Hicham</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:mehdihicham736@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/MehdiHCH"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/elmehdihicham"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>
