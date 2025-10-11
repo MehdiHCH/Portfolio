@@ -9,11 +9,6 @@
   •
   <a href="https://linkedin.com/in/elmehdihicham">💼 LinkedIn</a>
 
-  <br><br>
-
-  <a href="https://MehdiHCH.github.io"><img src="assets/Me.png" alt="Portfolio Preview"></a>
-  
-  <br>
   
   <sub><sup>© 2025 Hicham El Mehdi — Portfolio based on <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a> theme, licensed under <a href="./LICENSE">MIT</a>.</sup></sub>
 </div>
