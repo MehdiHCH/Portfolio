@@ -8,9 +8,8 @@
   }
 }
 
-#theme-toggler:before {
-  @include themed(content, "🌙", "🌞");
-}
+
+// theme toggler removed
 
 .navbar-themed {
   .navbar-brand,

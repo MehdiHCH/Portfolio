@@ -2,10 +2,6 @@ const STORAGE_KEY = "theme";
 const THEME_ATTR  = "data-theme";
 const QUERY_KEY   = "(prefers-color-scheme: dark)";
 
-const themes = {
-  LIGHT: "light",
-  DARK: "dark",
-};
 
 initTheme();
 
@@ -23,24 +19,9 @@ function initTheme() {
     setTheme(themes.LIGHT);
   }
 
-  // Watch for system theme changes
-  window.matchMedia(QUERY_KEY).addEventListener("change", (e) => {
-    const newTheme = e.matches ? themes.DARK : themes.LIGHT;
-    setTheme(newTheme);
-  });
-}
-
+// ensure toggleTheme exists (no-op) to avoid errors if markup remains
 function toggleTheme() {
-  const theme = getTheme();
-  const newTheme = theme === themes.DARK ? themes.LIGHT : themes.DARK;
-  setTheme(newTheme);
-  localStorage.setItem(STORAGE_KEY, newTheme);
+  // toggling removed intentionally
 }
 
-function getTheme() {
-  return document.documentElement.getAttribute(THEME_ATTR);
-}
 
-function setTheme(value) {
-  document.documentElement.setAttribute(THEME_ATTR, value);
-}

@@ -15,6 +15,7 @@ date: 2025-01-15
 company: Research Project
 location: Ibn Tofail University, Kenitra
 duration: January 2025 - March 2025
+github : https://github.com/MehdiHCH/End-to-End-Temporal-Event-Spotting-in-Videos
 ---
 
 ## 🎯 Project Overview
