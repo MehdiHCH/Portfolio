@@ -6,7 +6,6 @@
 
   <a href="https://mehdihch.github.io/Portfolio">🌍 Live Portfolio</a>
   •
-  <a href="https://github.com/MehdiHCH/MehdiHCH.github.io">📂 Source Code</a>
   •
   <a href="https://linkedin.com/in/elmehdihicham">💼 LinkedIn</a>
 
