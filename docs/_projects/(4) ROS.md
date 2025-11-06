@@ -91,7 +91,7 @@ Autonomous vehicle integrating:
 <div class="component-grid">
   <div class="component-card">
     <h4>Camera </h4>
-    <img src="{{ site.baseurl }}/assets/img/projects/robo/camera.png" alt="Gate Shift Modules">
+    <img src="{{ site.baseurl }}/assets/img/projects/robo/Camera.png" alt="Camera">
   </div>
 </div>
 

@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by yousinix
+  Free for personal and commercial use under the MIT license
+  https://github.com/yousinix/portfolYOU
+-->
+
+<html lang="en" class="h-100">
+
+<head>
+
+  
+  
+  
+
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About">
+  <meta property="og:description" content="Ingénieur en Intelligence Artificielle | Computer Vision & Deep Learning Passionné par l'innovation technologique et les systèmes intelligents">
+  <meta property="og:image" content="/Portfolio/assets/img/profil/Me.jpeg">
+
+  <title>About</title>
+  <meta name="description" content="Ingénieur en Intelligence Artificielle | Computer Vision & Deep Learning Passionné par l'innovation technologique et les systèmes intelligents">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/Portfolio/assets/favicon.ico">
+
+  <!-- Theme style -->
+  <script src="/Portfolio/assets/js/theme.js"></script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Portfolio/assets/css/style.css">
+
+</head>
+
+
+<body class="h-100 d-flex flex-column">
+
+  <main class="flex-shrink-0 container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-themed">
+
+  <a class="navbar-brand" href="/Portfolio/"><h5><b>Hicham El Mehdi</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-1x fa-bars text-themed"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto"><a class="nav-item nav-link " href="/Portfolio/projects/">My Projects</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/">Demos</a>
+
+      <a class="nav-item nav-link " href="/Portfolio/demos/futsal-analysis-demos.html">Futsal Analysis - Demos</a>
+
+      <a class="nav-item nav-link active" href="/Portfolio/about/">About</a>
+
+      
+
+      <span id="theme-toggler" class="nav-item nav-link" role="button" onclick="toggleTheme()"></span>
+    </div>
+  </div>
+
+</nav>
+    <div class="col-lg-10 mx-auto mt-5 markdown-body">
+  <style>
+/* ============================================
+   INTRO SECTION
+   ============================================ */
+.about-intro {
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(35, 134, 54, 0.1));
+  border-left: 4px solid #58a6ff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.about-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-intro p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e6edf3;
+  margin-bottom: 1rem;
+}
+
+.about-intro strong {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.5), transparent);
+  margin: 3rem 0;
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+.skills-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skills-section-header h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.skills-section-header p {
+  color: #9ba3b4;
+  font-size: 1.1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skills-category {
+  background: linear-gradient(135deg, rgba(30, 30, 47, 0.9), rgba(45, 27, 105, 0.7));
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #58a6ff, #238636, #ffc107, #e91e63);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skills-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(88, 166, 255, 0.25);
+  border-color: rgba(88, 166, 255, 0.5);
+}
+
+.skills-category:hover::before {
+  opacity: 1;
+}
+
+.skills-category h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #58a6ff;
+  margin-bottom: 1.5rem;
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e6edf3;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: #58a6ff;
+}
+
+.skill-percentage {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #58a6ff;
+  background: rgba(88, 166, 255, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fillBar 1.2s ease-out forwards;
+}
+
+@keyframes fillBar {
+  to { transform: scaleX(1); }
+}
+
+.skill-item:nth-child(1) .skill-bar { animation-delay: 0.1s; }
+.skill-item:nth-child(2) .skill-bar { animation-delay: 0.2s; }
+.skill-item:nth-child(3) .skill-bar { animation-delay: 0.3s; }
+.skill-item:nth-child(4) .skill-bar { animation-delay: 0.4s; }
+.skill-item:nth-child(5) .skill-bar { animation-delay: 0.5s; }
+.skill-item:nth-child(6) .skill-bar { animation-delay: 0.6s; }
+
+/* Couleurs par niveau de compétence */
+.skill-bar[data-level="expert"] {
+  background: linear-gradient(90deg, #e91e63, #f06292);
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+}
+
+.skill-bar[data-level="advanced"] {
+  background: linear-gradient(90deg, #58a6ff, #2196f3);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+}
+
+.skill-bar[data-level="intermediate"] {
+  background: linear-gradient(90deg, #238636, #4caf50);
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.5);
+}
+
+.skill-bar[data-level="beginner"] {
+  background: linear-gradient(90deg, #ffc107, #ffeb3b);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* ============================================
+   OBJECTIVE SECTION
+   ============================================ */
+.objective-section {
+  background: linear-gradient(135deg, rgba(35, 134, 54, 0.15), rgba(88, 166, 255, 0.1));
+  border: 2px solid rgba(88, 166, 255, 0.3);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.objective-section h2 {
+  font-size: 2rem;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+}
+
+.objective-section p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e6edf3;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .about-intro h1 {
+    font-size: 2rem;
+  }
+  
+  .about-intro {
+    padding: 1.5rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skills-category {
+    padding: 1.5rem;
+  }
+  
+  .skills-category h3 {
+    font-size: 1.3rem;
+  }
+  
+  .skill-name {
+    font-size: 0.9rem;
+  }
+  
+  .objective-section {
+    padding: 1.5rem;
+  }
+  
+  .skills-section-header h2 {
+    font-size: 2rem;
+  }
+}
+</style>
+
+<div class="about-intro">
+  <h1>About Me</h1>
+  
+  <p>
+    Hi there 👋 I'm <strong>EL MEHDI Hicham</strong>, an <strong>Artificial Intelligence Engineer</strong> passionate about <strong>Computer Vision</strong>, <strong>Deep Learning</strong>, and the application of AI in <strong>sports performance and analytics</strong>.
+  </p>
+
+  <p>
+    During my recent projects, I built complete video analysis systems for sports — combining <strong>object detection (YOLOv8/11)</strong>, <strong>multi-player tracking (DeepSORT / ReID)</strong>, <strong>jersey number OCR</strong>, and <strong>top-down projection</strong> for tactical insights.
+  </p>
+
+  <p>
+    I also explore <strong>OCR modeling (CRNN, Vision Transformers)</strong>, <strong>event detection</strong>, and <strong>synthetic data generation</strong> to improve model robustness in real-world scenarios.
+  </p>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="skills-section">
+  <div class="skills-section-header">
+    <h2>💼 Technical Skills</h2>
+    <p>My expertise across AI, Computer Vision, and Software Engineering</p>
+  </div>
+  
+  <div class="skills-grid">
+    <div class="col-lg">
+
+  <h2 class="mb-3">Programming &amp; AI</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">Python (PyTorch, TensorFlow, Keras)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">95%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-danger wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">C/C++, Java</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">75%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-warning wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">FastAPI, REST API</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">85%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-success wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">ML/DL (CNN, RNN, LSTM, Transformers)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">90%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-primary wow animated slideInLeft" data-wow-delay="0.2" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Computer Vision &amp; Robotics</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">YOLOv8/11, Faster R-CNN, DeepSORT</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">90%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-primary wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">OCR (PaddleOCR, CRNN), Pose Estimation</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">85%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-success wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">OpenCV, Homography, Camera Calibration</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">80%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-info wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">ROS2, TensorRT, Real-time Inference, ONNX</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">75%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-secondary wow animated slideInLeft" data-wow-delay="0.2" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Generative AI &amp; NLP</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">LLMS, RAG pipelines, Hugging Face</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">85%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-success wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">LangChain, Prompt Engineering</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">80%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-info wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">SQL-to-NL, Embeddings &amp; Vector DBs</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">70%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-secondary wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Cloud &amp; Infrastructure</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">AWS (S3, EC2, Lambda)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">60%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-warning wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">Docker, Linux, Shell Scripting</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">80%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-info wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">MLOps Basics (Deployment, APIs, Monitoring)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">70%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-secondary wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Networking &amp; Databases</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">TCP/IP</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">70%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-secondary wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">SQL (MySQL, PostgreSQL)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">80%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-info wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">NoSQL (MongoDB), Vector DBs (FAISS, Pinecone)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">75%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-warning wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">CDN</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">65%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-light wow animated slideInLeft" data-wow-delay="0.2" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Leadership &amp; Collaboration</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">Team Supervision, Project Planning, Mentoring</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">85%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-success wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">Git, GitHub, CI/CD Basics, Agile/Scrum</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">90%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-primary wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+    <div class="col-lg">
+
+  <h2 class="mb-3">Languages</h2>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">Arabic (Native)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">100%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-danger wow animated slideInLeft" data-wow-delay="0.05" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">French (Professional)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">85%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-success wow animated slideInLeft" data-wow-delay="0.1" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-10">
+      <p class="mb-1">English (Intermediate)</p>
+    </div>
+    <div class="col-2 text-right">
+      <p class="mb-1 text-muted">70%</p>
+    </div>
+  </div>
+
+  <div class="progress mb-4 bg-themed" style="height: 8px;">
+    <div class="progress-bar bg-secondary wow animated slideInLeft" data-wow-delay="0.15" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+    </div>
+  </div>
+
+  
+
+</div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="row">
+  <h2 style="text-align: center; color: #58a6ff; font-size: 2rem; margin-bottom: 2rem;">📚 Experience &amp; Education</h2>
+  <style>
+/* Timeline Styling */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  background: linear-gradient(135deg, rgba(30, 30, 47, 0.8), rgba(45, 27, 105, 0.6));
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 40px;
+  position: relative;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.timeline-item:nth-child(2) { animation-delay: 0.1s; }
+.timeline-item:nth-child(3) { animation-delay: 0.2s; }
+.timeline-item:nth-child(4) { animation-delay: 0.3s; }
+.timeline-item:nth-child(5) { animation-delay: 0.4s; }
+.timeline-item:nth-child(6) { animation-delay: 0.5s; }
+.timeline-item:nth-child(7) { animation-delay: 0.6s; }
+.timeline-item:nth-child(8) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+  border-color: #58a6ff;
+  box-shadow: 0 8px 32px rgba(88, 166, 255, 0.3);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 0;
+  bottom: -2rem;
+  width: 3px;
+  background: linear-gradient(180deg, #58a6ff, #238636);
+}
+
+.timeline-item:last-child::before {
+  bottom: 0;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -38px;
+  top: 30px;
+  width: 18px;
+  height: 18px;
+  background: #58a6ff;
+  border: 3px solid #0d1117;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover::after {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 8px rgba(88, 166, 255, 0.3);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.timeline-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #58a6ff;
+  margin: 0;
+  flex: 1;
+}
+
+.timeline-date {
+  background: rgba(88, 166, 255, 0.2);
+  color: #58a6ff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.timeline-date.current {
+  background: rgba(35, 134, 54, 0.2);
+  color: #238636;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.timeline-description {
+  color: #e6edf3;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.timeline-description strong {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.timeline-description ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.timeline-description li {
+  margin-bottom: 0.5rem;
+  color: #c9d1d9;
+}
+
+.timeline-description p:last-child strong {
+  color: #238636;
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    margin-left: 0;
+  }
+  
+  .timeline-item::before,
+  .timeline-item::after {
+    display: none;
+  }
+  
+  .timeline-item {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timeline-header {
+    flex-direction: column;
+  }
+  
+  .timeline-title {
+    font-size: 1.2rem;
+  }
+}
+</style>
+<!-- À ajouter dans _includes/about/skills.html -->
+
+<style>
+/* Skills Section - Modern Design */
+.skills-category {
+  background: linear-gradient(135deg, rgba(30, 30, 47, 0.9), rgba(45, 27, 105, 0.7));
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #58a6ff, #238636, #ffc107, #e91e63);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skills-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(88, 166, 255, 0.25);
+  border-color: rgba(88, 166, 255, 0.5);
+}
+
+.skills-category:hover::before {
+  opacity: 1;
+}
+
+.skills-category h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #58a6ff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-category h3::before {
+  content: '💼';
+  font-size: 1.3rem;
+}
+
+/* Icônes personnalisées par catégorie */
+.skills-category[data-category="programming"] h3::before { content: '🐍'; }
+.skills-category[data-category="computer-vision"] h3::before { content: '👁️'; }
+.skills-category[data-category="generative-ai"] h3::before { content: '🤖'; }
+.skills-category[data-category="cloud"] h3::before { content: '☁️'; }
+.skills-category[data-category="networking"] h3::before { content: '🌐'; }
+.skills-category[data-category="leadership"] h3::before { content: '🎯'; }
+.skills-category[data-category="languages"] h3::before { content: '🗣️'; }
+
+.skill-item {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e6edf3;
+  transition: color 0.3s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: #58a6ff;
+}
+
+.skill-percentage {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #58a6ff;
+  background: rgba(88, 166, 255, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.skill-bar-container {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(90deg, #58a6ff, #238636);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Couleurs de barres par niveau */
+.skill-bar[data-level="expert"] {
+  background: linear-gradient(90deg, #e91e63, #f06292);
+  box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+}
+
+.skill-bar[data-level="advanced"] {
+  background: linear-gradient(90deg, #58a6ff, #2196f3);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+}
+
+.skill-bar[data-level="intermediate"] {
+  background: linear-gradient(90deg, #238636, #4caf50);
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.5);
+}
+
+.skill-bar[data-level="beginner"] {
+  background: linear-gradient(90deg, #ffc107, #ffeb3b);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Animation au chargement */
+.skill-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fillBar 1.2s ease-out forwards;
+}
+
+@keyframes fillBar {
+  to { transform: scaleX(1); }
+}
+
+.skill-item:nth-child(1) .skill-bar { animation-delay: 0.1s; }
+.skill-item:nth-child(2) .skill-bar { animation-delay: 0.2s; }
+.skill-item:nth-child(3) .skill-bar { animation-delay: 0.3s; }
+.skill-item:nth-child(4) .skill-bar { animation-delay: 0.4s; }
+.skill-item:nth-child(5) .skill-bar { animation-delay: 0.5s; }
+.skill-item:nth-child(6) .skill-bar { animation-delay: 0.6s; }
+
+/* Tooltip au hover */
+.skill-item:hover .skill-bar::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -35px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  z-index: 10;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Grille responsive */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .skills-category {
+    padding: 1.5rem;
+  }
+  
+  .skills-category h3 {
+    font-size: 1.3rem;
+  }
+  
+  .skill-name {
+    font-size: 0.9rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Section header amélioré */
+.skills-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.skills-section-header h2 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #58a6ff, #238636);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.skills-section-header p {
+  color: #9ba3b4;
+  font-size: 1.1rem;
+}
+
+/* Badge de certification (optionnel) */
+.skill-badge {
+  display: inline-block;
+  background: rgba(35, 134, 54, 0.2);
+  border: 1px solid rgba(35, 134, 54, 0.4);
+  color: #238636;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+</style>
+
+<!-- Template HTML amélioré -->
+<div class="skills-category" data-category="">
+  <h3></h3>
+  
+  
+</div>
+<div class="timeline-container">
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">R&amp;D Engineer Intern - Computer Vision &amp; AI</h3>
+      <span class="timeline-date current">
+        April 2025 — Present
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>SPORTSCORE</strong> - Football Analytics (Paris, France - Remote)</p>
+
+<ul>
+  <li>Designed and deployed a fully automated video analysis pipeline for futsal matches (object detection, multi-player tracking, homography, OCR, pose estimation)</li>
+  <li>Built an automatic frame classification module (YOLOv11m-cls) achieving <strong>99.95% accuracy</strong></li>
+  <li>Implemented complex action detection: pass classification (progressive, assist, under pressure), shots, dribbles, interceptions, goals</li>
+  <li>Optimized the pipeline, reducing inference time by <strong>20%</strong> and improving ball detection robustness</li>
+  <li><strong>Supervised and trained 4 interns</strong>, managing tasks, reviewing deliverables, and ensuring technical consistency</li>
+  <li>Delivered automated performance reports (heatmaps, pass maps, structured JSON exports, advanced stats)</li>
+</ul>
+
+<p><strong>Tech stack:</strong> PyTorch, YOLOv8/11, DeepSORT, OpenCV, OCR, Pandas, Python</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Engineering Intern - End-to-End Event Spotting</h3>
+      <span class="timeline-date ">
+        October 2024 — January 2025
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Université Ibn Tofail - Laboratoire SETIME</strong> (Kenitra, Morocco)</p>
+
+<ul>
+  <li>Developed a full pipeline: frame extraction, JSON annotations, temporal normalization, data augmentation (jittering, mixup), and train/val/test split (70/15/15)</li>
+  <li>Implemented <strong>RegNet-Y with Gate Shift Modules (GSM)</strong> for feature extraction and a <strong>Bi-GRU</strong> for global temporal reasoning</li>
+  <li>Experimented with multiple configurations (clip_len 16/50) using RegNet-Y and ResNet-50 on a 40GB dataset (7 matches from the 2024 Futsal World Cup)</li>
+  <li>Achieved a recall of <strong>0.93</strong> on the DRIVE class, with RegNet-Y outperforming ResNet-50</li>
+</ul>
+
+<p><strong>Tech stack:</strong> Python, PyTorch, RegNet-Y, ResNet-50, Bi-GRU, OpenCV, GPU (RTX 4060)</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Internship - Content Delivery Network (CDN)</h3>
+      <span class="timeline-date ">
+        September 2023 — November 2023
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Orange Business</strong> (Sale Al Jadida, Morocco)</p>
+
+<ul>
+  <li>Developed a Shell script to generate secure URLs with token-based authentication</li>
+  <li>Resolved a URL formatting issue and enhanced security by studying CORS headers, XSS, and CSRF attacks</li>
+</ul>
+
+<p><strong>Tech stack:</strong> Shell Scripting, JSON Web Tokens, wget</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Master's Degree in Artificial Intelligence</h3>
+      <span class="timeline-date ">
+        November 2023 — September 2025
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Ibn Tofail University</strong> (Kenitra, Morocco)</p>
+
+<p>Specialized in:</p>
+<ul>
+  <li>Machine Learning &amp; Deep Learning</li>
+  <li>Reinforcement Learning</li>
+  <li>Natural Language Processing (NLP)</li>
+  <li>Computer Vision</li>
+  <li>Generative AI</li>
+</ul>
+
+<p><strong>Key Projects:</strong></p>
+<ul>
+  <li>Autonomous Vehicle with ROS2 &amp; TD3 RL</li>
+  <li>OCR for Tifinagh Characters (Amazigh Heritage)</li>
+  <li>Diabetic Retinopathy Detection</li>
+</ul>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Bachelor's Degree in Physics</h3>
+      <span class="timeline-date ">
+        2020 — 2023
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Ibn Tofail University</strong> (Kenitra, Morocco)</p>
+
+<p>General physics studies with a focus on mathematical modeling and computational methods.</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Academic Project - Autonomous Vehicle</h3>
+      <span class="timeline-date ">
+        February 2025 — July 2025
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>ROS2 &amp; Reinforcement Learning</strong></p>
+
+<ul>
+  <li>Developed a ROS2–Gazebo simulation pipeline with URDF/xacro models</li>
+  <li>Integrated camera &amp; LiDAR for obstacle detection and traffic sign recognition</li>
+  <li>Implemented a <strong>TD3 reinforcement learning agent</strong> for autonomous navigation</li>
+  <li>Combined trajectory planning, real-time control, and safe decision-making</li>
+  <li>Validated the system in diverse scenarios with reliable path following and collision avoidance</li>
+</ul>
+
+<p><strong>Tech stack:</strong> ROS2, Gazebo, Python, PyTorch, RViz, URDF/xacro, TD3 RL, Computer Vision</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Academic Project - OCR for Tifinagh Characters</h3>
+      <span class="timeline-date ">
+        October 2024 — February 2025
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Digitization of Amazigh Writings</strong></p>
+
+<ul>
+  <li>Developed an innovative OCR system for Tifinagh handwritten script</li>
+  <li>Goal: preserving and digitizing the <strong>Amazigh cultural heritage</strong> using AI</li>
+  <li>Designed and implemented a <strong>hybrid CRNN-based model</strong> to improve character recognition accuracy</li>
+  <li>Role: Paddle OCR Developer and CNN Model Developer</li>
+</ul>
+
+<p><strong>Tech stack:</strong> Hybrid CRNN model, PaddleOCR, TensorFlow, PyTorch, OpenCV</p>
+
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-header">
+      <h3 class="timeline-title">Academic Project - Diabetic Retinopathy Detection</h3>
+      <span class="timeline-date ">
+        October 2024 — January 2025
+      </span>
+    </div>
+    <div class="timeline-description">
+      <p><strong>Medical AI Application</strong></p>
+
+<ul>
+  <li>Developed a Deep Learning model to detect and classify diabetic retinopathy from retinal images</li>
+  <li>Goal: facilitate early diagnosis to prevent vision loss and provide diagnostic aid for ophthalmologists</li>
+  <li>Preprocessed the <strong>APTOS 2019 dataset</strong> and implemented data augmentation techniques</li>
+</ul>
+
+<p><strong>Tech stack:</strong> EfficientNetB0, CNN, TensorFlow/Keras, Adam optimizer</p>
+
+    </div>
+  </div>
+  
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="objective-section">
+  <h2>🎯 Career Objective</h2>
+  <p>
+    My goal is to design and deploy intelligent vision-based systems that combine <strong>AI research</strong>, <strong>video analytics</strong>, and <strong>sports performance optimization</strong>.
+  </p>
+  <p>
+    I am currently seeking a <strong>Computer Vision / AI Engineer opportunity</strong>, where I can contribute to innovative, real-world applications that push the boundaries of what's possible with AI.
+  </p>
+  <a href="/Portfolio/projects/" class="cta-button">
+    🚀 View My Projects
+  </a>
+</div>
+
+</div>
+  </main>
+  <footer class="mt-auto py-3 text-center">
+
+  <small class="text-muted mb-2">
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>EL MEHDI Hicham</strong>
+  </small>
+
+  <div class="container-fluid justify-content-center"><a class="social mx-1"  href="mailto:mehdihicham736@gmail.com"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#db4437'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fas fa-envelope fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.github.com/MehdiHCH"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#333333'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-github fa-1x"></i>
+    </a><a class="social mx-1"  href="https://www.linkedin.com/in/elmehdihicham"
+       style="color: #6c757d"
+       onMouseOver="this.style.color='#007bb5'"
+       onMouseOut="this.style.color='#6c757d'">
+      <i class="fab fa-linkedin-in fa-1x"></i>
+    </a>
+
+</div><small id="attribution">
+    theme <a href="https://github.com/yousinix/portfolYOU">portfolYOU</a>
+  </small>
+
+</footer>
+
+  
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Initialize all tooltips -->
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+</body>
+
+</html>
