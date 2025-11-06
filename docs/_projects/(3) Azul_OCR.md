@@ -1,7 +1,7 @@
 ---
-title: Azul OCR - Reconnaissance d'Écriture Manuscrite Tifinagh
+title: Azul OCR - Tifinagh Handwritten Character Recognition
 image: /assets/img/projects/azul.jpeg
-description: Système OCR innovant utilisant CNN, Tesseract et PaddleOCR pour la reconnaissance de l'écriture manuscrite Tifinagh, préservant le patrimoine culturel Amazigh.
+description: Innovative OCR system using CNN, Tesseract and PaddleOCR for Tifinagh handwritten character recognition, preserving Amazigh cultural heritage.
 category: computer-vision
 tags:
   - OCR
@@ -22,18 +22,18 @@ github : https://github.com/MehdiHCH/Tesseract-OCR--Handwritten-Tifinagh-Charact
 
 ## 🎯 Project Overview
 
-**Azul OCR** (ⴰⵣⵓⵍ - "Bonjour" en Amazigh) est un système OCR innovant spécialisé dans la **reconnaissance de l'écriture manuscrite Tifinagh**. Le projet vise à préserver et digitaliser le patrimoine culturel Amazigh en développant une solution d'intelligence artificielle capable de reconnaître précisément les caractères et phrases manuscrites en alphabet Tifinagh.
+**Azul OCR** (ⴰⵣⵓⵍ - "Hello" in Amazigh) is an innovative OCR system specialized in **Tifinagh handwritten character recognition**. The project aims to preserve and digitize Amazigh cultural heritage by developing an artificial intelligence solution capable of accurately recognizing Tifinagh handwritten characters and sentences.
 
-**Équipe:**
+**Team:**
 - **Rima Daqch** - Project Manager, Tesseract OCR Developer
 - **Adil Eddarif** - Tesseract OCR Developer, CNN Model Developer
 - **Brahim El Aboudi** - PaddleOCR Developer, CNN Model Developer
 - **El Mehdi Hicham** - PaddleOCR Developer, CNN Model Developer
 - **Zineb Lahraoui** - PaddleOCR Developer, CNN Model Developer
 
-**Encadré par:** Prof. Khadija Lekdioui
+**Supervised by:** Prof. Khadija Lekdioui
 
-**Mission:** *"Préserver et digitaliser le patrimoine culturel Amazigh"*
+**Mission:** *"Preserving and digitizing Amazigh cultural heritage"*
 
 ---
 
@@ -41,20 +41,20 @@ github : https://github.com/MehdiHCH/Tesseract-OCR--Handwritten-Tifinagh-Charact
 
 ### Challenges
 
-**"L'écriture Tifinagh est un élément essentiel du patrimoine culturel Amazigh, mais elle reste sous-représentée dans les outils technologiques modernes."**
+**"Tifinagh script is an essential element of Amazigh cultural heritage, but it remains underrepresented in modern technological tools."**
 
-- 📚 **Manque d'outils OCR:** Aucune solution OCR dédiée aux manuscrits Tifinagh
-- 🎨 **Complexité des caractères:** Variabilité importante de l'écriture manuscrite
-- ⚠️ **Risque culturel:** Perte potentielle de contenus précieux pour les générations futures
-- 🔬 **Précision limitée:** Solutions existantes inadaptées aux spécificités du Tifinagh
+- 📚 **Lack of OCR tools:** No dedicated OCR solution for Tifinagh manuscripts
+- 🎨 **Character complexity:** Significant variability in handwriting
+- ⚠️ **Cultural risk:** Potential loss of valuable content for future generations
+- 🔬 **Limited accuracy:** Existing solutions not adapted to Tifinagh specificities
 
 ### Solution
 
-Développement d'**Azul OCR**, système hybride combinant:
-- **Tesseract OCR** fine-tuné pour le Tifinagh
-- **PaddleOCR** adapté aux caractères Amazighs
-- **CNN personnalisé** pour reconnaissance de caractères
-- **Interface intuitive** pour capture et reconnaissance
+Development of **Azul OCR**, hybrid system combining:
+- **Tesseract OCR** fine-tuned for Tifinagh
+- **PaddleOCR** adapted for Amazigh characters
+- **Custom CNN** for character recognition
+- **Intuitive interface** for capture and recognition
 
 ---
 
@@ -68,10 +68,10 @@ Développement d'**Azul OCR**, système hybride combinant:
 #### **Module 1: Image Preprocessing**
 
 
-**Techniques appliquées:**
-- 🖼️ **Otsu Thresholding:** Binarisation automatique
+**Applied techniques:**
+- 🖼️ **Otsu Thresholding:** Automatic binarization
 - 📐 **Resizing:** 64×64 → 128×128 pixels
-- 🎨 **Filtrage:** Réduction du bruit
+- 🎨 **Filtering:** Noise reduction
 - 🔄 **Augmentation:** Rotation, translation, zoom
 
 
@@ -79,11 +79,11 @@ Développement d'**Azul OCR**, système hybride combinant:
 #### **Module 2: Recognition Engines**
 
 
-**Trois approches:**
-- 📝 **Tesseract OCR:** Fine-tuné AMHCD dataset
-- 🎯 **PaddleOCR:** Architecture légère adaptée
-- 🧠 **CNN Custom:** Modèle entraîné from scratch
-- 🔀 **Modèle hybride:** Fusion des prédictions
+**Three approaches:**
+- 📝 **Tesseract OCR:** Fine-tuned on AMHCD dataset
+- 🎯 **PaddleOCR:** Adapted lightweight architecture
+- 🧠 **Custom CNN:** Model trained from scratch
+- 🔀 **Hybrid model:** Prediction fusion
 
 ---
 
@@ -197,693 +197,858 @@ Développement d'**Azul OCR**, système hybride combinant:
     <text x="200" y="535" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
       33 Tifinagh classes
     </text>
-    <text x="200" y="552" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
-      Accuracy: 94.2%
+    <text x="200" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      6 Conv layers + Dropout
     </text>
   </g>
   
-  <!-- Right Branch: Phrases -->
-  <line x1="530" y1="380" x2="700" y2="380" stroke="#a78bfa" stroke-width="2.5" opacity="0.8"/>
-  <line x1="700" y1="380" x2="700" y2="450" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowPurple)" opacity="0.8"/>
-  <text x="620" y="370" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">
-    Phrases
+  <!-- CNN Stats Box -->
+  <g>
+    <rect x="80" y="580" width="240" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
+    <text x="200" y="603" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#f472b6" text-anchor="middle">
+      94.2% Accuracy ⭐
+    </text>
+    <text x="200" y="623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Precision: 93.8% | Recall: 94.1%
+    </text>
+    <text x="200" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Best for: Isolated characters
+    </text>
+  </g>
+  
+  <!-- Middle Branch: Words/Phrases -->
+  <line x1="450" y1="420" x2="450" y2="450" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="460" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">
+    Words/Phrases
   </text>
   
-  <!-- OCR Engines Box -->
+  <!-- Tesseract OCR Box -->
   <g>
-    <rect x="580" y="460" width="240" height="100" rx="10" fill="rgba(52, 211, 153, 0.15)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <text x="700" y="485" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#34d399" text-anchor="middle">
-      OCR Engines
-    </text>
-    
-    <!-- Tesseract -->
-    <rect x="595" y="500" width="100" height="25" rx="5" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1"/>
-    <text x="645" y="518" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#34d399" text-anchor="middle">
-      Tesseract
-    </text>
-    
-    <!-- PaddleOCR -->
-    <rect x="705" y="500" width="100" height="25" rx="5" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1"/>
-    <text x="755" y="518" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#34d399" text-anchor="middle">
-      PaddleOCR
-    </text>
-    
-    <text x="700" y="548" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
-      Fine-tuned for Tifinagh
-    </text>
-  </g>
-  
-  <!-- Merge arrows to output -->
-  <line x1="200" y1="560" x2="200" y2="600" stroke="#f472b6" stroke-width="2.5" opacity="0.8"/>
-  <line x1="200" y1="600" x2="390" y2="600" stroke="#f472b6" stroke-width="2.5" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <line x1="700" y1="560" x2="700" y2="600" stroke="#34d399" stroke-width="2.5" opacity="0.8"/>
-  <line x1="700" y1="600" x2="510" y2="600" stroke="#34d399" stroke-width="2.5" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Character Recognition Output -->
-  <g>
-    <rect x="400" y="580" width="100" height="40" rx="8" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2" filter="url(#glow)"/>
-    <text x="450" y="605" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#60a5fa" text-anchor="middle">
-      ⴰ ⵣ ⵓ ⵍ
-    </text>
-  </g>
-  
-  <!-- Arrow to final output -->
-  <line x1="450" y1="620" x2="450" y2="650" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Final Output -->
-  <g>
-    <rect x="300" y="660" width="300" height="30" rx="8" fill="rgba(52, 211, 153, 0.2)" stroke="url(#greenGrad)" stroke-width="2" filter="url(#glow)"/>
-    <text x="450" y="680" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#34d399" text-anchor="middle">
-      📄 Output Text (JSON/TXT/CSV)
-    </text>
-  </g>
-  
-  <!-- Performance Stats Box -->
-  <g>
-    <rect x="40" y="90" width="260" height="260" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2"/>
-    <text x="170" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#60a5fa" text-anchor="middle">
-      Performance Metrics
-    </text>
-    
-    <!-- CNN Accuracy -->
-    <rect x="60" y="140" width="220" height="45" rx="6" fill="rgba(244, 114, 182, 0.1)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="170" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#f472b6" text-anchor="middle">
-      94.2%
-    </text>
-    <text x="170" y="177" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      CNN Character Recognition
-    </text>
-    
-    <!-- Tesseract -->
-    <rect x="60" y="200" width="220" height="45" rx="6" fill="rgba(52, 211, 153, 0.1)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="170" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#34d399" text-anchor="middle">
-      87.3%
-    </text>
-    <text x="170" y="237" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      Tesseract Phrase Accuracy
-    </text>
-    
-    <!-- PaddleOCR -->
-    <rect x="60" y="260" width="220" height="45" rx="6" fill="rgba(52, 211, 153, 0.1)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="170" y="280" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#34d399" text-anchor="middle">
-      89.6%
-    </text>
-    <text x="170" y="297" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      PaddleOCR Phrase Accuracy
-    </text>
-    
-    <!-- Hybrid -->
-    <rect x="60" y="320" width="220" height="20" rx="5" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="170" y="334" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#60a5fa" text-anchor="middle">
-      Hybrid Model: 91.2% ⭐
-    </text>
-  </g>
-  
-  <!-- Dataset Info Box -->
-  <g>
-    <rect x="600" y="90" width="260" height="260" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2"/>
-    <text x="730" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#60a5fa" text-anchor="middle">
-      Dataset & Training
-    </text>
-    
-    <text x="620" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#fbbf24">
-      AMHCD Dataset
-    </text>
-    <text x="620" y="170" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • 33 Tifinagh classes
-    </text>
-    <text x="620" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Original: 64×64×3 RGB
-    </text>
-    <text x="620" y="206" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Augmented: ×5 samples
-    </text>
-    <text x="620" y="224" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Final size: 128×128 pixels
-    </text>
-    
-    <line x1="620" y1="240" x2="840" y2="240" stroke="#475569" stroke-width="1"/>
-    
-    <text x="620" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">
-      Augmentation
-    </text>
-    <text x="620" y="278" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Rotation: ±15°
-    </text>
-    <text x="620" y="296" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Translation: ±10%
-    </text>
-    <text x="620" y="314" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Zoom: 0.9-1.1×
-    </text>
-    <text x="620" y="332" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Brightness: ±20%
-    </text>
-  </g>
-</svg>
-
----
-
-## 📦 Dataset & Preprocessing
-
-### AMHCD Dataset
-
-**Source:** IRCAM (Institut Royal de la Culture Amazighe)  
-**Collaborations:** ENCG et Laboratoire IRF-SIC, Université Ibn Zohr, Agadir
-
-**Caractéristiques:**
-- 📊 **33 classes** de caractères Tifinagh
-- 🖼️ **Format original:** 64×64×3 (RGB)
-- 📈 **Augmentation:** ×5 par technique
-- 🎯 **Résolution finale:** 128×128 pixels
-
-### Preprocessing Pipeline
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" style="background: transparent;">
-  <defs>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
-    </linearGradient>
-    
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa" />
-    </marker>
-  </defs>
-  
-  <!-- Title -->
-  <text x="500" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="32" font-weight="700" fill="url(#cyanGrad)" text-anchor="middle" filter="url(#glow)">
-    Azul OCR - Preprocessing Pipeline
-  </text>
-  <text x="500" y="65" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" fill="#94a3b8" text-anchor="middle">
-    ⴰⵣⵓⵍ - Tifinagh Handwriting Recognition
-  </text>
-  
-  <!-- Input Image -->
-  <g>
-    <rect x="50" y="120" width="160" height="140" rx="10" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <text x="130" y="160" font-size="40" text-anchor="middle">📝</text>
-    <text x="130" y="200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
-      Input Image
-    </text>
-    <text x="130" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
-      64×64×3 (RGB)
-    </text>
-    <text x="130" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">
-      AMHCD Dataset
-    </text>
-  </g>
-  
-  <!-- Arrow 1 -->
-  <line x1="210" y1="190" x2="260" y2="190" stroke="#60a5fa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Step 1: Grayscale Conversion -->
-  <g>
-    <rect x="270" y="120" width="180" height="140" rx="10" fill="rgba(167, 139, 250, 0.15)" stroke="url(#purpleGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <circle cx="300" cy="150" r="18" fill="url(#purpleGrad)" filter="url(#glow)"/>
-    <text x="300" y="158" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">1</text>
-    
-    <text x="360" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
-      Grayscale
-    </text>
-    <text x="360" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
-      Conversion
-    </text>
-    <text x="290" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      RGB → Grayscale
-    </text>
-    <text x="290" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      64×64×3 → 64×64×1
-    </text>
-    <text x="290" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b">
-      cv2.cvtColor(GRAY)
-    </text>
-  </g>
-  
-  <!-- Arrow 2 -->
-  <line x1="450" y1="190" x2="500" y2="190" stroke="#a78bfa" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Step 2: Otsu Thresholding -->
-  <g>
-    <rect x="510" y="120" width="180" height="140" rx="10" fill="rgba(251, 191, 36, 0.15)" stroke="url(#yellowGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <circle cx="540" cy="150" r="18" fill="url(#yellowGrad)" filter="url(#glow)"/>
-    <text x="540" y="158" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">2</text>
-    
-    <text x="600" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#fbbf24" text-anchor="middle">
-      Otsu
-    </text>
-    <text x="600" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#fbbf24" text-anchor="middle">
-      Thresholding
-    </text>
-    <text x="530" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      Automatic binarization
-    </text>
-    <text x="530" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      Grayscale → Binary
-    </text>
-    <text x="530" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b">
-      cv2.threshold(OTSU)
-    </text>
-  </g>
-  
-  <!-- Arrow 3 -->
-  <line x1="690" y1="190" x2="740" y2="190" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Step 3: Gaussian Filtering -->
-  <g>
-    <rect x="750" y="120" width="180" height="140" rx="10" fill="rgba(34, 211, 238, 0.15)" stroke="url(#cyanGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <circle cx="780" cy="150" r="18" fill="url(#cyanGrad)" filter="url(#glow)"/>
-    <text x="780" y="158" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">3</text>
-    
-    <text x="840" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#22d3ee" text-anchor="middle">
-      Gaussian
-    </text>
-    <text x="840" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#22d3ee" text-anchor="middle">
-      Filtering
-    </text>
-    <text x="770" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      Noise reduction
-    </text>
-    <text x="770" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      Kernel: 5×5
-    </text>
-    <text x="770" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b">
-      cv2.GaussianBlur()
-    </text>
-  </g>
-  
-  <!-- Arrow down from center -->
-  <line x1="500" y1="260" x2="500" y2="320" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Step 4: Resizing -->
-  <g>
-    <rect x="380" y="330" width="240" height="140" rx="10" fill="rgba(52, 211, 153, 0.15)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <circle cx="410" cy="360" r="18" fill="url(#greenGrad)" filter="url(#glow)"/>
-    <text x="410" y="368" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">4</text>
-    
-    <text x="500" y="365" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#34d399" text-anchor="middle">
-      Resizing (Upscaling)
-    </text>
-    <text x="400" y="400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">
-      64×64 → 128×128 pixels
-    </text>
-    <text x="400" y="423" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8">
-      Preserve fine details
-    </text>
-    <text x="400" y="446" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#64748b">
-      cv2.resize(INTER_CUBIC)
-    </text>
-  </g>
-  
-  <!-- Arrow down -->
-  <line x1="500" y1="470" x2="500" y2="530" stroke="#34d399" stroke-width="3" marker-end="url(#arrowBlue)" opacity="0.8"/>
-  
-  <!-- Step 5: Normalization & Augmentation -->
-  <g>
-    <rect x="210" y="540" width="580" height="180" rx="10" fill="rgba(167, 139, 250, 0.15)" stroke="url(#purpleGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    <circle cx="240" cy="570" r="18" fill="url(#purpleGrad)" filter="url(#glow)"/>
-    <text x="240" y="578" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">5</text>
-    
-    <text x="500" y="575" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="19" font-weight="600" fill="#a78bfa" text-anchor="middle">
-      Normalization & Data Augmentation
-    </text>
-    
-    <!-- Normalization -->
-    <rect x="230" y="600" width="250" height="100" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="1.5"/>
-    <text x="355" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="middle">
-      Normalization
-    </text>
-    <text x="245" y="650" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Pixel values: [0, 255] → [0, 1]
-    </text>
-    <text x="245" y="670" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Mean subtraction
-    </text>
-    <text x="245" y="690" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Standard deviation scaling
-    </text>
-    
-    <!-- Augmentation -->
-    <rect x="510" y="600" width="260" height="100" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="1.5"/>
-    <text x="640" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#a78bfa" text-anchor="middle">
-      Augmentation (×5)
-    </text>
-    <text x="525" y="650" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Rotation: ±15°
-    </text>
-    <text x="525" y="670" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Translation: ±10%
-    </text>
-    <text x="525" y="690" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8">
-      • Zoom: 0.9-1.1×, Brightness: ±20%
-    </text>
-  </g>
-  
-  <!-- Arrow to output -->
-  <line x1="500" y1="720" x2="500" y2="750" stroke="#a78bfa" stroke-width="3" opacity="0.8"/>
-  
-  <!-- Output: Ready for Training -->
-  <g>
-    <rect x="340" y="750" width="320" height="35" rx="8" fill="rgba(52, 211, 153, 0.2)" stroke="url(#greenGrad)" stroke-width="2" filter="url(#glow)"/>
-    <text x="500" y="773" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#34d399" text-anchor="middle">
-      ✅ Ready for Model Training (128×128×1)
-    </text>
-  </g>
-</svg>
-
-## 🚀 Model Architecture
-
-### Custom CNN Model
-
-**Architecture:**
-```
-Input (128×128×1)
-    ↓
-Conv2D (32 filters) + ReLU + MaxPool
-    ↓
-Conv2D (64 filters) + ReLU + MaxPool
-    ↓
-Conv2D (128 filters) + ReLU + MaxPool
-    ↓
-Flatten + Dense(256) + Dropout(0.5)
-    ↓
-Dense(33) + Softmax
-```
-
-**Hyperparamètres:**
-- Optimizer: Adam (lr=0.001)
-- Loss: Categorical Crossentropy
-- Batch Size: 32
-- Epochs: 50
-
-### Tesseract Fine-Tuning
-
-- **Baseline:** Tesseract 4.0 pré-entraîné
-- **Fine-tuning:** AMHCD dataset (2000+ samples)
-- **Language:** `tif` (Tifinagh custom traineddata)
-
-### PaddleOCR Adaptation
-
-- **Architecture:** Lightweight PP-OCRv3
-- **Detection:** DB++ (Differentiable Binarization)
-- **Recognition:** CRNN fine-tuné sur Tifinagh
-
----
-
-## 📊 Results & Performance
-
-### Character Recognition (CNN)
-
-| Métrique | Score |
-|----------|-------|
-| **Accuracy** | 94.2% |
-| **Precision** | 93.8% |
-| **Recall** | 94.5% |
-| **F1-Score** | 94.1% |
-
-### Phrase Recognition
-
-| Modèle | Accuracy | CER* | WER** |
-|--------|----------|------|-------|
-| **Tesseract** | 87.3% | 12.5% | 18.2% |
-| **PaddleOCR** | 89.6% | 10.8% | 15.4% |
-| **Hybrid*** | 91.2% | 9.1% | 13.7% |
-
-
-### Performance Comparison
-
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" style="background: transparent;">
-  <defs>
-    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
-    </linearGradient>
-    
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <!-- Title -->
-  <text x="550" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="30" font-weight="700" fill="url(#pinkGrad)" text-anchor="middle" filter="url(#glow)">
-    Azul OCR - Recognition Models Comparison
-  </text>
-  
-  <!-- Model 1: Custom CNN -->
-  <g>
-    <rect x="50" y="80" width="320" height="520" rx="12" fill="rgba(244, 114, 182, 0.12)" stroke="url(#pinkGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    
-    <text x="210" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="600" fill="#f472b6" text-anchor="middle">
-      Custom CNN
-    </text>
-    <text x="210" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
-      Character Recognition
-    </text>
-    
-    <!-- Architecture layers -->
-    <rect x="70" y="160" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Input: 128×128×1
-    </text>
-    
-    <text x="210" y="210" font-size="16" fill="#f472b6">↓</text>
-    
-    <rect x="70" y="220" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="243" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Conv2D(32) + ReLU + MaxPool
-    </text>
-    
-    <text x="210" y="270" font-size="16" fill="#f472b6">↓</text>
-    
-    <rect x="70" y="280" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="303" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Conv2D(64) + ReLU + MaxPool
-    </text>
-    
-    <text x="210" y="330" font-size="16" fill="#f472b6">↓</text>
-    
-    <rect x="70" y="340" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="363" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Conv2D(128) + ReLU + MaxPool
-    </text>
-    
-    <text x="210" y="390" font-size="16" fill="#f472b6">↓</text>
-    
-    <rect x="70" y="400" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="423" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Flatten + Dense(256) + Dropout(0.5)
-    </text>
-    
-    <text x="210" y="450" font-size="16" fill="#f472b6">↓</text>
-    
-    <rect x="70" y="460" width="280" height="35" rx="6" fill="rgba(244, 114, 182, 0.2)" stroke="#f472b6" stroke-width="1.5"/>
-    <text x="210" y="483" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#f472b6" text-anchor="middle">
-      Output: Dense(33) + Softmax
-    </text>
-    
-    <!-- Stats -->
-    <rect x="70" y="515" width="280" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
-    <text x="210" y="538" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#f472b6" text-anchor="middle">
-      94.2% Accuracy
-    </text>
-    <text x="210" y="558" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      Training: 50 epochs
-    </text>
-    <text x="210" y="575" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      Optimizer: Adam (lr=0.001)
-    </text>
-  </g>
-  
-  <!-- Model 2: Tesseract OCR -->
-  <g>
-    <rect x="390" y="80" width="320" height="520" rx="12" fill="rgba(96, 165, 250, 0.12)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    
-    <text x="550" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="600" fill="#60a5fa" text-anchor="middle">
+    <rect x="350" y="460" width="200" height="100" rx="10" fill="rgba(96, 165, 250, 0.15)" stroke="url(#blueGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    <text x="450" y="490" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
       Tesseract OCR
     </text>
-    <text x="550" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
-      Phrase Recognition
+    <text x="450" y="515" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Fine-tuned on AMHCD
     </text>
-    
-    <!-- Architecture components -->
-    <rect x="410" y="160" width="280" height="45" rx="6" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="550" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">
-      Tesseract 4.0 Engine
+    <text x="450" y="535" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      LSTM + Language Model
     </text>
-    <text x="550" y="196" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      LSTM-based recognition
-    </text>
-    
-    <text x="550" y="220" font-size="16" fill="#60a5fa">↓</text>
-    
-    <rect x="410" y="235" width="280" height="45" rx="6" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="550" y="253" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">
-      Fine-tuning
-    </text>
-    <text x="550" y="271" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      AMHCD Dataset (2000+ samples)
-    </text>
-    
-    <text x="550" y="295" font-size="16" fill="#60a5fa">↓</text>
-    
-    <rect x="410" y="310" width="280" height="45" rx="6" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="550" y="328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">
-      Custom Language Model
-    </text>
-    <text x="550" y="346" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      .traineddata file for Tifinagh
-    </text>
-    
-    <text x="550" y="370" font-size="16" fill="#60a5fa">↓</text>
-    
-    <rect x="410" y="385" width="280" height="45" rx="6" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="550" y="403" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">
-      Text Detection + Recognition
-    </text>
-    <text x="550" y="421" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      Word & line segmentation
-    </text>
-    
-    <text x="550" y="445" font-size="16" fill="#60a5fa">↓</text>
-    
-    <rect x="410" y="460" width="280" height="35" rx="6" fill="rgba(96, 165, 250, 0.2)" stroke="#60a5fa" stroke-width="1.5"/>
-    <text x="550" y="483" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">
-      Output: Text strings
-    </text>
-    
-    <!-- Stats -->
-    <rect x="410" y="515" width="280" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
-    <text x="550" y="538" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#60a5fa" text-anchor="middle">
-      87.3% Accuracy
-    </text>
-    <text x="550" y="558" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      CER: 12.5% | WER: 18.2%
-    </text>
-    <text x="550" y="575" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
-      Best for: Longer phrases
+    <text x="450" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Custom training data
     </text>
   </g>
   
-  <!-- Model 3: PaddleOCR -->
+  <!-- Tesseract Stats Box -->
   <g>
-    <rect x="730" y="80" width="320" height="520" rx="12" fill="rgba(52, 211, 153, 0.12)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)"/>
-    
-    <text x="890" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="600" fill="#34d399" text-anchor="middle">
+    <rect x="350" y="580" width="200" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
+    <text x="450" y="603" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#60a5fa" text-anchor="middle">
+      87.5% Accuracy ⭐
+    </text>
+    <text x="450" y="623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      CER: 12.5% | WER: 18.3%
+    </text>
+    <text x="450" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Best for: Simple layouts
+    </text>
+  </g>
+  
+  <!-- Right Branch: Text Lines -->
+  <line x1="530" y1="380" x2="700" y2="380" stroke="#a78bfa" stroke-width="2.5" opacity="0.8"/>
+  <line x1="700" y1="380" x2="700" y2="450" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowPurple)" opacity="0.8"/>
+  <text x="610" y="370" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa">
+    Text Lines
+  </text>
+  
+  <!-- PaddleOCR Box -->
+  <g>
+    <rect x="580" y="460" width="240" height="100" rx="10" fill="rgba(52, 211, 153, 0.15)" stroke="url(#greenGrad)" stroke-width="2.5" filter="url(#glow)"/>
+    <text x="700" y="490" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#34d399" text-anchor="middle">
       PaddleOCR
     </text>
-    <text x="890" y="138" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
-      Phrase Recognition
+    <text x="700" y="515" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      DB++ + CRNN
     </text>
-    
-    <!-- Architecture components -->
-    <rect x="750" y="160" width="280" height="45" rx="6" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="890" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#34d399" text-anchor="middle">
-      PP-OCRv3 Architecture
+    <text x="700" y="535" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      End-to-end detection
     </text>
-    <text x="890" y="196" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      Lightweight & efficient
+    <text x="700" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      Fine-tuned on Tifinagh
     </text>
-    
-    <text x="890" y="220" font-size="16" fill="#34d399">↓</text>
-    
-    <rect x="750" y="235" width="280" height="45" rx="6" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="890" y="253" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#34d399" text-anchor="middle">
-      Text Detection
-    </text>
-    <text x="890" y="271" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      DB++ (Differentiable Binarization)
-    </text>
-    
-    <text x="890" y="295" font-size="16" fill="#34d399">↓</text>
-    
-    <rect x="750" y="310" width="280" height="45" rx="6" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="890" y="328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#34d399" text-anchor="middle">
-      Text Recognition
-    </text>
-    <text x="890" y="346" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      CRNN fine-tuned on Tifinagh
-    </text>
-    
-    <text x="890" y="370" font-size="16" fill="#34d399">↓</text>
-    
-    <rect x="750" y="385" width="280" height="45" rx="6" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="890" y="403" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#34d399" text-anchor="middle">
-      Post-processing
-    </text>
-    <text x="890" y="421" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">
-      Language model correction
-    </text>
-    
-    <text x="890" y="445" font-size="16" fill="#34d399">↓</text>
-    
-    <rect x="750" y="460" width="280" height="35" rx="6" fill="rgba(52, 211, 153, 0.2)" stroke="#34d399" stroke-width="1.5"/>
-    <text x="890" y="483" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#34d399" text-anchor="middle">
-      Output: Structured text + boxes
-    </text>
-    
-    <!-- Stats -->
-    <rect x="750" y="515" width="280" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
-    <text x="890" y="538" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="middle">
+  </g>
+  
+  <!-- PaddleOCR Stats Box -->
+  <g>
+    <rect x="580" y="580" width="240" height="70" rx="6" fill="rgba(30, 41, 59, 0.6)" stroke="#475569" stroke-width="1.5"/>
+    <text x="700" y="603" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="middle">
       89.6% Accuracy ⭐
     </text>
-    <text x="890" y="558" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <text x="700" y="623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
       CER: 10.8% | WER: 15.4%
     </text>
-    <text x="890" y="575" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    <text x="700" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
       Best for: Complex layouts
     </text>
   </g>
   
   <!-- Hybrid Model Banner -->
   <g>
-    <rect x="150" y="620" width="800" height="20" rx="5" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="1.5"/>
-    <text x="550" y="634" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
+    <rect x="50" y="670" width="800" height="20" rx="5" fill="rgba(167, 139, 250, 0.2)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="450" y="684" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="600" fill="#a78bfa" text-anchor="middle">
       🏆 Hybrid Model (Weighted Voting): 91.2% Accuracy | Best Overall Performance
     </text>
   </g>
+</svg>
+
+---
+
+## 🔬 Technical Deep Dive
+
+### 1️⃣ CNN Architecture Details
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" style="background: transparent;">
+  <defs>
+    <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f472b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a78bfa" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="550" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="28" font-weight="700" fill="url(#pinkGradient)" text-anchor="middle">
+    🧠 Custom CNN Architecture for Tifinagh Recognition
+  </text>
+  <text x="550" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    6 Convolutional Layers + Dropout Regularization + 33-class Classification
+  </text>
+  
+  <!-- Input Layer -->
+  <g>
+    <rect x="50" y="100" width="100" height="120" rx="8" fill="rgba(96, 165, 250, 0.2)" stroke="url(#blueGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="100" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Input Layer
+    </text>
+    <text x="100" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      128×128×1
+    </text>
+    <text x="100" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Grayscale
+    </text>
+    <text x="100" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Normalized
+    </text>
+    <text x="100" y="212" font-size="20" text-anchor="middle">📸</text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="150" y1="160" x2="190" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 1 -->
+  <g>
+    <rect x="200" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="255" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 1
+    </text>
+    <text x="255" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (32, 3×3)
+    </text>
+    <text x="255" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="255" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="255" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 64×64×32
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="310" y1="160" x2="340" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 2 -->
+  <g>
+    <rect x="350" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="405" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 2
+    </text>
+    <text x="405" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (64, 3×3)
+    </text>
+    <text x="405" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="405" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="405" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 32×32×64
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="460" y1="160" x2="490" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 3 -->
+  <g>
+    <rect x="500" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="555" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 3
+    </text>
+    <text x="555" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (128, 3×3)
+    </text>
+    <text x="555" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="555" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="555" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 16×16×128
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="610" y1="160" x2="640" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 4 -->
+  <g>
+    <rect x="650" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="705" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 4
+    </text>
+    <text x="705" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (256, 3×3)
+    </text>
+    <text x="705" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="705" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="705" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 8×8×256
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="760" y1="160" x2="790" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 5 -->
+  <g>
+    <rect x="800" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="855" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 5
+    </text>
+    <text x="855" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (512, 3×3)
+    </text>
+    <text x="855" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="855" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="855" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 4×4×512
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="910" y1="160" x2="940" y2="160" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Conv Block 6 -->
+  <g>
+    <rect x="950" y="100" width="110" height="120" rx="8" fill="rgba(244, 114, 182, 0.2)" stroke="url(#pinkGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="1005" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#f472b6" text-anchor="middle">
+      Conv Block 6
+    </text>
+    <text x="1005" y="147" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Conv2D (512, 3×3)
+    </text>
+    <text x="1005" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ReLU
+    </text>
+    <text x="1005" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      MaxPool (2×2)
+    </text>
+    <text x="1005" y="201" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      → 2×2×512
+    </text>
+  </g>
+  
+  <!-- Vertical Arrow to Flatten -->
+  <line x1="555" y1="220" x2="555" y2="270" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Flatten Layer -->
+  <g>
+    <rect x="450" y="280" width="210" height="60" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="url(#purpleGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="555" y="305" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Flatten Layer
+    </text>
+    <text x="555" y="328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      2048 neurons (2×2×512)
+    </text>
+  </g>
+  
+  <!-- Arrow to Dense -->
+  <line x1="555" y1="340" x2="555" y2="380" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Dense Layer 1 -->
+  <g>
+    <rect x="450" y="390" width="210" height="70" rx="8" fill="rgba(52, 211, 153, 0.2)" stroke="url(#greenGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="555" y="418" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#34d399" text-anchor="middle">
+      Dense Layer 1
+    </text>
+    <text x="555" y="438" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      512 neurons + ReLU
+    </text>
+    <text x="555" y="454" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Dropout (50%)
+    </text>
+  </g>
+  
+  <!-- Arrow to Output -->
+  <line x1="555" y1="460" x2="555" y2="500" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrowhead)" opacity="0.7"/>
+  
+  <!-- Output Layer -->
+  <g>
+    <rect x="450" y="510" width="210" height="80" rx="8" fill="rgba(96, 165, 250, 0.2)" stroke="url(#blueGradient)" stroke-width="2.5" filter="url(#shadow)"/>
+    <text x="555" y="538" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Output Layer
+    </text>
+    <text x="555" y="560" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">
+      33 neurons (classes)
+    </text>
+    <text x="555" y="578" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Softmax activation
+    </text>
+  </g>
+  
+  <!-- Stats Box -->
+  <g>
+    <rect x="50" y="280" width="350" height="140" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <text x="225" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#f472b6" text-anchor="middle">
+      📊 Model Statistics
+    </text>
+    <text x="60" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Total Parameters: <tspan font-weight="600" fill="#34d399">~2.5M</tspan>
+    </text>
+    <text x="60" y="365" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Training Time: <tspan font-weight="600" fill="#60a5fa">~3 hours</tspan>
+    </text>
+    <text x="60" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Inference Speed: <tspan font-weight="600" fill="#fbbf24">~15ms/image</tspan>
+    </text>
+    <text x="60" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Accuracy: <tspan font-weight="600" fill="#f472b6">94.2%</tspan>
+    </text>
+  </g>
+  
+  <!-- Training Details Box -->
+  <g>
+    <rect x="700" y="280" width="350" height="140" rx="8" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#shadow)"/>
+    <text x="875" y="310" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#a78bfa" text-anchor="middle">
+      🎯 Training Details
+    </text>
+    <text x="710" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Optimizer: <tspan font-weight="600" fill="#34d399">Adam (lr=0.001)</tspan>
+    </text>
+    <text x="710" y="365" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Loss Function: <tspan font-weight="600" fill="#60a5fa">Categorical Crossentropy</tspan>
+    </text>
+    <text x="710" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Batch Size: <tspan font-weight="600" fill="#fbbf24">32</tspan>
+    </text>
+    <text x="710" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Epochs: <tspan font-weight="600" fill="#f472b6">50 (Early Stopping)</tspan>
+    </text>
+  </g>
+  
+  <!-- Footer Note -->
+  <text x="550" y="630" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" font-style="italic" fill="#94a3b8" text-anchor="middle">
+    🏆 Best performance on isolated character recognition | Trained on AMHCD dataset
+  </text>
+</svg>
+
+---
+
+### 2️⃣ Tesseract OCR Fine-tuning
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" style="background: transparent;">
+  <defs>
+    <linearGradient id="tesseractBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="tesseractPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="tesseractGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="tesseractShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    
+    <marker id="tesseractArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a78bfa" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="550" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="28" font-weight="700" fill="url(#tesseractBlue)" text-anchor="middle">
+    📝 Tesseract OCR Fine-tuning Pipeline
+  </text>
+  <text x="550" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    Adapted for Tifinagh Script Recognition | LSTM-based Architecture
+  </text>
+  
+  <!-- Step 1: Data Preparation -->
+  <g>
+    <rect x="50" y="100" width="220" height="110" rx="10" fill="rgba(96, 165, 250, 0.2)" stroke="url(#tesseractBlue)" stroke-width="2.5" filter="url(#tesseractShadow)"/>
+    <text x="160" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      1️⃣ Data Preparation
+    </text>
+    <text x="160" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • AMHCD Dataset
+    </text>
+    <text x="160" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Ground Truth (GT) Files
+    </text>
+    <text x="160" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Box Files Generation
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="270" y1="155" x2="310" y2="155" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#tesseractArrow)" opacity="0.7"/>
+  
+  <!-- Step 2: Training -->
+  <g>
+    <rect x="320" y="100" width="220" height="110" rx="10" fill="rgba(167, 139, 250, 0.2)" stroke="url(#tesseractPurple)" stroke-width="2.5" filter="url(#tesseractShadow)"/>
+    <text x="430" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      2️⃣ LSTM Training
+    </text>
+    <text x="430" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • 100+ iterations
+    </text>
+    <text x="430" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Language Model
+    </text>
+    <text x="430" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Character Error Rate ↓
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="540" y1="155" x2="580" y2="155" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#tesseractArrow)" opacity="0.7"/>
+  
+  <!-- Step 3: Evaluation -->
+  <g>
+    <rect x="590" y="100" width="220" height="110" rx="10" fill="rgba(52, 211, 153, 0.2)" stroke="url(#tesseractGreen)" stroke-width="2.5" filter="url(#tesseractShadow)"/>
+    <text x="700" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#34d399" text-anchor="middle">
+      3️⃣ Evaluation
+    </text>
+    <text x="700" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Test on validation set
+    </text>
+    <text x="700" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • CER: 12.5%
+    </text>
+    <text x="700" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • WER: 18.3%
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="810" y1="155" x2="850" y2="155" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#tesseractArrow)" opacity="0.7"/>
+  
+  <!-- Step 4: Deployment -->
+  <g>
+    <rect x="860" y="100" width="200" height="110" rx="10" fill="rgba(251, 191, 36, 0.2)" stroke="#fbbf24" stroke-width="2.5" filter="url(#tesseractShadow)"/>
+    <text x="960" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      4️⃣ Deployment
+    </text>
+    <text x="960" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Export .traineddata
+    </text>
+    <text x="960" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Integration in App
+    </text>
+    <text x="960" y="195" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      • Real-time Recognition
+    </text>
+  </g>
+  
+  <!-- Architecture Details -->
+  <g>
+    <rect x="50" y="240" width="1010" height="150" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#tesseractShadow)"/>
+    <text x="555" y="270" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#60a5fa" text-anchor="middle">
+      🏗️ Tesseract LSTM Architecture
+    </text>
+    
+    <text x="70" y="305" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#60a5fa">Input Layer:</tspan> Variable-width image strips (H=48px)
+    </text>
+    <text x="70" y="330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#a78bfa">Convolutional Layers:</tspan> 3 layers for feature extraction
+    </text>
+    <text x="70" y="355" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#34d399">LSTM Layers:</tspan> Bidirectional LSTM (2 layers, 256 units each)
+    </text>
+    <text x="70" y="380" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#fbbf24">Output Layer:</tspan> CTC (Connectionist Temporal Classification)
+    </text>
+  </g>
+  
+  <!-- Training Metrics -->
+  <g>
+    <rect x="50" y="410" width="320" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#tesseractShadow)"/>
+    <text x="210" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#60a5fa" text-anchor="middle">
+      📊 Training Metrics
+    </text>
+    <text x="70" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Training Images: <tspan font-weight="600" fill="#34d399">15,000+</tspan>
+    </text>
+    <text x="70" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Iterations: <tspan font-weight="600" fill="#60a5fa">120 epochs</tspan>
+    </text>
+    <text x="70" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Training Time: <tspan font-weight="600" fill="#fbbf24">~12 hours</tspan>
+    </text>
+    <text x="70" y="545" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Final CER: <tspan font-weight="600" fill="#f472b6">12.5%</tspan>
+    </text>
+    <text x="70" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      • Word Accuracy: <tspan font-weight="600" fill="#34d399">87.5%</tspan>
+    </text>
+  </g>
+  
+  <!-- Challenges & Solutions -->
+  <g>
+    <rect x="400" y="410" width="320" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#tesseractShadow)"/>
+    <text x="560" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#a78bfa" text-anchor="middle">
+      🔧 Key Optimizations
+    </text>
+    <text x="420" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✅ Custom Unicode mapping
+    </text>
+    <text x="420" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✅ Tifinagh-specific wordlists
+    </text>
+    <text x="420" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✅ Context-aware correction
+    </text>
+    <text x="420" y="545" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✅ Augmented training data
+    </text>
+    <text x="420" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✅ Multi-font training
+    </text>
+  </g>
+  
+  <!-- Performance Comparison -->
+  <g>
+    <rect x="750" y="410" width="310" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#tesseractShadow)"/>
+    <text x="905" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="middle">
+      🎯 Best Use Cases
+    </text>
+    <text x="770" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✓ Documents with simple layouts
+    </text>
+    <text x="770" y="495" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✓ Printed text recognition
+    </text>
+    <text x="770" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✓ Well-separated lines
+    </text>
+    <text x="770" y="545" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✓ High contrast images
+    </text>
+    <text x="770" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      ✓ Historical manuscripts
+    </text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="550" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" font-style="italic" fill="#94a3b8" text-anchor="middle">
+    🏆 87.5% accuracy on word/phrase recognition | Ideal for structured documents
+  </text>
+</svg>
+
+---
+
+### 3️⃣ PaddleOCR Integration Pipeline
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" style="background: transparent;">
+  <defs>
+    <linearGradient id="paddleGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="paddleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="paddlePurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="paddleYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="paddleShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    
+    <marker id="paddleArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#34d399" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="550" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="28" font-weight="700" fill="url(#paddleGreen)" text-anchor="middle">
+    🎯 PaddleOCR Complete Pipeline
+  </text>
+  <text x="550" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    DB++ Text Detection + CRNN Recognition | End-to-End Tifinagh OCR
+  </text>
+  
+  <!-- Input Image -->
+  <g>
+    <rect x="50" y="100" width="180" height="90" rx="8" fill="rgba(96, 165, 250, 0.2)" stroke="url(#paddleBlue)" stroke-width="2.5" filter="url(#paddleShadow)"/>
+    <text x="140" y="135" font-size="28" text-anchor="middle">📄</text>
+    <text x="140" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">
+      Input Image
+    </text>
+    <text x="140" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Tifinagh Text
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="230" y1="145" x2="270" y2="145" stroke="#34d399" stroke-width="2.5" marker-end="url(#paddleArrow)" opacity="0.7"/>
+  
+  <!-- Text Detection (DB++) -->
+  <g>
+    <rect x="280" y="100" width="200" height="90" rx="8" fill="rgba(52, 211, 153, 0.2)" stroke="url(#paddleGreen)" stroke-width="2.5" filter="url(#paddleShadow)"/>
+    <text x="380" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#34d399" text-anchor="middle">
+      Text Detection
+    </text>
+    <text x="380" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      DB++ Algorithm
+    </text>
+    <text x="380" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Differentiable Binarization
+    </text>
+    <text x="380" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      ResNet50 Backbone
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="480" y1="145" x2="520" y2="145" stroke="#34d399" stroke-width="2.5" marker-end="url(#paddleArrow)" opacity="0.7"/>
+  
+  <!-- Text Boxes -->
+  <g>
+    <rect x="530" y="100" width="180" height="90" rx="8" fill="rgba(251, 191, 36, 0.2)" stroke="url(#paddleYellow)" stroke-width="2.5" filter="url(#paddleShadow)"/>
+    <text x="620" y="135" font-size="28" text-anchor="middle">📦</text>
+    <text x="620" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      Bounding Boxes
+    </text>
+    <text x="620" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">
+      Polygons (x,y coords)
+    </text>
+  </g>
+  
+  <!-- Arrow -->
+  <line x1="710" y1="145" x2="750" y2="145" stroke="#34d399" stroke-width="2.5" marker-end="url(#paddleArrow)" opacity="0.7"/>
+  
+  <!-- Text Recognition (CRNN) -->
+  <g>
+    <rect x="760" y="100" width="280" height="90" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="url(#paddlePurple)" stroke-width="2.5" filter="url(#paddleShadow)"/>
+    <text x="900" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="17" font-weight="600" fill="#a78bfa" text-anchor="middle">
+      Text Recognition
+    </text>
+    <text x="900" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">
+      CRNN Architecture
+    </text>
+    <text x="900" y="166" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      CNN + BiLSTM + CTC
+    </text>
+    <text x="900" y="183" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+      Fine-tuned on Tifinagh
+    </text>
+  </g>
+  
+  <!-- Output -->
+  <g>
+    <rect x="900" y="220" width="140" height="70" rx="8" fill="rgba(34, 211, 153, 0.3)" stroke="url(#paddleGreen)" stroke-width="2.5" filter="url(#paddleShadow)"/>
+    <text x="970" y="250" font-size="24" text-anchor="middle">✅</text>
+    <text x="970" y="275" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#34d399" text-anchor="middle">
+      Final Output
+    </text>
+  </g>
+  
+  <!-- Arrow down -->
+  <line x1="900" y1="190" x2="900" y2="210" stroke="#34d399" stroke-width="2.5" opacity="0" />
+  <line x1="970" y1="190" x2="970" y2="210" stroke="#34d399" stroke-width="2.5" marker-end="url(#paddleArrow)" opacity="0.7"/>
+  
+  <!-- DB++ Architecture Details -->
+  <g>
+    <rect x="50" y="230" width="400" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#paddleShadow)"/>
+    <text x="250" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#34d399" text-anchor="middle">
+      🔍 DB++ Text Detection
+    </text>
+    
+    <text x="70" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#34d399">Backbone:</tspan> ResNet50 (Pretrained)
+    </text>
+    <text x="70" y="313" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#60a5fa">Feature Pyramid:</tspan> FPN for multi-scale
+    </text>
+    <text x="70" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#a78bfa">Head:</tspan> Probability + Threshold maps
+    </text>
+    <text x="70" y="359" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#fbbf24">Output:</tspan> Polygon coordinates (x,y)
+    </text>
+    <text x="70" y="382" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#f472b6">Performance:</tspan> 95.3% detection rate
+    </text>
+  </g>
+  
+  <!-- CRNN Architecture Details -->
+  <g>
+    <rect x="470" y="230" width="400" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#paddleShadow)"/>
+    <text x="670" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#a78bfa" text-anchor="middle">
+      📝 CRNN Text Recognition
+    </text>
+    
+    <text x="490" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#60a5fa">CNN:</tspan> 7 convolutional layers
+    </text>
+    <text x="490" y="313" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#a78bfa">RNN:</tspan> 2 BiLSTM layers (256 units)
+    </text>
+    <text x="490" y="336" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#34d399">CTC:</tspan> Connectionist Temporal Classification
+    </text>
+    <text x="490" y="359" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#fbbf24">Vocabulary:</tspan> 33 Tifinagh characters
+    </text>
+    <text x="490" y="382" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#f472b6">Accuracy:</tspan> 89.6% on test set
+    </text>
+  </g>
+  
+  <!-- Training Process -->
+  <g>
+    <rect x="50" y="440" width="500" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#paddleShadow)"/>
+    <text x="300" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#60a5fa" text-anchor="middle">
+      🎓 Fine-tuning Process
+    </text>
+    
+    <g>
+      <text x="70" y="505" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#34d399">
+        Detection Model:
+      </text>
+      <text x="85" y="528" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Pretrained: ICDAR2015 dataset
+      </text>
+      <text x="85" y="548" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Fine-tuned: 5000 Tifinagh images
+      </text>
+      <text x="85" y="568" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Epochs: 300 (early stopping)
+      </text>
+      <text x="85" y="588" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Learning rate: 0.001 → 0.0001
+      </text>
+    </g>
+    
+    <g>
+      <text x="310" y="505" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#a78bfa">
+        Recognition Model:
+      </text>
+      <text x="325" y="528" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Pretrained: Multi-language CRNN
+      </text>
+      <text x="325" y="548" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Fine-tuned: AMHCD dataset
+      </text>
+      <text x="325" y="568" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Epochs: 200 with augmentation
+      </text>
+      <text x="325" y="588" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#cbd5e1">
+        • Batch size: 256
+      </text>
+    </g>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g>
+    <rect x="580" y="440" width="490" height="180" rx="10" fill="rgba(30, 41, 59, 0.8)" stroke="#475569" stroke-width="2" filter="url(#paddleShadow)"/>
+    <text x="825" y="470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700" fill="#34d399" text-anchor="middle">
+      📊 Performance Metrics
+    </text>
+    
+    <text x="600" y="505" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#34d399">Detection Precision:</tspan> 95.3%
+    </text>
+    <text x="600" y="530" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#60a5fa">Detection Recall:</tspan> 92.7%
+    </text>
+    <text x="600" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#a78bfa">Recognition Accuracy:</tspan> 89.6%
+    </text>
+    <text x="600" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#fbbf24">Character Error Rate:</tspan> 10.8%
+    </text>
+    <text x="600" y="605" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#cbd5e1">
+      <tspan font-weight="600" fill="#f472b6">Inference Speed:</tspan> ~45ms/image
+    </text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="550" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" font-style="italic" fill="#94a3b8" text-anchor="middle">
+    🏆 Best performance on complex layouts and multi-line text | End-to-end pipeline
+  </text>
 </svg>
 
 ---
@@ -893,14 +1058,14 @@ Dense(33) + Softmax
 ### Features
 
 ✅ **Upload Image:** Support PNG, JPG, JPEG  
-✅ **Take Picture:** Capture directe via webcam  
-✅ **Real-time Recognition:** Résultats instantanés  
-✅ **Copy Output:** Copie du texte reconnu  
+✅ **Take Picture:** Direct capture via webcam  
+✅ **Real-time Recognition:** Instant results  
+✅ **Copy Output:** Copy recognized text  
 ✅ **Multi-format Export:** TXT, JSON, CSV  
 
 ### Interface Screenshots
 
-**Interface utilisateur intuitive d'Azul OCR**
+**Azul OCR intuitive user interface**
 
 <div class="component-grid">
   <div class="component-card">
@@ -912,29 +1077,29 @@ Dense(33) + Softmax
 
 ## 🛠️ Challenges & Solutions
 
-### Challenge 1: Variabilité de l'Écriture Manuscrite
+### Challenge 1: Handwriting Variability
 
-**Problème:** Grande diversité de styles d'écriture  
+**Problem:** Great diversity of writing styles  
 **Solution:** 
-- Augmentation intensive (×5)
-- Modèle hybride (fusion de 3 approches)
-- Fine-tuning sur données réelles
+- Intensive augmentation (×5)
+- Hybrid model (fusion of 3 approaches)
+- Fine-tuning on real data
 
-### Challenge 2: Dataset Limité
+### Challenge 2: Limited Dataset
 
-**Problème:** Peu de données annotées disponibles  
+**Problem:** Few annotated data available  
 **Solution:**
-- Collaboration avec IRCAM
-- Data augmentation aggressive
-- Transfer learning depuis modèles pré-entraînés
+- Collaboration with IRCAM
+- Aggressive data augmentation
+- Transfer learning from pre-trained models
 
-### Challenge 3: Reconnaissance de Phrases
+### Challenge 3: Sentence Recognition
 
-**Problème:** Segmentation difficile entre mots  
+**Problem:** Difficult word segmentation  
 **Solution:**
-- Utilisation de PaddleOCR pour détection
-- Post-processing avec règles linguistiques
-- Correction contextuelle
+- Use of PaddleOCR for detection
+- Post-processing with linguistic rules
+- Contextual correction
 
 ---
 
@@ -942,32 +1107,32 @@ Dense(33) + Softmax
 
 ### For Cultural Heritage
 
-✅ **Préservation numérique** de manuscrits anciens  
-✅ **Accessibilité** des textes Amazighs à tous  
-✅ **Éducation** facilitée pour les nouvelles générations  
-✅ **Recherche** académique sur la culture Amazigh  
+✅ **Digital preservation** of ancient manuscripts  
+✅ **Accessibility** of Amazigh texts to all  
+✅ **Facilitated education** for new generations  
+✅ **Academic research** on Amazigh culture  
 
 ### For Institutions
 
-✅ **Digitalisation rapide** des archives  
-✅ **Indexation automatique** de documents  
-✅ **Recherche textuelle** dans corpus numériques  
-✅ **Coûts réduits** vs annotation manuelle  
+✅ **Rapid digitization** of archives  
+✅ **Automatic indexing** of documents  
+✅ **Text search** in digital corpus  
+✅ **Reduced costs** vs manual annotation  
 
 ---
 
 ## 🔮 Future Improvements
 
 **Short-Term:**
-- Améliorer précision sur phrases complexes (>95%)
-- Support de variantes régionales du Tifinagh
-- API REST pour intégration externe
+- Improve accuracy on complex sentences (>95%)
+- Support for regional Tifinagh variants
+- REST API for external integration
 
 **Long-Term:**
-- Application mobile (iOS/Android)
-- Reconnaissance de textes historiques dégradés
-- Extension à d'autres alphabets africains
-- OCR multilingue (Tifinagh + Latin + Arabe)
+- Mobile application (iOS/Android)
+- Recognition of degraded historical texts
+- Extension to other African alphabets
+- Multilingual OCR (Tifinagh + Latin + Arabic)
 
 ---
 
@@ -996,7 +1161,7 @@ Dense(33) + Softmax
 
 1. **Tesseract OCR** - Google Open Source
 2. **PaddleOCR** - PaddlePaddle Team
-3. **AMHCD Dataset** - IRCAM & Université Ibn Zohr
+3. **AMHCD Dataset** - IRCAM & Ibn Zohr University
 4. **Otsu Thresholding** - IEEE Trans. SMC (1979)
 
 ---
@@ -1010,21 +1175,21 @@ Dense(33) + Softmax
 **GitHub:** [github.com/MehdiHCH](https://github.com/MehdiHCH)
 
 **Supervisor:** Prof. Khadija Lekdioui  
-**Institution:** Faculté des Sciences, Ibn Tofail University
+**Institution:** Faculty of Sciences, Ibn Tofail University
 
 ---
 
 ## 🏆 Achievements
 
-✅ **94.2% Accuracy** sur reconnaissance de caractères  
-✅ **91.2% Accuracy** sur reconnaissance de phrases (hybride)  
-✅ **Premier OCR Tifinagh** open-source au Maroc  
-✅ **Collaboration institutionnelle** avec IRCAM  
-✅ **Interface intuitive** testée par 50+ utilisateurs  
+✅ **94.2% Accuracy** on character recognition  
+✅ **91.2% Accuracy** on sentence recognition (hybrid)  
+✅ **First Tifinagh OCR** open-source in Morocco  
+✅ **Institutional collaboration** with IRCAM  
+✅ **Intuitive interface** tested by 50+ users  
 
 ---
 
-*"Chaque manuscrit oublié est une voix de l'humanité réduite au silence."*  
+*"Every forgotten manuscript is a voice of humanity silenced."*  
 *ⵛⴰⵇⴰ ⵎⴰⵏⵓⵙⵖⵔⵉⵜ ⵓⴱⵍⵉⵎ ⴻⵙⵜ ⵓⵏⴻ ⵓⵡⵏⴰⵙ ⴷⴻ ⵍⵓⵎⵍⵉⵏⵏⵉⵏ ⵔⴻⵙⵓⵉⵜⴰ ⵓⵢ ⵙⵉⵍⵓⵏⵉⵛ*
 
-*Azul OCR - L'IA au service du patrimoine culturel Amazigh*
+*Azul OCR - AI in service of Amazigh cultural heritage*
