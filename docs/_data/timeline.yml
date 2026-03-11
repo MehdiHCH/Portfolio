@@ -1,17 +1,18 @@
 - title: R&D Engineer Intern - Computer Vision & AI
   from: April 2025
-  to: Present
+  to: October 2025
   description: |
     **SPORTSCORE** - Football Analytics (Paris, France - Remote)
     
-    - Designed and deployed a fully automated video analysis pipeline for futsal matches (object detection, multi-player tracking, homography, OCR, pose estimation)
+    - Enhanced and optimized an existing automated video analysis pipeline for futsal matches (object detection, multi-player tracking, homography, OCR, pose estimation)
     - Built an automatic frame classification module (YOLOv11m-cls) achieving **99.95% accuracy**
     - Implemented complex action detection: pass classification (progressive, assist, under pressure), shots, dribbles, interceptions, goals
-    - Optimized the pipeline, reducing inference time by **20%** and improving ball detection robustness
+    - Optimized the pipeline, reducing inference time by **50%** through CUDA Stream parallelization (5 streams), TensorRT FP16 optimization (7 models), and asynchronous I/O operations, achieving **13 FPS processing speed (+117%)**
+    - Collected and annotated clean training data using **CVAT**, then retrained and fine-tuned a dedicated ball detection model, significantly improving robustness and detection accuracy
     - **Supervised and trained 4 interns**, managing tasks, reviewing deliverables, and ensuring technical consistency
     - Delivered automated performance reports (heatmaps, pass maps, structured JSON exports, advanced stats)
     
-    **Tech stack:** PyTorch, YOLOv8/11, DeepSORT, OpenCV, OCR, Pandas, Python
+    **Tech stack:** PyTorch, YOLOv8/11, DeepSORT, OpenCV, OCR, Pandas, Python, CUDA Streams, TensorRT, CVAT
 
 - title: Engineering Intern - End-to-End Event Spotting
   from: October 2024
@@ -19,7 +20,7 @@
   description: |
     **Université Ibn Tofail - Laboratoire SETIME** (Kenitra, Morocco)
     
-    - Developed a full pipeline: frame extraction, JSON annotations, temporal normalization, data augmentation (jittering, mixup), and train/val/test split (70/15/15)
+    - Developed a full pipeline: frame extraction, JSON annotations, temporal normalization, data augmentation
     - Implemented **RegNet-Y with Gate Shift Modules (GSM)** for feature extraction and a **Bi-GRU** for global temporal reasoning
     - Experimented with multiple configurations (clip_len 16/50) using RegNet-Y and ResNet-50 on a 40GB dataset (7 matches from the 2024 Futsal World Cup)
     - Achieved a recall of **0.93** on the DRIVE class, with RegNet-Y outperforming ResNet-50
@@ -64,16 +65,14 @@
     General physics studies with a focus on mathematical modeling and computational methods.
 
 - title: Academic Project - Autonomous Vehicle
-  from: February 2025
-  to: July 2025
+  from: February 2024
+  to: July 2024
   description: |
     **ROS2 & Reinforcement Learning**
     
-    - Developed a ROS2–Gazebo simulation pipeline with URDF/xacro models
-    - Integrated camera & LiDAR for obstacle detection and traffic sign recognition
-    - Implemented a **TD3 reinforcement learning agent** for autonomous navigation
-    - Combined trajectory planning, real-time control, and safe decision-making
-    - Validated the system in diverse scenarios with reliable path following and collision avoidance
+    - Developed a ROS2–Gazebo simulation pipeline with URDF/xacro models, integrating camera & LiDAR for obstacle detection and traffic sign recognition
+    - Implemented a **TD3 reinforcement learning agent** for autonomous navigation, combining trajectory planning, real-time control, and safe decision-making
+    - Validated the system in diverse scenarios, achieving reliable path following and collision avoidance in simulation
     
     **Tech stack:** ROS2, Gazebo, Python, PyTorch, RViz, URDF/xacro, TD3 RL, Computer Vision
 
